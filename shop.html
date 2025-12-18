@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | FreshTech Solutions</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<header>
+  <div class="container navbar">
+    <div class="logo">
+      <div class="mark">FT</div>
+      <div>
+        <div>FreshTech Solutions</div>
+        <small class="subtle">Digital Agency • Tech Store</small>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html">Services ▼</a>
+        <div class="dropdown-menu">
+          <a href="services/website-development.html">Website Development</a>
+          <a href="services/graphic-branding.html">Graphic Design & Branding</a>
+          <a href="services/ui-ux.html">UI/UX Design</a>
+          <a href="services/ecommerce.html">E-commerce Solutions</a>
+        </div>
+      </div>
+      <a href="portfolio.html">Portfolio</a>
+      <a class="active" href="shop.html">Shop</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact Us</a>
+      
+      <button class="theme-toggle" data-theme-toggle>☾ / ☀</button>
+    </nav>
+    <div class="mobile-nav">
+      <button class="theme-toggle" data-theme-toggle>☾</button>
+      <button class="menu-toggle" data-menu-toggle>☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+    <div class="container">
+      <div class="badge">Tech Accessories Shop</div>
+      <h1>Premium phone accessories & gadgets</h1>
+      <p>Curated collection of high-quality phone cases, chargers, earbuds, smart watches, and tech essentials for Kampala.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="cases">Phone Cases</button>
+        <button class="filter-btn" data-filter="chargers">Chargers & Cables</button>
+        <button class="filter-btn" data-filter="audio">Earbuds</button>
+        <button class="filter-btn" data-filter="watches">Smart Watches</button>
+        <button class="filter-btn" data-filter="gadgets">Gadgets</button>
+      </div>
+
+      <div class="grid grid-4">
+        <!-- Phone Cases -->
+        <div class="card product" data-category="cases">
+          <span class="badge-sale">-15%</span>
+          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=260&fit=crop" alt="Phone case" />
+          <h4>Impact MagSafe Case</h4>
+          <p class="subtle">Cyan/Charcoal • iPhone 15/14</p>
+          <div class="price-row">
+            <div><span class="sale">UGX 120,000</span> <del class="subtle">UGX 145,000</del></div>
+            <span class="rating">★★★★★ (124)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="cases">
+          <img src="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=400&h=260&fit=crop" alt="Clear case" />
+          <h4>Crystal Clear Case</h4>
+          <p class="subtle">Ultra-thin • All models</p>
+          <div class="price-row">
+            <span class="price">UGX 90,000</span>
+            <span class="rating">★★★★☆ (89)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="cases">
+          <span class="badge-sale">New</span>
+          <img src="https://images.unsplash.com/photo-1589872657893-75f4c7a60944?w=400&h=260&fit=crop" alt="Leather case" />
+          <h4>Premium Leather Case</h4>
+          <p class="subtle">Genuine leather • Aged finish</p>
+          <div class="price-row">
+            <span class="price">UGX 185,000</span>
+            <span class="rating">★★★★★ (56)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <!-- Chargers & Cables -->
+        <div class="card product" data-category="chargers">
+          <span class="badge-sale">Best Seller</span>
+          <img src="https://images.unsplash.com/photo-1591496694519-5d381e16f382?w=400&h=260&fit=crop" alt="Fast charger" />
+          <h4>65W GaN Fast Charger</h4>
+          <p class="subtle">Dual USB-C • Travel ready</p>
+          <div class="price-row">
+            <span class="price">UGX 165,000</span>
+            <span class="rating">★★★★★ (312)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="chargers">
+          <img src="https://images.unsplash.com/photo-1606841837239-c5a1a3a0d4d0?w=400&h=260&fit=crop" alt="Wireless charger" />
+          <h4>3-in-1 Wireless Stand</h4>
+          <p class="subtle">Phone + Watch + AirPods</p>
+          <div class="price-row">
+            <span class="price">UGX 225,000</span>
+            <span class="rating">★★★★☆ (78)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="chargers">
+          <span class="badge-sale">-20%</span>
+          <img src="https://images.unsplash.com/photo-1644156915324-5b9e2a1a1e9d?w=400&h=260&fit=crop" alt="Cables" />
+          <h4>USB-C Cable Pack (3m)</h4>
+          <p class="subtle">Braided nylon • 100W PD</p>
+          <div class="price-row">
+            <div><span class="sale">UGX 60,000</span> <del class="subtle">UGX 75,000</del></div>
+            <span class="rating">★★★★★ (203)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <!-- Earbuds -->
+        <div class="card product" data-category="audio">
+          <span class="badge-sale">Bundle Deal</span>
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=260&fit=crop" alt="Earbuds" />
+          <h4>Crystal ANC Earbuds</h4>
+          <p class="subtle">42h battery • Clear calls • ANC</p>
+          <div class="price-row">
+            <span class="price">UGX 340,000</span>
+            <span class="rating">★★★★★ (467)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="audio">
+          <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=260&fit=crop" alt="Sport earbuds" />
+          <h4>Sport Pro Earbuds</h4>
+          <p class="subtle">IPX7 waterproof • Ear hooks</p>
+          <div class="price-row">
+            <span class="price">UGX 245,000</span>
+            <span class="rating">★★★★☆ (145)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="audio">
+          <span class="badge-sale">Premium</span>
+          <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=260&fit=crop" alt="Studio earbuds" />
+          <h4>Studio Hi-Res Earbuds</h4>
+          <p class="subtle">LDAC codec • Spatial audio</p>
+          <div class="price-row">
+            <span class="price">UGX 490,000</span>
+            <span class="rating">★★★★★ (92)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <!-- Smart Watches -->
+        <div class="card product" data-category="watches">
+          <span class="badge-sale">Hot</span>
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=260&fit=crop" alt="Smart watch" />
+          <h4>Pulse Smart Watch</h4>
+          <p class="subtle">AMOLED • Fitness • NFC Pay</p>
+          <div class="price-row">
+            <span class="price">UGX 490,000</span>
+            <span class="rating">★★★★☆ (234)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="watches">
+          <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=400&h=260&fit=crop" alt="Fitness band" />
+          <h4>VitaFit Fitness Band</h4>
+          <p class="subtle">Heart rate • Sleep • 14d battery</p>
+          <div class="price-row">
+            <span class="price">UGX 185,000</span>
+            <span class="rating">★★★★☆ (167)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="watches">
+          <span class="badge-sale">Premium</span>
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=260&fit=crop" alt="Pro watch" />
+          <h4>Alpha Pro Watch</h4>
+          <p class="subtle">GPS • ECG • Titanium • Sapphire</p>
+          <div class="price-row">
+            <span class="price">UGX 1,135,000</span>
+            <span class="rating">★★★★★ (78)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <!-- Gadgets -->
+        <div class="card product" data-category="gadgets">
+          <img src="https://images.unsplash.com/photo-1591496694519-5d381e16f382?w=400&h=260&fit=crop" alt="Power bank" />
+          <h4>20,000mAh Power Bank</h4>
+          <p class="subtle">65W PD • Laptop charging</p>
+          <div class="price-row">
+            <span class="price">UGX 205,000</span>
+            <span class="rating">★★★★★ (189)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="gadgets">
+          <span class="badge-sale">-10%</span>
+          <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=260&fit=crop" alt="Stand" />
+          <h4>Adjustable Phone Stand</h4>
+          <p class="subtle">Aluminum • MagSafe compatible</p>
+          <div class="price-row">
+            <div><span class="sale">UGX 100,000</span> <del class="subtle">UGX 115,000</del></div>
+            <span class="rating">★★★★☆ (112)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="gadgets">
+          <img src="https://images.unsplash.com/photo-1606933248051-5ce98adc4572?w=400&h=260&fit=crop" alt="Car mount" />
+          <h4>Magnetic Car Mount</h4>
+          <p class="subtle">360° rotation • Vent clip</p>
+          <div class="price-row">
+            <span class="price">UGX 72,000</span>
+            <span class="rating">★★★★☆ (245)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+
+        <div class="card product" data-category="gadgets">
+          <span class="badge-sale">New</span>
+          <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=260&fit=crop" alt="Tablet stand" />
+          <h4>iPad Pro Stand</h4>
+          <p class="subtle">Weighted base • Adjustable angle</p>
+          <div class="price-row">
+            <span class="price">UGX 150,000</span>
+            <span class="rating">★★★★★ (67)</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--gray-100);">
+    <div class="container">
+      <h2>Why shop with FreshTech?</h2>
+      <div class="grid grid-3">
+        <div class="mini-card">
+          <h4>Local Pickup</h4>
+          <p>Collect your items from our Kampala location.</p>
+        </div>
+        <div class="mini-card">
+          <h4>30-Day Returns</h4>
+          <p>Not satisfied? Easy returns within 30 days.</p>
+        </div>
+        <div class="mini-card">
+          <h4>1-Year Warranty</h4>
+          <p>All products covered by manufacturer warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">
+        <div class="mark">FT</div>
+        <div>FreshTech Solutions © 2025</div>
+      </div>
+      <p class="subtle">FreshTech Solutions is a leading digital agency based in Kampala, Uganda. We specialize in web development, branding, UI/UX design, and e-commerce solutions while offering premium tech accessories to elevate your digital experience.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <div class="grid">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <div class="grid">
+        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
+        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@freshtechsolutions.com</p>
+        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256 700 000 000</p>
+      </div>
+      <div class="social-row">
+        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
