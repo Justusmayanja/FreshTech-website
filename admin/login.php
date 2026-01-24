@@ -8,7 +8,11 @@ if (is_admin_logged_in()) {
 }
 
 $error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!isset($pdo) || !($pdo instanceof PDO)) {
+  $error = 'Database is not connected. Please check your database configuration.';
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     if ($username === '' || $password === '') {

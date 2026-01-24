@@ -1,14 +1,18 @@
 <?php
+require_once __DIR__ . '/db.php';
+
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=freshtech_db;charset=utf8mb4', 'root', '');
+    if (!isset($pdo) || !($pdo instanceof PDO)) {
+        throw new RuntimeException('PDO not initialized');
+    }
     $count = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
     echo "Connected! Found $count products in database.\n";
-    
-    $products = $pdo->query('SELECT id, name, price FROM products LIMIT 5')->fetchAll(PDO::FETCH_ASSOC);
+
+    $products = $pdo->query('SELECT id, name, price_ugx FROM products LIMIT 5')->fetchAll(PDO::FETCH_ASSOC);
     echo "\nSample products:\n";
     foreach ($products as $p) {
-        echo "- {$p['name']}: UGX {$p['price']}\n";
+        echo "- {$p['name']}: UGX {$p['price_ugx']}\n";
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     echo 'DB Error: ' . $e->getMessage() . "\n";
 }

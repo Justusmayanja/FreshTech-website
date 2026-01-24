@@ -4,12 +4,21 @@
 header('Content-Type: application/json; charset=utf-8');
 
 // Include the connection (go up one folder)
-require_once '../db.php';
+require_once __DIR__ . '/../db.php';
 
-$method = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 if ($method === 'GET') {
     try {
+        if (!isset($pdo) || !($pdo instanceof PDO)) {
+            http_response_code(500);
+            echo json_encode([
+                'status'  => 'error',
+                'message' => 'Database not connected',
+                'error'   => isset($dbError) ? $dbError : null,
+            ]);
+            exit;
+        }
         // Fetch all products, newest first
         $stmt = $pdo->query("SELECT * FROM products ORDER BY created_at DESC");
         $products = $stmt->fetchAll();  // gets array of rows

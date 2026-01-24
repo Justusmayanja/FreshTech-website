@@ -35,7 +35,7 @@ try {
 if ($status['database']['passed']) {
     try {
         $tables = ['admins', 'products', 'services', 'portfolio', 'blog_posts', 'contact_messages', 'orders', 'order_items'];
-        $result = $pdo->query("SELECT COUNT(*) as cnt FROM information_schema.tables WHERE table_schema = 'freshtech_db'");
+        $result = $pdo->query("SELECT COUNT(*) as cnt FROM information_schema.tables WHERE table_schema = 'pulsetech_db'");
         $count = $result->fetch()['cnt'];
         $status['tables']['count'] = $count;
         $status['tables']['passed'] = $count >= 8;
@@ -209,7 +209,7 @@ $allPassed = $status['database']['passed'] && $status['tables']['passed'] && $st
         <!-- Footer -->
         <div class="text-center mt-10 text-gray-600 text-sm">
             <p>Verification Status: <strong><?php echo date('Y-m-d H:i:s'); ?></strong></p>
-            <p>Database: <code class="bg-gray-100 px-2 py-1 rounded">freshtech_db</code></p>
+            <p>Database: <code class="bg-gray-100 px-2 py-1 rounded">pulsetech_db</code></p>
         </div>
     </div>
 </body>

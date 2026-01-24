@@ -12,7 +12,7 @@ $basePath = rtrim($scriptDir, '/');
 if ($basePath === '/') { $basePath = ''; }
 define('SITE_URL', $scheme . '://' . $host . $basePath);
 define('ADMIN_URL', SITE_URL . '/admin');
-define('UPLOAD_PATH', __DIR__ . '/uploads/');
+define('UPLOAD_PATH', dirname(__DIR__) . '/uploads/');
 define('UPLOAD_URL', SITE_URL . '/uploads/');
 
 // Security Settings
@@ -36,9 +36,9 @@ ini_set('display_errors', 1);
 // Timezone
 date_default_timezone_set('Africa/Kampala');
 
-// Database disabled in this environment
-$pdo = null;
-$dbConnected = false;
+// Database connection (shared PDO from project root)
+require_once __DIR__ . '/../db.php';
+$dbConnected = isset($pdo) && ($pdo instanceof PDO);
 
 // Session Configuration
 if (session_status() === PHP_SESSION_NONE) {

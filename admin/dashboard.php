@@ -27,7 +27,7 @@ include __DIR__ . '/includes/header.php';
   <a class="btn" href="/admin/inquiries/index.php">View Inquiries</a>
 </div>
 
-<?php include __DIR__ . '/includes/footer.php';
+<?php include __DIR__ . '/includes/footer.php'; ?>
 <?php
 require_once __DIR__ . '/includes/config.php';
 requireLogin();
@@ -38,16 +38,16 @@ $recentMessages = [];
 
 try {
     // Recent 5 orders
-    $stmt = $db->query("SELECT id, customer_name, status, total_amount, created_at FROM orders ORDER BY created_at DESC LIMIT 5");
-    $recentOrders = $stmt->fetchAll();
+    $stmt = $db && method_exists($db, 'query') ? $db->query("SELECT id, customer_name, status, total_amount, created_at FROM orders ORDER BY created_at DESC LIMIT 5") : null;
+    $recentOrders = $stmt ? $stmt->fetchAll() : [];
 } catch (Exception $e) {
     // Table might not exist
 }
 
 try {
     // Recent 5 messages
-    $stmt = $db->query("SELECT id, name, email, subject, is_read, created_at FROM contact_messages ORDER BY created_at DESC LIMIT 5");
-    $recentMessages = $stmt->fetchAll();
+    $stmt = $db && method_exists($db, 'query') ? $db->query("SELECT id, name, email, subject, is_read, created_at FROM contact_messages ORDER BY created_at DESC LIMIT 5") : null;
+    $recentMessages = $stmt ? $stmt->fetchAll() : [];
 } catch (Exception $e) {
     // Table might not exist
 }

@@ -24,23 +24,23 @@ function first_image_from_json($imagesJson) {
 $cart_message = '';
 $notice = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart']) && $pdo && ($pdo instanceof PDO)) {
-    $pid = (int)($_POST['product_id'] ?? 0);
-    if ($pid > 0) {
-        $stmt = $pdo->prepare("SELECT id, name, price, sale_price, images, stock FROM products WHERE id = ? LIMIT 1");
-        $stmt->execute([$pid]);
-        $product = $stmt->fetch();
-        if ($product) {
-            $price = (float)($product['sale_price'] ?: $product['price']);
-            $img = first_image_from_json($product['images']);
+  $pid = (int)($_POST['product_id'] ?? 0);
+  if ($pid > 0) {
+    $stmt = $pdo->prepare("SELECT id, name, price_ugx, old_price_ugx, image_url, stock_quantity FROM products WHERE id = ? LIMIT 1");
+    $stmt->execute([$pid]);
+    $product = $stmt->fetch();
+    if ($product) {
+      $price = (float)($product['price_ugx']);
+      $img = $product['image_url'] ?: '/images/placeholder.svg';
             if (isset($_SESSION['cart'][$pid])) {
                 $_SESSION['cart'][$pid]['quantity'] += 1;
             } else {
                 $_SESSION['cart'][$pid] = [
-                    'id' => (int)$product['id'],
-                    'name' => $product['name'],
-                    'price' => $price,
-                    'image' => $img,
-                    'quantity' => 1,
+                  'id' => (int)$product['id'],
+                  'name' => $product['name'],
+                  'price' => $price,
+                  'image' => $img,
+                  'quantity' => 1,
                 ];
             }
             $cart_message = 'Product added to cart!';
@@ -52,15 +52,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart']) && $pd
 $products = [];
 $db_error = '';
 if ($pdo && ($pdo instanceof PDO)) {
-    try {
-        $q = $pdo->query("SELECT id, name, slug, description, price, sale_price, images, stock FROM products WHERE stock > 0 ORDER BY id DESC");
-        $products = $q->fetchAll();
-    } catch (Exception $e) {
-        $products = [];
-        $db_error = 'Unable to load products. Database connection issue.';
-    }
+  try {
+    $q = $pdo->query("SELECT id, name, slug, description, price_ugx, old_price_ugx, image_url, category, stock_quantity FROM products WHERE stock_quantity > 0 ORDER BY id DESC");
+    $products = $q->fetchAll();
+  } catch (Exception $e) {
+    $products = [];
+    $db_error = 'Unable to load products. Database connection issue.';
+  }
 } else {
-    $db_error = 'Database is not connected. Please check your database configuration.';
+  $db_error = 'Database is not connected. Please check your database configuration.';
 }
 ?>
 <!DOCTYPE html>
@@ -141,8 +141,9 @@ if ($pdo && ($pdo instanceof PDO)) {
 
       <div class="portfolio-grid">
       <?php foreach ($products as $p):
-        $price = (float)($p['sale_price'] ?: $p['price']);
-        $img = first_image_from_json($p['images']);
+        $price = (float)($p['price_ugx']);
+        $old = $p['old_price_ugx'];
+        $img = $p['image_url'] ?: '/images/placeholder.svg';
       ?>
         <div class="portfolio-item">
           <img src="<?php echo htmlspecialchars($img); ?>" alt="<?php echo htmlspecialchars($p['name']); ?>" onerror="this.onerror=null;this.src='images/placeholder.svg'" />
@@ -150,7 +151,14 @@ if ($pdo && ($pdo instanceof PDO)) {
             <div class="badge-accent">Product</div>
             <h4><?php echo htmlspecialchars($p['name']); ?></h4>
             <p><?php echo htmlspecialchars($p['description']); ?></p>
-            <div class="price" style="font-size: 1.3rem; margin: 1rem 0; color: var(--cyan);"><?php echo currency($price); ?></div>
+            <div class="price" style="font-size: 1.3rem; margin: 1rem 0; color: var(--cyan);">
+              <?php echo currency($price); ?>
+              <?php if ($old): ?>
+                <span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-left: 8px;">
+                  <?php echo currency((float)$old); ?>
+                </span>
+              <?php endif; ?>
+            </div>
             <form method="POST" action="shop.php">
               <input type="hidden" name="add_to_cart" value="1" />
               <input type="hidden" name="product_id" value="<?php echo (int)$p['id']; ?>" />

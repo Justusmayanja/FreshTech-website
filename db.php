@@ -19,7 +19,8 @@ try {
     // Optional during testing: uncomment to confirm
     // echo "Connected to PulseTech DB!";
 } catch (PDOException $e) {
-    // In production: never show details to visitors!
-    http_response_code(500);
-    exit(json_encode(['error' => 'Cannot connect to database — contact admin']));
+    // Do not terminate; expose a generic flag and capture error for diagnostics
+    $pdo = null;
+    // For diagnostics pages (e.g., verify-setup.php), read $dbError
+    $dbError = $e->getMessage();
 }

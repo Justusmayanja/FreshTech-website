@@ -8,11 +8,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Database credentials
+// Database credentials — keep in sync with /db.php and migrations
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'freshtech_db');
+define('DB_NAME', 'pulsetech_db');
 define('DB_CHARSET', 'utf8mb4');
 
 // Company info
@@ -57,7 +57,7 @@ function sanitize($data) {
 
 function getCurrentAdmin() {
     global $db;
-    if (!isLoggedIn()) return null;
+    if (!isLoggedIn() || $db === null) return null;
     
     $stmt = $db->prepare("SELECT * FROM admins WHERE id = ?");
     $stmt->execute([$_SESSION['admin_id']]);

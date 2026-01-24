@@ -41,7 +41,8 @@ include __DIR__ . '/../includes/header.php';
   </tbody>
 </table>
 
-<?php include __DIR__ . '/../includes/footer.php';
+<?php include __DIR__ . '/../includes/footer.php'; ?>
+
 <?php
 require_once __DIR__ . '/../includes/config.php';
 requireLogin();
@@ -54,7 +55,7 @@ $product_id = $_GET['id'] ?? '';
 if ($action == 'delete' && !empty($product_id)) {
     try {
         // Get product to delete image
-        $stmt = $db->prepare("SELECT image FROM products WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT image FROM products WHERE id = ?");
         $stmt->execute([(int)$product_id]);
         $product = $stmt->fetch();
         
@@ -65,7 +66,7 @@ if ($action == 'delete' && !empty($product_id)) {
             }
         }
         
-        $del = $db->prepare("DELETE FROM products WHERE id = ?");
+        $del = $pdo->prepare("DELETE FROM products WHERE id = ?");
         $del->execute([(int)$product_id]);
         redirect('products/');
     } catch (Exception $e) {

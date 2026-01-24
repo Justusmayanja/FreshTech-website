@@ -22,26 +22,42 @@ if (!function_exists('currency')) {
     }
 }
 ?>
-<!-- Global Header with Cart Badge -->
-<header class="w-full bg-white shadow sticky top-0 z-40">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="h-16 flex items-center justify-between">
-      <a href="/index.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00D4FF] to-[#FF6B00] text-white font-bold grid place-items-center">FT</div>
-        <div class="font-extrabold text-[#0A1A2F]">PulseTech Solutions</div>
-      </a>
-      <nav class="flex items-center gap-4">
-        <a href="/services.html" class="text-sm font-semibold text-gray-700 hover:text-[#0A1A2F]">Services</a>
-        <a href="/portfolio.html" class="text-sm font-semibold text-gray-700 hover:text-[#0A1A2F]">Portfolio</a>
-        <a href="/shop.php" class="text-sm font-semibold text-gray-700 hover:text-[#0A1A2F]">Shop</a>
-        <a href="/contact.html" class="text-sm font-semibold text-gray-700 hover:text-[#0A1A2F]">Contact</a>
-        <a href="/cart.php" class="relative inline-flex items-center justify-center w-11 h-11 rounded-full border border-gray-200 hover:border-[#00D4FF] transition">
-          <i class="fa-solid fa-cart-shopping text-[#0A1A2F]"></i>
-          <span class="absolute -top-1 -right-1 inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold rounded-full bg-[#00D4FF] text-[#00111F]">
-            <?php echo cart_count(); ?>
-          </span>
-        </a>
-      </nav>
-    </div>
+<!-- Public Site Header -->
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <a href="/index.html" class="site-brand" aria-label="PulseTech Solutions home">
+      <span class="site-brand__mark">FT</span>
+      <span class="site-brand__text">
+        <span class="site-brand__name">PulseTech Solutions</span>
+        <span class="site-brand__tagline">Digital Agency & Tech Store</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" data-site-nav aria-label="Primary">
+      <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav-panel" aria-label="Toggle navigation" data-nav-toggle>
+        <span class="site-nav__icon" aria-hidden="true"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <div class="site-nav__backdrop" data-nav-backdrop></div>
+
+      <div class="site-nav__links" id="site-nav-panel" data-nav-panel role="dialog" aria-modal="true" tabindex="-1">
+        <ul class="site-nav__list">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/shop.php">Solutions</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="site-nav__actions">
+          <a class="site-nav__cart" href="/cart.php" aria-label="View cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="site-nav__badge"><?php echo cart_count(); ?></span>
+          </a>
+          <a class="btn btn-primary site-nav__cta" href="/contact.html">Get Started</a>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
