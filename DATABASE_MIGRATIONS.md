@@ -1,5 +1,7 @@
 # PulseTech Database Migrations
 
+> New to this project? Start with the step-by-step setup guide: see [SETUP_DATABASE.md](SETUP_DATABASE.md) for installing prerequisites, starting the dev server, running migrations, seeding, and verifying.
+
 Complete database setup and migration files for PulseTech Solutions.
 
 ## Prerequisites
