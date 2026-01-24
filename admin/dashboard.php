@@ -1,4 +1,34 @@
 <?php
+require_once __DIR__ . '/includes/auth.php';
+require_admin_login();
+require_once __DIR__ . '/includes/db.php';
+
+// Counts
+$counts = [];
+try {
+    $counts['products'] = (int) ($pdo->query('SELECT COUNT(*) FROM products')->fetchColumn() ?? 0);
+} catch (Exception $e) { $counts['products'] = 0; }
+try { $counts['portfolio'] = (int) ($pdo->query('SELECT COUNT(*) FROM portfolio')->fetchColumn() ?? 0); } catch (Exception $e) { $counts['portfolio'] = 0; }
+try { $counts['testimonials'] = (int) ($pdo->query('SELECT COUNT(*) FROM testimonials')->fetchColumn() ?? 0); } catch (Exception $e) { $counts['testimonials'] = 0; }
+try { $counts['inquiries_unread'] = (int) ($pdo->query('SELECT COUNT(*) FROM inquiries WHERE is_read = 0')->fetchColumn() ?? 0); } catch (Exception $e) { $counts['inquiries_unread'] = 0; }
+
+include __DIR__ . '/includes/header.php';
+?>
+<h2>Dashboard</h2>
+<div class="cards">
+  <div class="card">Products<br><strong><?= $counts['products'] ?></strong></div>
+  <div class="card">Portfolio<br><strong><?= $counts['portfolio'] ?></strong></div>
+  <div class="card">Testimonials<br><strong><?= $counts['testimonials'] ?></strong></div>
+  <div class="card">Unread Inquiries<br><strong><?= $counts['inquiries_unread'] ?></strong></div>
+</div>
+<div class="quick-links">
+  <a class="btn" href="/admin/products/index.php">Manage Products</a>
+  <a class="btn" href="/admin/portfolio/index.php">Manage Portfolio</a>
+  <a class="btn" href="/admin/inquiries/index.php">View Inquiries</a>
+</div>
+
+<?php include __DIR__ . '/includes/footer.php';
+<?php
 require_once __DIR__ . '/includes/config.php';
 requireLogin();
 

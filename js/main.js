@@ -1,5 +1,7 @@
-// FreshTech Solutions Interactions
+// PulseTech Solutions Interactions
+
 const body = document.body;
+
 const themeToggle = () => {
   const current = body.getAttribute('data-theme') || 'dark';
   const next = current === 'dark' ? 'light' : 'dark';
@@ -94,4 +96,102 @@ if (contactForm) {
     e.preventDefault();
     alert('Message sent! We will reply shortly.');
   });
+}
+
+// Ensure any broken image uses a local placeholder (works on nested pages)
+(function ensureAllImages() {
+  const fallbackURL = new URL('images/placeholder.svg', document.baseURI).toString();
+  const imgs = document.querySelectorAll('img');
+  imgs.forEach((img) => {
+    const setFallback = () => {
+      if (!img.src || img.src === fallbackURL) return;
+      img.onerror = null;
+      img.src = fallbackURL;
+    };
+    img.addEventListener('error', setFallback);
+    if (img.complete && img.naturalWidth === 0) setFallback();
+  });
+})();
+
+// ────────────────────────────────────────────────
+// Featured Products – Dynamic loading from database
+// ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  // Your existing DOMContentLoaded content can go here if you ever add more
+
+  loadFeaturedProducts();
+});
+
+async function loadFeaturedProducts() {
+  const container = document.getElementById('featured-products-container');
+  if (!container) {
+    console.warn('Featured products container (#featured-products-container) not found');
+    return;
+  }
+
+  try {
+    const response = await fetch('api/products.php');
+
+    if (!response.ok) {
+      throw new Error(`Server responded with status ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    if (result.status !== 'success') {
+      throw new Error(result.message || 'API returned an error');
+    }
+
+    container.innerHTML = '';  // remove loading placeholder
+
+    if (result.data.length === 0) {
+      container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #888;">No featured products available right now.</p>';
+      return;
+    }
+
+    result.data.forEach(product => {
+      const currentPrice = Number(product.price_ugx).toLocaleString('en-US');
+      const oldPriceHTML = product.old_price_ugx
+        ? `<span class="price" style="text-decoration: line-through; opacity: 0.7; margin-left: 12px;">
+             UGX ${Number(product.old_price_ugx).toLocaleString('en-US')}
+           </span>`
+        : '';
+
+      const badgeHTML = product.discount
+        ? `<span class="badge-sale">${product.discount}</span>`
+        : '';
+
+      const ratingNum = Math.round(product.rating || 5);
+      const stars = '★★★★★'.slice(0, ratingNum) + '☆☆☆☆☆'.slice(0, 5 - ratingNum);
+
+      const desc = product.description || '';
+
+      const card = `
+        <div class="card product">
+          ${badgeHTML}
+          <img src="${product.image_url || 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=260&fit=crop'}" 
+               alt="${product.name}" loading="lazy" />
+          <h4>${product.name}</h4>
+          <p class="subtle">${desc} • UGX ${currentPrice}</p>
+          <div class="price-row">
+            <span class="price">UGX ${currentPrice}</span>
+            ${oldPriceHTML}
+            <span class="rating">${stars}</span>
+          </div>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      `;
+
+      container.innerHTML += card;
+    });
+
+  } catch (err) {
+    console.error('Failed to load featured products:', err);
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px; color: #e63946;">
+        <strong>Could not load featured products</strong><br>
+        <small>${err.message}</small>
+      </div>
+    `;
+  }
 }

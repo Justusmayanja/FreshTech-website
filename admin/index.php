@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/includes/config.php';
-
-if (isLoggedIn()) {
-    redirect('dashboard.php');
+// Redirect to dashboard or login
+if (session_status() === PHP_SESSION_NONE) session_start();
+if (!empty($_SESSION['admin_logged_in'])) {
+    header('Location: /admin/dashboard.php');
 } else {
-    redirect('login.php');
+    header('Location: /admin/login.php');
 }
-?>
+exit;
+

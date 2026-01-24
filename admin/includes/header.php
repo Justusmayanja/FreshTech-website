@@ -1,4 +1,36 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__ . '/auth.php';
+// simple base path for assets — adapt if your site runs in a subfolder
+$assetBase = '/admin/assets';
+?><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — PulseTech</title>
+  <link rel="stylesheet" href="<?= htmlspecialchars($assetBase) ?>/css/admin.css">
+</head>
+<body class="admin-root">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">PulseTech Admin</div>
+      <nav>
+        <a href="/admin/dashboard.php">Dashboard</a>
+        <a href="/admin/products/index.php">Products</a>
+        <a href="/admin/portfolio/index.php">Portfolio</a>
+        <a href="/admin/testimonials/index.php">Testimonials</a>
+        <a href="/admin/brands/index.php">Brands</a>
+        <a href="/admin/inquiries/index.php">Inquiries</a>
+        <a href="/admin/logout.php">Logout</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left">Welcome, <?= htmlspecialchars($_SESSION['admin_username'] ?? 'Guest') ?></div>
+      </header>
+      <section class="content">
+<?php
 require_once __DIR__ . '/config.php';
 requireLogin();
 ?>

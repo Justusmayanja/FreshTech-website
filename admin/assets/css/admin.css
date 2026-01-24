@@ -1,0 +1,25 @@
+/* Minimal admin styles — adapt to match public theme */
+:root{--navy:#0b1a2b;--accent:#4a6bff;--muted:#6b7280}
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Arial,sans-serif}
+body{margin:0;background:#f5f7fb;color:#0f1724}
+.admin-layout{display:flex;min-height:100vh}
+.sidebar{width:220px;background:linear-gradient(180deg,var(--navy),#071022);color:#fff;padding:20px}
+.sidebar .brand{font-weight:700;margin-bottom:18px}
+.sidebar nav a{display:block;color:#cfe0ff;padding:8px 6px;text-decoration:none;border-radius:6px;margin-bottom:6px}
+.sidebar nav a:hover{background:rgba(255,255,255,0.04)}
+.main{flex:1;padding:20px}
+.topbar{height:48px;display:flex;align-items:center;justify-content:space-between}
+.cards{display:flex;gap:16px;margin:12px 0}
+.card{background:#fff;padding:16px;border-radius:8px;flex:1;box-shadow:0 2px 6px rgba(2,6,23,0.06)}
+.btn{display:inline-block;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;margin-right:8px}
+.login-page{display:flex;align-items:center;justify-content:center;height:100vh}
+.login-box{background:#fff;padding:28px;border-radius:8px;box-shadow:0 4px 18px rgba(2,6,23,0.08);width:360px}
+.login-box h1{margin:0 0 12px}
+.login-box label{display:block;margin-bottom:8px}
+.login-box input{width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ef;border-radius:6px}
+.alert.error{background:#ffe9e9;color:#7a1414;padding:8px;border-radius:6px;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden}
+th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
+.actions a,.actions form{display:inline-block;margin-right:6px}
+.form-row{margin-bottom:12px}
+.small{font-size:0.9rem;color:var(--muted)}

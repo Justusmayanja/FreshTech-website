@@ -1,4 +1,48 @@
 <?php
+require_once __DIR__ . '/../includes/auth.php';
+require_admin_login();
+require_once __DIR__ . '/../includes/db.php';
+
+$q = trim($_GET['q'] ?? '');
+$params = [];
+$sql = 'SELECT * FROM products';
+if ($q !== '') {
+    $sql .= ' WHERE name LIKE :q OR description LIKE :q';
+    $params['q'] = "%$q%";
+}
+$sql .= ' ORDER BY id DESC';
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$products = $stmt->fetchAll();
+
+include __DIR__ . '/../includes/header.php';
+?>
+<h2>Products <a class="btn" href="/admin/products/add.php">Add product</a></h2>
+<form method="get" style="margin-bottom:12px"><input name="q" placeholder="search" value="<?=htmlspecialchars($q)?>"><button>Search</button></form>
+<table>
+  <thead><tr><th>ID</th><th>Name</th><th>Price</th><th>Rating</th><th>Actions</th></tr></thead>
+  <tbody>
+  <?php foreach($products as $p): ?>
+    <tr>
+      <td><?=htmlspecialchars($p['id'])?></td>
+      <td><?=htmlspecialchars($p['name'])?></td>
+      <td><?=number_format($p['price_ugx'] ?? 0)?></td>
+      <td><?=htmlspecialchars($p['rating'] ?? '')?></td>
+      <td class="actions">
+        <a href="/admin/products/edit.php?id=<?=urlencode($p['id'])?>">Edit</a>
+        <form method="post" action="/admin/products/delete.php" style="display:inline-block" onsubmit="return confirm('Delete this product?');">
+          <input type="hidden" name="id" value="<?=htmlspecialchars($p['id'])?>">
+          <input type="hidden" name="_csrf" value="<?=htmlspecialchars(csrf_token())?>">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
+
+<?php include __DIR__ . '/../includes/footer.php';
+<?php
 require_once __DIR__ . '/../includes/config.php';
 requireLogin();
 
