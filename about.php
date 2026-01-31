@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | PulseTech Solutions</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body>
 <?php
+// Start session first before any output
+session_start();
+
 // Fetch dynamic data from database
 require_once __DIR__ . '/db.php';
 
 // Check if user is admin
 $isAdmin = false;
-session_start();
 if (isset($_SESSION['admin_id'])) {
     $isAdmin = true;
 }
@@ -28,6 +20,17 @@ if ($isAdmin && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_ab
         exit;
     } catch (PDOException $e) {}
 }
+?>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | PulseTech Solutions</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
 
 $teamMembers = $stats = $aboutImages = $partners = [];
 if ($pdo) {
