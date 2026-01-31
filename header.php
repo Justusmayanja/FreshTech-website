@@ -23,7 +23,7 @@ if (!function_exists('currency')) {
 }
 ?>
 <!-- Public Site Header -->
-<header>
+<header data-site-nav>
   <div class="container navbar">
     <div class="logo">
       <img src="/images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
@@ -32,7 +32,7 @@ if (!function_exists('currency')) {
         <div class="subtle">Bringing innovation to grow your business</div>
       </div>
     </div>
-    <nav class="nav-links">
+    <nav class="nav-links" data-nav-panel>
       <a href="/index.html">Home</a>
       <div class="dropdown">
         <a href="/services.html">Services ▼</a>
@@ -53,7 +53,7 @@ if (!function_exists('currency')) {
       </a>
     </nav>
     <div class="mobile-nav">
-      <button class="menu-toggle" data-menu-toggle>☰</button>
+      <button class="menu-toggle" data-nav-toggle aria-expanded="false">☰</button>
     </div>
   </div>
 </header>

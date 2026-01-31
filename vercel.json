@@ -1,0 +1,40 @@
+{
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    },
+    "*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(css|js|images|uploads)/(.*)",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "/services/(.*)",
+      "dest": "/services/$1"
+    },
+    {
+      "src": "/admin/(.*)",
+      "dest": "/admin/$1"
+    },
+    {
+      "src": "/(.*)\\.php",
+      "dest": "/$1.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "rewrites": [
+    { "source": "/about", "destination": "/about.php" },
+    { "source": "/contact", "destination": "/contact.php" },
+    { "source": "/shop", "destination": "/shop.php" },
+    { "source": "/cart", "destination": "/cart.php" },
+    { "source": "/checkout", "destination": "/checkout.php" },
+    { "source": "/thank-you", "destination": "/thank-you.php" }
+  ]
+}
