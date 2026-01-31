@@ -180,11 +180,6 @@ if (empty($partners)) {
               <i class="fas fa-image" style="font-size: 48px;"></i>
             </div>
           <?php endif; ?>
-          <?php if ($isAdmin): ?>
-            <div style="position: absolute; top: 8px; right: 8px; display: flex; gap: 6px;">
-              <a href="/admin/aboutus/index.php#team" style="padding: 6px 10px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; text-decoration: none; display: inline-block;"><i class="fas fa-edit"></i> Edit</a>
-            </div>
-          <?php endif; ?>
           <h4 style="margin: 0;"><?php echo htmlspecialchars($member['name']); ?></h4>
           <p class="subtle" style="margin: 0;"><?php echo htmlspecialchars($member['position']); ?></p>
           <p style="margin: 0;"><?php echo htmlspecialchars($member['bio']); ?></p>
