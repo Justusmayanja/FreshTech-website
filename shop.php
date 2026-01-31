@@ -51,16 +51,150 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart']) && $pd
 // Fetch products
 $products = [];
 $db_error = '';
+$categories = [];
 if ($pdo && ($pdo instanceof PDO)) {
   try {
-    $q = $pdo->query("SELECT id, name, slug, description, price_ugx, old_price_ugx, image_url, category, stock_quantity FROM products WHERE stock_quantity > 0 ORDER BY id DESC");
+    $q = $pdo->query("SELECT id, name, slug, description, price_ugx, old_price_ugx, image_url, category, stock_quantity FROM products WHERE stock_quantity > 0 ORDER BY category, id DESC");
     $products = $q->fetchAll();
+    
+    // Get unique categories for filter buttons
+    foreach ($products as $p) {
+      if (!empty($p['category']) && !in_array($p['category'], $categories)) {
+        $categories[] = $p['category'];
+      }
+    }
+    sort($categories);
   } catch (Exception $e) {
     $products = [];
-    $db_error = 'Unable to load products. Database connection issue.';
+    // Database error - use fallback sample data
   }
-} else {
-  $db_error = 'Database is not connected. Please check your database configuration.';
+}
+
+// Fallback sample products if database is not connected or no products found
+if (empty($products)) {
+  $products = [
+    [
+      'id' => 1,
+      'name' => 'Wireless Headphones',
+      'slug' => 'wireless-headphones-1',
+      'description' => 'High-quality wireless headphones with excellent sound and comfort',
+      'price_ugx' => 180000,
+      'old_price_ugx' => 252000,
+      'image_url' => 'head1.jpg',
+      'category' => 'Headphones',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 2,
+      'name' => 'Premium Headphones',
+      'slug' => 'premium-headphones',
+      'description' => 'High-quality wireless headphones with excellent sound and comfort',
+      'price_ugx' => 180000,
+      'old_price_ugx' => 252000,
+      'image_url' => 'head2.jpg',
+      'category' => 'Headphones',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 3,
+      'name' => 'Bluetooth Headphones',
+      'slug' => 'bluetooth-headphones',
+      'description' => 'High-quality wireless headphones with excellent sound and comfort',
+      'price_ugx' => 180000,
+      'old_price_ugx' => 252000,
+      'image_url' => 'head3.jpg',
+      'category' => 'Headphones',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 4,
+      'name' => 'Phone Holder',
+      'slug' => 'phone-holder',
+      'description' => 'Durable phone/device holder for convenient viewing and protection',
+      'price_ugx' => 45000,
+      'old_price_ugx' => 63000,
+      'image_url' => 'holder3.jpg',
+      'category' => 'Holders',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 5,
+      'name' => 'iPhone Holder',
+      'slug' => 'iphone-holder',
+      'description' => 'Durable phone/device holder for convenient viewing and protection',
+      'price_ugx' => 45000,
+      'old_price_ugx' => 63000,
+      'image_url' => 'iphone holder.jpg',
+      'category' => 'Holders',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 6,
+      'name' => 'Wireless Earbuds Pro',
+      'slug' => 'wireless-earbuds-pro',
+      'description' => 'Premium wireless earbuds with noise cancellation and long battery life',
+      'price_ugx' => 150000,
+      'old_price_ugx' => 210000,
+      'image_url' => 'pod1.jpg',
+      'category' => 'Earbuds',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 7,
+      'name' => 'AirPods Style Earbuds',
+      'slug' => 'airpods-style-earbuds',
+      'description' => 'Premium wireless earbuds with noise cancellation and long battery life',
+      'price_ugx' => 150000,
+      'old_price_ugx' => 210000,
+      'image_url' => 'pod2.jpg',
+      'category' => 'Earbuds',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 8,
+      'name' => 'Portable Power Bank',
+      'slug' => 'portable-power-bank',
+      'description' => 'Portable high-capacity power bank for fast charging on the go',
+      'price_ugx' => 120000,
+      'old_price_ugx' => 168000,
+      'image_url' => 'power bank.jpg',
+      'category' => 'Power Banks',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 9,
+      'name' => 'Smart Watch Series 1',
+      'slug' => 'smart-watch-1',
+      'description' => 'Feature-rich smart watch with fitness tracking and notifications',
+      'price_ugx' => 350000,
+      'old_price_ugx' => 490000,
+      'image_url' => 'watch1.jpg',
+      'category' => 'Smartwatches',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 10,
+      'name' => 'Smart Watch Series 2',
+      'slug' => 'smart-watch-2',
+      'description' => 'Feature-rich smart watch with fitness tracking and notifications',
+      'price_ugx' => 350000,
+      'old_price_ugx' => 490000,
+      'image_url' => 'watch2.jpg',
+      'category' => 'Smartwatches',
+      'stock_quantity' => 20
+    ],
+    [
+      'id' => 11,
+      'name' => 'Smart Watch Series 3',
+      'slug' => 'smart-watch-3',
+      'description' => 'Feature-rich smart watch with fitness tracking and notifications',
+      'price_ugx' => 350000,
+      'old_price_ugx' => 490000,
+      'image_url' => 'watch3.jpg',
+      'category' => 'Smartwatches',
+      'stock_quantity' => 20
+    ]
+  ];
 }
 ?>
 <!DOCTYPE html>
@@ -89,14 +223,14 @@ if ($pdo && ($pdo instanceof PDO)) {
         <div class="dropdown-menu">
           <a href="services/website-development.html">Website Development</a>
           <a href="services/graphic-branding.html">Graphic Design & Branding</a>
-          <a href="services/ui-ux.html">UI/UX Design</a>
+          <a href="services/ui-ux.html">Systems & App Development</a>
           <a href="services/ecommerce.html">E-commerce Solutions</a>
         </div>
       </div>
       <a href="portfolio.html">Portfolio</a>
       <a class="active" href="/shop.php">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="about.php">About Us</a>
+      <a href="contact.php">Contact Us</a>
       <?php
       $cart_count = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantity')) : 0;
       if ($cart_count > 0):
@@ -106,10 +240,8 @@ if ($pdo && ($pdo instanceof PDO)) {
           <span class="badge"><?php echo $cart_count; ?></span>
         </a>
       <?php endif; ?>
-      <button class="theme-toggle" data-theme-toggle>☾ / ☀</button>
     </nav>
     <div class="mobile-nav">
-      <button class="theme-toggle" data-theme-toggle>☾</button>
       <button class="menu-toggle" data-menu-toggle>☰</button>
     </div>
   </div>
@@ -133,19 +265,40 @@ if ($pdo && ($pdo instanceof PDO)) {
       </div>
     <?php endif; ?>
 
-    <?php if(!empty($db_error)): ?>
-      <div class="alert alert-error" style="margin-bottom: 2rem; padding: 1rem; background: #f8d7da; color: #721c24; border-radius: 8px;">
-        <i class="fa-solid fa-exclamation-circle mr-2"></i><?php echo htmlspecialchars($db_error); ?>
-      </div>
-    <?php endif; ?>
+      <!-- Category Filters + Search Bar (Same Line) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        
+        <!-- Filter Buttons -->
+        <div class="filters" style="margin-bottom: 0; display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="filter-btn active" data-filter="all">All Products</button>
+          <?php 
+            $displayed_cats = array_slice($categories, 0, 3);
+            foreach ($displayed_cats as $cat): 
+          ?>
+            <button type="button" class="filter-btn" data-filter="<?php echo htmlspecialchars(strtolower($cat)); ?>"><?php echo htmlspecialchars($cat); ?></button>
+          <?php endforeach; ?>
+        </div>
 
-      <div class="portfolio-grid">
-      <?php foreach ($products as $p):
-        $price = (float)($p['price_ugx']);
-        $old = $p['old_price_ugx'];
-        $img = $p['image_url'] ?: '/images/placeholder.svg';
-      ?>
-        <div class="portfolio-item">
+        <!-- Search Bar -->
+        <input 
+          type="text" 
+          id="product-search" 
+          placeholder="🔍 Search..." 
+          style="padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; background: var(--card-bg); color: var(--text); font-size: 0.95rem; min-width: 200px;"
+        />
+      </div>
+
+      <p id="search-results" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--gray-400); height: 18px;"></p>
+
+      <div class="portfolio-grid shop-grid" id="products-grid">
+        <?php foreach ($products as $p):
+          $price = (float)($p['price_ugx']);
+          $old = $p['old_price_ugx'];
+          // Use uploads folder for images (where admin saves them)
+          $img = !empty($p['image_url']) ? 'uploads/' . basename($p['image_url']) : 'images/placeholder.svg';
+          $category_attr = !empty($p['category']) ? strtolower($p['category']) : 'uncategorized';
+        ?>
+          <div class="portfolio-item" data-category="<?php echo htmlspecialchars($category_attr); ?>" data-name="<?php echo htmlspecialchars(strtolower($p['name'])); ?>">
           <img src="<?php echo htmlspecialchars($img); ?>" alt="<?php echo htmlspecialchars($p['name']); ?>" onerror="this.onerror=null;this.src='images/placeholder.svg'" />
           <div class="overlay">
             <div class="badge-accent">Product</div>
@@ -184,22 +337,150 @@ if ($pdo && ($pdo instanceof PDO)) {
       </div>
       <div>
         <h4>Explore</h4>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="/shop.php">Shop</a>
+        <div class="grid">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="/shop.php">Shop</a>
+          <a href="about.php">About Us</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
       </div>
       <div>
-        <h4>Connect</h4>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <h4>Contact Us</h4>
+        <div class="grid">
+          <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
+          <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
+          <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
+        </div>
+        <div class="social-row">
+          <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 PulseTech Solutions. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.clean.js"></script>
+<script src="/js/image-modal.js"></script>
+<style>
+/* Product image sizing based on filter state */
+.shop-grid .portfolio-item img {
+  height: 260px;
+  transition: height 0.3s ease;
+}
+
+/* Normal grid layout - 4 columns */
+.shop-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* When filtering by specific category (not all), make items and images smaller */
+body.category-filtered .shop-grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+body.category-filtered .shop-grid .portfolio-item:not(.hidden) img {
+  height: 180px;
+}
+
+/* Responsive grid */
+@media (max-width: 1400px) {
+  .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  body.category-filtered .shop-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  body.category-filtered .shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body.category-filtered .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  [style*="display: flex"][style*="justify-content: space-between"] {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  #product-search {
+    min-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+  body.category-filtered .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+<script>
+// Product Search Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('product-search');
+  const searchResults = document.getElementById('search-results');
+  const productItems = document.querySelectorAll('.portfolio-item');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  
+  // Update body class when filter changes
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (this.dataset.filter === 'all') {
+        document.body.classList.remove('category-filtered');
+      } else {
+        document.body.classList.add('category-filtered');
+      }
+    });
+  });
+  
+  if (searchInput && productItems.length > 0) {
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      let visibleCount = 0;
+      
+      productItems.forEach(function(item) {
+        if (item.classList.contains('hidden')) return; // Skip already filtered items
+        
+        const productName = item.getAttribute('data-name') || '';
+        
+        if (searchTerm === '' || productName.includes(searchTerm)) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Update search results text
+      if (searchTerm === '') {
+        searchResults.textContent = '';
+      } else if (visibleCount === 0) {
+        searchResults.textContent = 'No products found';
+        searchResults.style.color = '#e63946';
+      } else {
+        searchResults.textContent = visibleCount + ' product' + (visibleCount !== 1 ? 's' : '') + ' found';
+        searchResults.style.color = 'var(--cyan)';
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>

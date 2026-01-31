@@ -8,13 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+<?php
+// Fetch dynamic data from database
+require_once __DIR__ . '/db.php';
+$teamMembers = $stats = [];
+if ($pdo) {
+    try {
+        $teamMembers = $pdo->query("SELECT * FROM team_members ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+        $stats = $pdo->query("SELECT * FROM about_stats ORDER BY display_order ASC")->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {}
+}
+if (empty($teamMembers)) {
+    $teamMembers = [
+        ['name' => 'Sarah Chen', 'position' => 'Founder & CEO', 'bio' => 'Previously led design at a YC-backed fintech. Passionate about conversion-first UX.', 'image_url' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'],
+        ['name' => 'Marcus Liu', 'position' => 'Lead Developer', 'bio' => 'Full-stack engineer specializing in Next.js, headless commerce, and performance.', 'image_url' => 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop'],
+        ['name' => 'Elena Rodriguez', 'position' => 'Brand Strategist', 'bio' => '15 years in branding for Fortune 500s. Now helping startups punch above their weight.', 'image_url' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'],
+        ['name' => 'David Park', 'position' => 'E-commerce Lead', 'bio' => 'Built 40+ Shopify stores. Expert in checkout optimization and growth funnels.', 'image_url' => 'https://images.unsplash.com/photo-1507925921903-6f3ee1b583a0?w=400&h=400&fit=crop']
+    ];
+}
+if (empty($stats)) {
+    $stats = [
+        ['stat_value' => '200+', 'stat_label' => 'Projects Shipped'],
+        ['stat_value' => '50+', 'stat_label' => 'Active Clients'],
+        ['stat_value' => '2.4s', 'stat_label' => 'Avg. Site Load Time'],
+        ['stat_value' => '98%', 'stat_label' => 'Client Satisfaction']
+    ];
+}
+?>
 <header>
   <div class="container navbar">
     <div class="logo">
-      <div class="mark">PT</div>
+      <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
       <div>
         <div>PulseTech Solutions</div>
-        <small class="subtle">Digital Agency • Tech Store</small>
+        <div class="subtle">Bringing innovation to grow your business</div>
       </div>
     </div>
     <nav class="nav-links">
@@ -24,7 +51,7 @@
         <div class="dropdown-menu">
           <a href="services/website-development.html">Website Development</a>
           <a href="services/graphic-branding.html">Graphic Design & Branding</a>
-          <a href="services/ui-ux.html">UI/UX Design</a>
+          <a href="services/ui-ux.html">Systems & App Development</a>
           <a href="services/ecommerce.html">E-commerce Solutions</a>
         </div>
       </div>
@@ -32,11 +59,8 @@
       <a href="/shop.php">Shop</a>
       <a class="active" href="about.html">About Us</a>
       <a href="contact.html">Contact Us</a>
-      
-      <button class="theme-toggle" data-theme-toggle>☾ / ☀</button>
     </nav>
     <div class="mobile-nav">
-      <button class="theme-toggle" data-theme-toggle>☾</button>
       <button class="menu-toggle" data-menu-toggle>☰</button>
     </div>
   </div>
@@ -59,7 +83,7 @@
           <p>It all began during my Senior Six vacation in the bustling streets of Kampala. Surrounded by vibrant markets and ambitious entrepreneurs, I noticed a growing need: businesses everywhere were struggling to thrive in a digital world. Many lacked professional online presence, stunning branding, or reliable tech tools to reach more customers. That spark ignited something in me—I decided to take action.</p>
           <p>Inspired, I dove headfirst into learning website development. What started as late-night coding sessions turned into a full passion. This drive led me to pursue a Bachelor of Science in Software Engineering at the prestigious Makerere University, where I honed my skills in building powerful, user-friendly digital solutions.</p>
           <p>Along the way, I saw another opportunity: the demand for quality gadgets and phone accessories in our local markets. Combining my tech expertise with this everyday need, I expanded into curating premium phone cases, chargers, earbuds, smart watches, and more—delivered with the same reliability and innovation as our digital services.</p>
-          <p>Today, PulseTech Solutions is more than a company—it's a mission to uplift Ugandan businesses and individuals through cutting-edge technology. We craft beautiful, high-performing websites, eye-catching graphics and branding, seamless UI/UX experiences, and provide top-tier tech accessories to keep you connected.</p>
+          <p>Today, PulseTech Solutions is more than a company—it's a mission to uplift Ugandan businesses and individuals through cutting-edge technology. We craft beautiful, high-performing websites, eye-catching graphics and branding, custom software and mobile app solutions, and provide top-tier tech accessories to keep you connected.</p>
         </div>
         <div>
           <div class="image-collage" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px 220px; gap: 12px; min-height: 684px;">
@@ -89,30 +113,14 @@
       <h2>Meet the Team</h2>
       <p class="subtle">A tight-knit crew of designers, developers, and growth experts.</p>
       <div class="grid grid-4">
+        <?php foreach ($teamMembers as $member): ?>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sarah Chen" style="border-radius: 12px; margin-bottom: 10px;" />
-          <h4>Sarah Chen</h4>
-          <p class="subtle">Founder & CEO</p>
-          <p>Previously led design at a YC-backed fintech. Passionate about conversion-first UX.</p>
+          <img src="<?php echo htmlspecialchars($member['image_url']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" style="border-radius: 12px; margin-bottom: 10px;" onerror="this.src='https://via.placeholder.com/400x400?text=No+Image'" />
+          <h4><?php echo htmlspecialchars($member['name']); ?></h4>
+          <p class="subtle"><?php echo htmlspecialchars($member['position']); ?></p>
+          <p><?php echo htmlspecialchars($member['bio']); ?></p>
         </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop" alt="Marcus Liu" style="border-radius: 12px; margin-bottom: 10px;" />
-          <h4>Marcus Liu</h4>
-          <p class="subtle">Lead Developer</p>
-          <p>Full-stack engineer specializing in Next.js, headless commerce, and performance.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Elena Rodriguez" style="border-radius: 12px; margin-bottom: 10px;" />
-          <h4>Elena Rodriguez</h4>
-          <p class="subtle">Brand Strategist</p>
-          <p>15 years in branding for Fortune 500s. Now helping startups punch above their weight.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1507925921903-6f3ee1b583a0?w=400&h=400&fit=crop" alt="David Park" style="border-radius: 12px; margin-bottom: 10px;" />
-          <h4>David Park</h4>
-          <p class="subtle">E-commerce Lead</p>
-          <p>Built 40+ Shopify stores. Expert in checkout optimization and growth funnels.</p>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -167,22 +175,12 @@
     <div class="container">
       <h2>By the Numbers</h2>
       <div class="grid grid-4">
+        <?php foreach ($stats as $stat): ?>
         <div class="mini-card">
-          <h2>200+</h2>
-          <p>Projects Shipped</p>
+          <h2><?php echo htmlspecialchars($stat['stat_value']); ?></h2>
+          <p><?php echo htmlspecialchars($stat['stat_label']); ?></p>
         </div>
-        <div class="mini-card">
-          <h2>50+</h2>
-          <p>Active Clients</p>
-        </div>
-        <div class="mini-card">
-          <h2>2.4s</h2>
-          <p>Avg. Site Load Time</p>
-        </div>
-        <div class="mini-card">
-          <h2>98%</h2>
-          <p>Client Satisfaction</p>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -200,10 +198,10 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">
-        <div class="mark">FT</div>
+        <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
         <div>PulseTech Solutions © 2025</div>
       </div>
-      <p class="subtle">PulseTech Solutions is a leading digital agency based in Kampala, Uganda. We specialize in web development, branding, UI/UX design, and e-commerce solutions while offering premium tech accessories to elevate your digital experience.</p>
+      <p class="subtle">PulseTech Solutions is a leading digital agency based in Kampala, Uganda. We specialize in web development, systems & app development, branding, and e-commerce solutions while offering premium phone and computer accessories to elevate your digital experience.</p>
     </div>
     <div>
       <h4>Explore</h4>
@@ -221,7 +219,7 @@
       <div class="grid">
         <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
         <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
-        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256 700 000 000</p>
+        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
       </div>
       <div class="social-row">
         <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>

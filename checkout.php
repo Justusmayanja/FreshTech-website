@@ -2,6 +2,9 @@
 session_start();
 require_once __DIR__ . '/config/config.php';
 
+// Ensure orders table exists with correct structure
+require_once __DIR__ . '/ensure-orders-table.php';
+
 function currency($amount) { return 'UGX ' . number_format((float)$amount, 0); }
 
 // Guard: cart must have items
@@ -56,14 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $address,
                 $notes,
                 $payment_method,
-                $payment_method === 'mobile_money' ? $txn_id : null,
+              $txn_id !== '' ? $txn_id : null,
                 $total,
             ]);
             $order_id = (int)$pdo->lastInsertId();
 
             // Insert order items & reduce stock
             $itemStmt = $pdo->prepare("INSERT INTO order_items (order_id, product_id, product_name, quantity, unit_price, subtotal) VALUES (?,?,?,?,?,?)");
-            $stockStmt = $pdo->prepare("UPDATE products SET stock = stock - ? WHERE id = ? AND stock >= ?");
+            $stockStmt = $pdo->prepare("UPDATE products SET stock_quantity = stock_quantity - ? WHERE id = ? AND stock_quantity >= ?");
 
             foreach ($items as $it) {
                 $pid = (int)$it['id'];
@@ -98,11 +101,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout | PulseTech Solutions</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: { colors: { cyanft: '#00D4FF', orangeft:'#FF6B00', navyft:'#0A1A2F' } } } };
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .checkout-field {
+      border-color: #25D366 !important;
+    }
+    .checkout-field:focus {
+      border-color: #00D4FF !important;
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2) !important;
+      outline: none !important;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <?php include __DIR__ . '/header.php'; ?>
@@ -121,47 +135,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
-            <input name="full_name" value="<?php echo htmlspecialchars($_POST['full_name'] ?? ''); ?>" class="w-full border rounded-lg px-3 py-2" required />
+            <input name="full_name" value="<?php echo htmlspecialchars($_POST['full_name'] ?? ''); ?>" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" required />
             <?php if(!empty($errors['full_name'])) echo '<p class="text-sm text-red-600 mt-1">'.htmlspecialchars($errors['full_name']).'</p>'; ?>
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1">Email *</label>
-            <input type="email" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" class="w-full border rounded-lg px-3 py-2" required />
+            <input type="email" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" required />
             <?php if(!empty($errors['email'])) echo '<p class="text-sm text-red-600 mt-1">'.htmlspecialchars($errors['email']).'</p>'; ?>
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
-            <input name="phone" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>" class="w-full border rounded-lg px-3 py-2" required />
+            <input name="phone" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" required />
             <?php if(!empty($errors['phone'])) echo '<p class="text-sm text-red-600 mt-1">'.htmlspecialchars($errors['phone']).'</p>'; ?>
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1">Delivery Address *</label>
-            <input name="address" value="<?php echo htmlspecialchars($_POST['address'] ?? ''); ?>" class="w-full border rounded-lg px-3 py-2" required />
+            <input name="address" value="<?php echo htmlspecialchars($_POST['address'] ?? ''); ?>" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" required />
             <?php if(!empty($errors['address'])) echo '<p class="text-sm text-red-600 mt-1">'.htmlspecialchars($errors['address']).'</p>'; ?>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">Notes (Optional)</label>
-          <textarea name="notes" class="w-full border rounded-lg px-3 py-2" rows="3"><?php echo htmlspecialchars($_POST['notes'] ?? ''); ?></textarea>
+          <textarea name="notes" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" rows="3"><?php echo htmlspecialchars($_POST['notes'] ?? ''); ?></textarea>
         </div>
 
         <div class="border rounded-xl p-4">
-          <div class="font-bold text-navyft mb-2">Payment Method</div>
-          <label class="flex items-center gap-3 mb-2">
-            <input type="radio" name="payment_method" value="mobile_money" <?php echo (($_POST['payment_method'] ?? 'mobile_money') === 'mobile_money') ? 'checked' : ''; ?> />
-            <span>Mobile Money (MTN/Airtel)</span>
-          </label>
-          <label class="flex items-center gap-3">
-            <input type="radio" name="payment_method" value="cod" <?php echo (($_POST['payment_method'] ?? '') === 'cod') ? 'checked' : ''; ?> />
-            <span>Cash on Delivery</span>
-          </label>
+          <div class="font-bold text-navyft mb-4">Payment Method</div>
+          <div class="space-y-3">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="radio" name="payment_method" value="mobile_money" <?php echo (($_POST['payment_method'] ?? 'mobile_money') === 'mobile_money') ? 'checked' : ''; ?> class="w-4 h-4" />
+              <span class="text-gray-700 font-medium">Mobile Money (MTN/Airtel)</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="radio" name="payment_method" value="cod" <?php echo (($_POST['payment_method'] ?? '') === 'cod') ? 'checked' : ''; ?> class="w-4 h-4" />
+              <span class="text-gray-700 font-medium">Cash on Delivery</span>
+            </label>
+          </div>
 
           <div class="mt-4 bg-cyanft/10 border border-cyanft/30 rounded-lg p-4">
-            <p class="text-sm text-gray-700"><strong>For Mobile Money:</strong> Pay <span class="font-bold text-navyft"><?php echo currency($total); ?></span> to <span class="font-bold">+256 700 000 000</span> and enter your Transaction ID below.</p>
+            <p class="text-sm text-gray-700"><strong>For Mobile Money:</strong> Pay <span class="font-bold text-navyft"><?php echo currency($total); ?></span> to <span class="font-bold">+256752895268</span> and enter your Transaction ID below.</p>
             <div class="mt-3">
               <label class="block text-sm font-semibold text-gray-700 mb-1">Transaction ID (Required for Mobile Money)</label>
-              <input name="transaction_id" value="<?php echo htmlspecialchars($_POST['transaction_id'] ?? ''); ?>" class="w-full border rounded-lg px-3 py-2" />
+              <input name="transaction_id" value="<?php echo htmlspecialchars($_POST['transaction_id'] ?? ''); ?>" class="checkout-field w-full border rounded-lg px-3 py-2 bg-white text-gray-900" />
               <?php if(!empty($errors['transaction_id'])) echo '<p class="text-sm text-red-600 mt-1">'.htmlspecialchars($errors['transaction_id']).'</p>'; ?>
             </div>
           </div>
@@ -197,6 +213,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </main>
 
   <script>
+    // Mobile menu toggle only
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
     // Simple toggle required for transaction id based on payment method
     const pmRadios = document.querySelectorAll('input[name="payment_method"]');
     const txnInput = document.querySelector('input[name="transaction_id"]');

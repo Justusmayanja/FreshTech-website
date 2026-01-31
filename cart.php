@@ -58,16 +58,35 @@ function cart_count() {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart | PulseTech Solutions</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: { colors: { cyanft: '#00D4FF', orangeft:'#FF6B00', navyft:'#0A1A2F' } } } };
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background: #f9fafb !important;
+      color: #111827 !important;
+    }
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .cart-static table,
+    .cart-static th,
+    .cart-static td {
+      background: #ffffff !important;
+      color: #111827 !important;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <?php include __DIR__ . '/header.php'; ?>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <main class="cart-static max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <h1 class="text-3xl font-extrabold text-navyft mb-8">Shopping Cart</h1>
 
     <?php if (empty($items)): ?>
@@ -98,10 +117,10 @@ function cart_count() {
                 <?php foreach ($items as $item): 
                   $item_subtotal = ((float)$item['price']) * ((int)$item['quantity']);
                 ?>
-                <tr class="hover:bg-gray-50 transition">
+                <tr>
                   <td class="px-6 py-4">
                     <div class="flex items-center gap-4">
-                      <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="w-16 h-16 object-cover rounded-lg" onerror="this.src='images/placeholder.svg'" />
+                      <div class="w-16 h-16 rounded-lg bg-gray-200 flex-shrink-0" style="background: linear-gradient(135deg, #e5e7eb, #d1d5db);"></div>
                       <div>
                         <p class="font-bold text-navyft"><?php echo htmlspecialchars($item['name']); ?></p>
                       </div>
@@ -112,8 +131,8 @@ function cart_count() {
                     <form method="POST" action="cart.php" class="inline-flex items-center gap-2">
                       <input type="hidden" name="update_quantity" value="1">
                       <input type="hidden" name="product_id" value="<?php echo (int)$item['id']; ?>">
-                      <input type="number" min="1" name="quantity" value="<?php echo (int)$item['quantity']; ?>" class="w-16 border rounded px-2 py-1 text-center" />
-                      <button type="submit" class="px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded transition">Update</button>
+                      <input type="number" min="1" name="quantity" value="<?php echo (int)$item['quantity']; ?>" class="w-16 border-2 border-cyanft rounded px-2 py-1 text-center bg-cyanft text-[#00111F] font-bold" />
+                      <button type="submit" class="px-3 py-1 text-xs bg-cyanft text-[#00111F] hover:brightness-110 rounded transition font-semibold">Update</button>
                     </form>
                   </td>
                   <td class="px-6 py-4 font-bold text-navyft text-lg"><?php echo currency($item_subtotal); ?></td>
@@ -166,5 +185,15 @@ function cart_count() {
       </div>
     <?php endif; ?>
   </main>
+  <script>
+    // Mobile menu toggle only (no theme switching for Tailwind pages)
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
 </body>
 </html>

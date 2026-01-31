@@ -2,9 +2,18 @@
 require_once __DIR__ . '/../includes/auth.php';
 require_admin_login();
 require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/config.php';
+
+$db_available = isset($pdo) && $pdo instanceof PDO;
 
 $id = (int)($_GET['id'] ?? $_POST['id'] ?? 0);
 if ($id <= 0) { header('Location: /admin/products/index.php'); exit; }
+
+if (!$db_available) {
+    $_SESSION['flash_error'] = 'Database unavailable. Cannot edit product at this time.';
+    header('Location: /admin/products/index.php');
+    exit;
+}
 
 $stmt = $pdo->prepare('SELECT * FROM products WHERE id = :id LIMIT 1');
 $stmt->execute(['id'=>$id]);
@@ -35,10 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($name === '') $errors[] = 'Name required.';
 
     if (empty($errors)) {
-        $stmt = $pdo->prepare('UPDATE products SET name=:name, description=:desc, price_ugx=:price, old_price_ugx=:old_price, discount=:discount, rating=:rating, image_url=:image, updated_at=NOW() WHERE id=:id');
-        $stmt->execute(['name'=>$name,'desc'=>$description,'price'=>$price,'old_price'=>$old_price,'discount'=>$discount,'rating'=>$rating,'image'=>$image_url,'id'=>$id]);
-        $_SESSION['flash_success'] = 'Product updated.';
-        header('Location: /admin/products/index.php'); exit;
+        try {
+            $stmt = $pdo->prepare('UPDATE products SET name=:name, description=:desc, price_ugx=:price, old_price_ugx=:old_price, discount=:discount, rating=:rating, image_url=:image, updated_at=NOW() WHERE id=:id');
+            $stmt->execute(['name'=>$name,'desc'=>$description,'price'=>$price,'old_price'=>$old_price,'discount'=>$discount,'rating'=>$rating,'image'=>$image_url,'id'=>$id]);
+            $_SESSION['flash_success'] = 'Product updated.';
+            header('Location: /admin/products/index.php'); exit;
+        } catch (Exception $e) {
+            $errors[] = 'Failed to update product. Please try again.';
+        }
     }
 }
 

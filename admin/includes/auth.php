@@ -1,5 +1,6 @@
 <?php
 // admin/includes/auth.php — session, auth and CSRF helpers
+// MUST be called before any output
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,14 +8,16 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/db.php';
 
 function is_admin_logged_in(): bool {
-    return !empty($_SESSION['admin_logged_in']) && !empty($_SESSION['admin_id']);
+    $logged_in = !empty($_SESSION['admin_logged_in']) && 
+                 !empty($_SESSION['admin_id']) &&
+                 !empty($_SESSION['admin_username']);
+    return $logged_in;
 }
 
 function require_admin_login() {
     if (!is_admin_logged_in()) {
-        // redirect to login, store original
-        $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-        header('Location: /admin/login.php');
+        // Redirect to /admin/ which will show login form with clean URL
+        header('Location: /admin/', true, 302);
         exit;
     }
 }
@@ -48,5 +51,6 @@ function csrf_token() {
 }
 
 function verify_csrf($token): bool {
+
     return !empty($token) && hash_equals($_SESSION['_csrf_token'] ?? '', $token);
 }

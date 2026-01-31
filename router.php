@@ -8,6 +8,12 @@ $path = parse_url($uri, PHP_URL_PATH) ?: '/';
 // Map to filesystem path
 $requested_file = __DIR__ . $path;
 
+// Handle root path - serve index.php
+if ($path === '/' || $path === '/index.html') {
+    include __DIR__ . '/index.php';
+    exit;
+}
+
 // Handle /admin route
 if (preg_match('#^/admin/?$#', $path)) {
     $_SERVER['REQUEST_URI'] = '/admin/index.php';
@@ -25,6 +31,6 @@ if (is_file($requested_file) || is_dir($requested_file)) {
     return false;
 }
 
-// Otherwise serve index.html for the public site
-include __DIR__ . '/index.html';
+// Otherwise serve index.php for the public site
+include __DIR__ . '/index.php';
 ?>

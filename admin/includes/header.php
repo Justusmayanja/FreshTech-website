@@ -1,45 +1,13 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
 require_once __DIR__ . '/auth.php';
-// simple base path for assets — adapt if your site runs in a subfolder
-$assetBase = '/admin/assets';
-?><!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin — PulseTech</title>
-  <link rel="stylesheet" href="<?= htmlspecialchars($assetBase) ?>/css/admin.css">
-</head>
-<body class="admin-root">
-  <div class="admin-layout">
-    <aside class="sidebar">
-      <div class="brand">PulseTech Admin</div>
-      <nav>
-        <a href="/admin/dashboard.php">Dashboard</a>
-        <a href="/admin/products/index.php">Products</a>
-        <a href="/admin/portfolio/index.php">Portfolio</a>
-        <a href="/admin/testimonials/index.php">Testimonials</a>
-        <a href="/admin/brands/index.php">Brands</a>
-        <a href="/admin/inquiries/index.php">Inquiries</a>
-        <a href="/admin/logout.php">Logout</a>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="topbar">
-        <div class="top-left">Welcome, <?= htmlspecialchars($_SESSION['admin_username'] ?? 'Guest') ?></div>
-      </header>
-      <section class="content">
-<?php
-require_once __DIR__ . '/config.php';
-requireLogin();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($pageTitle) ? sanitize($pageTitle) . ' - ' : ''; ?>FreshTech Admin</title>
+    <title><?php echo isset($pageTitle) ? htmlspecialchars($pageTitle) . ' - ' : ''; ?>PulseTech Admin</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -63,21 +31,12 @@ requireLogin();
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <style>
         [data-theme="dark"] {
             color-scheme: dark;
-        }
-        
-        .sidebar-closed main {
-            margin-left: 0;
-        }
-        
-        .sidebar-open aside {
-            transform: translateX(0);
-        }
-        
-        .sidebar-open .sidebar-overlay {
-            display: block;
         }
     </style>
 </head>
@@ -90,43 +49,85 @@ requireLogin();
         <?php include __DIR__ . '/sidebar.php'; ?>
     </aside>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white shadow h-16 z-10 md:ml-64">
-        <div class="flex items-center justify-between h-full px-6">
-            <!-- Mobile Menu Button & Logo -->
-            <div class="flex items-center gap-4">
-                <button id="toggleSidebar" class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition">
-                    <i class="fas fa-bars text-xl text-navy-ft"></i>
-                </button>
-                <div class="hidden md:flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-ft to-orange-ft flex items-center justify-center">
-                        <i class="fas fa-rocket text-white"></i>
-                    </div>
-                    <span class="font-bold text-navy-ft">FreshTech</span>
-                </div>
-            </div>
+    <!-- Header with Cyan Navbar -->
+    <header class="fixed top-0 left-0 right-0 bg-gradient-to-r from-cyan-ft to-cyan-600 shadow-lg z-10 md:ml-64">
+        <div class="h-24 px-6 flex flex-col justify-center">
+            <h1 class="text-2xl font-bold text-navy-ft">Welcome to PulseTech Admin Portal</h1>
+            <p class="text-sm text-navy-ft font-medium opacity-90">Professional business management for your digital innovation company</p>
+        </div>
 
-            <!-- Right Section -->
-            <div class="flex items-center gap-4">
-                <!-- Theme Toggle -->
-                <button id="themeToggle" class="p-2 hover:bg-gray-100 rounded-lg transition" title="Toggle Dark Mode">
-                    <i class="fas fa-sun text-orange-ft text-lg"></i>
+        <!-- Navbar Controls (Right Side) -->
+        <div class="absolute top-6 right-6 flex items-center gap-4">
+            <!-- Theme Toggle -->
+            <button id="themeToggle" class="p-2 hover:bg-cyan-500 rounded-lg transition text-navy-ft" title="Toggle Dark Mode">
+                <i class="fas fa-sun text-lg"></i>
+            </button>
+            
+            <!-- User Menu -->
+            <div class="relative" x-data="{ open: false }">
+                <button 
+                    @click="open = !open" 
+                    @click.away="open = false"
+                    class="flex items-center gap-2 p-2 hover:bg-cyan-500 rounded-lg transition"
+                >
+                    <div class="w-8 h-8 rounded-full bg-navy-ft flex items-center justify-center text-white text-sm font-bold">
+                        <?php echo strtoupper(substr($_SESSION['admin_username'] ?? 'A', 0, 1)); ?>
+                    </div>
+                    <span class="hidden sm:inline text-sm font-medium text-navy-ft"><?php echo htmlspecialchars($_SESSION['admin_username'] ?? 'Admin'); ?></span>
+                    <i class="fas fa-chevron-down text-xs text-navy-ft transition-transform" :class="{ 'rotate-180': open }"></i>
                 </button>
                 
-                <!-- User Menu -->
-                <div class="relative group">
-                    <button class="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-lg transition">
-                        <div class="w-8 h-8 rounded-full bg-cyan-ft flex items-center justify-center text-white text-sm font-bold">
-                            <?php echo strtoupper(substr($_SESSION['admin_username'] ?? 'A', 0, 1)); ?>
-                        </div>
-                        <span class="hidden sm:inline text-sm font-medium text-gray-700"><?php echo sanitize($_SESSION['admin_name'] ?? $_SESSION['admin_username'] ?? 'Admin'); ?></span>
-                        <i class="fas fa-chevron-down text-xs text-gray-500"></i>
-                    </button>
+                <!-- Dropdown Menu -->
+                <div 
+                    x-show="open"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                    class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                    style="display: none;"
+                >
+                    <!-- User Info Header -->
+                    <div class="px-4 py-3 border-b border-gray-100">
+                        <p class="text-sm font-semibold text-gray-900"><?php echo htmlspecialchars($_SESSION['admin_username'] ?? 'Admin'); ?></p>
+                        <p class="text-xs text-gray-500 truncate"><?php echo htmlspecialchars($_SESSION['admin_email'] ?? 'admin@pulsetech.com'); ?></p>
+                    </div>
                     
-                    <!-- Dropdown Menu -->
-                    <div class="absolute right-0 mt-0 w-48 bg-white rounded-lg shadow-lg hidden group-hover:block z-50 border border-gray-200">
-                        <a href="/admin/logout.php" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 rounded-lg m-2 transition">
-                            <i class="fas fa-sign-out-alt mr-2 text-orange-ft"></i>Logout
+                    <!-- Menu Items -->
+                    <div class="py-1">
+                        <a href="/admin/profile.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-cyan-50 transition">
+                            <div class="w-8 h-8 rounded-full bg-cyan-50 flex items-center justify-center">
+                                <i class="fas fa-user text-cyan-ft text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Profile Settings</div>
+                                <div class="text-xs text-gray-500">Update your information</div>
+                            </div>
+                        </a>
+                        
+                        <a href="/admin/account.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 transition">
+                            <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center">
+                                <i class="fas fa-cog text-orange-ft text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Account Settings</div>
+                                <div class="text-xs text-gray-500">Security & password</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Logout -->
+                    <div class="border-t border-gray-100 py-1">
+                        <a href="/admin/logout.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition">
+                            <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                                <i class="fas fa-sign-out-alt text-red-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Sign Out</div>
+                                <div class="text-xs text-red-500">End your session</div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -135,7 +136,7 @@ requireLogin();
     </header>
 
     <!-- Main Content -->
-    <main class="md:ml-64 mt-16 p-6">
+    <main class="md:ml-64 mt-24 p-6">
         <!-- Breadcrumb -->
         <?php if (isset($breadcrumb) && is_array($breadcrumb)): ?>
         <div class="mb-6 text-sm text-gray-600 flex items-center gap-2">
@@ -145,9 +146,9 @@ requireLogin();
             <?php foreach ($breadcrumb as $link => $label): ?>
                 <span>/</span>
                 <?php if ($link): ?>
-                    <a href="<?php echo sanitize($link); ?>" class="hover:text-cyan-ft transition"><?php echo sanitize($label); ?></a>
+                    <a href="<?php echo htmlspecialchars($link); ?>" class="hover:text-cyan-ft transition"><?php echo htmlspecialchars($label); ?></a>
                 <?php else: ?>
-                    <span><?php echo sanitize($label); ?></span>
+                    <span><?php echo htmlspecialchars($label); ?></span>
                 <?php endif; ?>
             <?php endforeach; ?>
         </div>

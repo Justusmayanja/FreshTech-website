@@ -1,0 +1,324 @@
+<?php
+session_start();
+$success_message = $_SESSION['contact_success'] ?? '';
+$error_message = $_SESSION['contact_error'] ?? '';
+unset($_SESSION['contact_success'], $_SESSION['contact_error']);
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_contact'])) {
+    require_once __DIR__ . '/db.php';
+    
+    $name = trim($_POST['fullname'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $service = trim($_POST['service'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+    $package = trim($_POST['selectedPackage'] ?? '');
+    
+    // Build subject
+    $subject = $service ? ucfirst($service) . ' Inquiry' : 'General Inquiry';
+    if ($package) {
+        $subject .= ' - ' . $package;
+    }
+    
+    // Validation
+    if (empty($name) || empty($email) || empty($message)) {
+        $_SESSION['contact_error'] = 'Please fill in all required fields.';
+        header('Location: /contact.php');
+        exit;
+    }
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['contact_error'] = 'Please enter a valid email address.';
+        header('Location: /contact.php');
+        exit;
+    }
+    
+    // Save to database
+    try {
+        $stmt = $pdo->prepare("INSERT INTO contact_messages (name, email, phone, subject, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([$name, $email, $phone, $subject, $message]);
+        
+        $_SESSION['contact_success'] = 'Thank you for contacting us! We will get back to you within 24 hours.';
+        header('Location: /contact.php#contact-form');
+        exit;
+    } catch (PDOException $e) {
+        $_SESSION['contact_error'] = 'Sorry, there was an error sending your message. Please try again.';
+        header('Location: /contact.php');
+        exit;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | PulseTech Solutions</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<header>
+  <div class="container navbar">
+    <div class="logo">
+      <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
+      <div>
+        <div>PulseTech Solutions</div>
+        <div class="subtle">Bringing innovation to grow your business</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html">Services ▼</a>
+        <div class="dropdown-menu">
+          <a href="services/website-development.html">Website Development</a>
+          <a href="services/graphic-branding.html">Graphic Design & Branding</a>
+          <a href="services/ui-ux.html">Systems & App Development</a>
+          <a href="services/ecommerce.html">E-commerce Solutions</a>
+        </div>
+      </div>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="/shop.php">Shop</a>
+      <a href="about.php">About Us</a>
+      <a class="active" href="contact.php">Contact Us</a>
+    </nav>
+    <div class="mobile-nav">
+      <button class="menu-toggle" data-menu-toggle>☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+    <div class="container">
+      <div class="badge">Contact Us</div>
+      <h1>Get in Touch With PulseTech Solutions</h1>
+      <p>Have a project in mind? Need a quote? Or just want to chat about your tech needs? We're here to help—reach out via the form below or contact us directly.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Left Side: Contact Details -->
+        <div>
+          <div class="form-card">
+            <h3>Contact Information</h3>
+            <div style="display: grid; gap: 16px; margin-top: 16px;">
+              <div>
+                <div class="tag-label">Email</div>
+                <p><strong>pulsetechsolutions@gmail.com</strong></p>
+                <p class="subtle">We reply within 24 hours</p>
+              </div>
+              <div>
+                <div class="tag-label">Phone / WhatsApp</div>
+                <p><strong>0752895268</strong></p>
+                <p class="subtle">Mon-Fri, 9am-6pm EST</p>
+              </div>
+              <div>
+                <div class="tag-label">Address</div>
+                <p><strong>Olympia Hostel, Makerere Kikoni</strong></p>
+                <p class="subtle">Kampala, Uganda</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card" style="margin-top: 16px;">
+            <h4>Office Location</h4>
+            <iframe 
+              class="map-embed" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.284476137873!2d32.57463!3d0.32858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc13c9c9c9c9%3A0x1!2sOlympia%20Hostel%20Makerere%20Kikoni%20Kampala!5e0!3m2!1sen!2s!4v1642000000000" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="form-card" style="margin-top: 16px;">
+            <h4>Business Hours</h4>
+            <div style="display: grid; gap: 8px; margin-top: 12px;">
+              <div style="display: flex; justify-content: space-between;">
+                <span>Monday - Friday</span>
+                <strong>9:00 AM - 6:00 PM</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Saturday</span>
+                <strong>10:00 AM - 4:00 PM</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Sunday</span>
+                <strong>Closed</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div>
+          <div class="form-card">
+            <h3>Send Us a Message</h3>
+            
+            <?php if ($success_message): ?>
+              <div style="padding: 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; margin: 12px 0; color: #155724;">
+                <i class="fas fa-check-circle"></i> <?php echo htmlspecialchars($success_message); ?>
+              </div>
+            <?php endif; ?>
+            
+            <?php if ($error_message): ?>
+              <div style="padding: 12px; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 8px; margin: 12px 0; color: #721c24;">
+                <i class="fas fa-exclamation-circle"></i> <?php echo htmlspecialchars($error_message); ?>
+              </div>
+            <?php endif; ?>
+            
+            <div class="selected-package" data-selected-package style="display: none; margin: 8px 0 4px 0;">
+              <span class="badge-pill">Package chosen: <span data-package-name></span></span>
+            </div>
+            <form id="contact-form" method="POST" action="/contact.php" style="display: grid; gap: 16px; margin-top: 16px;">
+              <input type="hidden" name="submit_contact" value="1" />
+              <input type="hidden" id="selectedPackage" name="selectedPackage" />
+              <div>
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="John Doe" required />
+              </div>
+
+              <div>
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="john@gmail.com" required />
+              </div>
+
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+256752895268" />
+              </div>
+
+              <div>
+                <label for="service">Service Interested In *</label>
+                <select id="service" name="service" required>
+                  <option value="">-- Select a service --</option>
+                  <option value="website">Website Development</option>
+                  <option value="branding">Graphic Design & Branding</option>
+                  <option value="accessories">Buy Phone Accessories</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" placeholder="Tell us about your project or question..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--gray-100);">
+    <div class="container">
+      <h2>Prefer other channels?</h2>
+      <div class="grid grid-3">
+        <div class="mini-card">
+          <h4>💬 Live Chat</h4>
+          <p>Click the chat bubble in the bottom-right corner for instant support.</p>
+        </div>
+        <div class="mini-card">
+          <h4>📱 WhatsApp</h4>
+          <p>Message us on WhatsApp for quick replies and project updates.</p>
+        </div>
+        <div class="mini-card">
+          <h4>📧 Email Support</h4>
+          <p>For detailed inquiries, email us at hello@pulsetechsolutions.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid grid-2">
+        <div class="mini-card">
+          <h4>How long does a typical project take?</h4>
+          <p>Most websites ship in 2-4 weeks. Branding projects take 2-3 weeks. E-commerce builds range from 3-6 weeks depending on complexity.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Do you offer payment plans?</h4>
+          <p>Yes! We offer 50% upfront, 50% on completion for most projects. Custom payment schedules available for enterprise clients.</p>
+        </div>
+        <div class="mini-card">
+          <h4>What's your refund policy for accessories?</h4>
+          <p>30-day returns on all tech products. Items must be unused and in original packaging.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Can you redesign my existing website?</h4>
+          <p>Absolutely! We specialize in website redesigns and migrations. We'll audit your current site and create a modernization plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Floating WhatsApp Button -->
+<div class="whatsapp-btn">
+  <a href="https://wa.me/15551234567" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
+    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Floating Live Chat Button -->
+<div class="livechat-btn" style="bottom: 84px;">
+  <button class="floating-btn livechat" title="Live Chat">
+    <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2A1 1 0 003.8 21.454l3.032-.892A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.84 0-3.553-.622-4.917-1.668l-.347-.266-2.158.634.634-2.158-.266-.347A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+      <circle cx="8" cy="12" r="1.5"/>
+      <circle cx="12" cy="12" r="1.5"/>
+      <circle cx="16" cy="12" r="1.5"/>
+    </svg>
+  </button>
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">
+        <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
+        <div>PulseTech Solutions © 2025</div>
+      </div>
+      <p class="subtle">PulseTech Solutions is a leading digital agency based in Kampala, Uganda. We specialize in web development, systems & app development, branding, and e-commerce solutions while offering premium phone and computer accessories to elevate your digital experience.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <div class="grid">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="/shop.php">Shop</a>
+        <a href="about.php">About Us</a>
+        <a href="contact.php">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <div class="grid">
+        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
+        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
+        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
+      </div>
+      <div class="social-row">
+        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.clean.js"></script>
+</body>
+</html>

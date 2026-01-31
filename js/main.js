@@ -23,52 +23,6 @@ document.addEventListener('click', (e) => {
 // Header + navigation interactions
 const siteNav = document.querySelector('[data-site-nav]');
 const navToggle = document.querySelector('[data-nav-toggle]');
-const navPanel = document.querySelector('[data-nav-panel]');
-const navBackdrop = document.querySelector('[data-nav-backdrop]');
-const siteHeader = document.querySelector('[data-site-header]');
-const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-let navOpen = false;
-let resizeTimer;
-
-function toggleBodyLock(lock) {
-  document.body.classList.toggle('nav-locked', Boolean(lock));
-}
-
-function setNavState(open) {
-  if (!siteNav || !navToggle || !navPanel) return;
-  navOpen = open;
-  siteNav.classList.toggle('site-nav--open', open);
-  navToggle.setAttribute('aria-expanded', String(open));
-  const hideForMobile = !open && window.innerWidth <= 960;
-  navPanel.setAttribute('aria-hidden', hideForMobile ? 'true' : 'false');
-  toggleBodyLock(open);
-  if (open) {
-    const focusable = navPanel.querySelector(focusableSelector);
-    if (focusable) focusable.focus({ preventScroll: true });
-    else navPanel.focus({ preventScroll: true });
-  }
-}
-
-function closeNav() { setNavState(false); }
-function openNav() { setNavState(true); }
-
-function handleOutsideClick(e) {
-  if (!navOpen || !navPanel || !navToggle) return;
-  const isToggle = navToggle.contains(e.target);
-  const isPanel = navPanel.contains(e.target);
-  if (!isToggle && !isPanel) closeNav();
-}
-
-function handleEscape(e) {
-  if (e.key === 'Escape' && navOpen) {
-    e.preventDefault();
-    closeNav();
-    navToggle?.focus({ preventScroll: true });
-  }
-}
-
-function handleFocusTrap(e) {
-  if (!navOpen || !navPanel || e.key !== 'Tab') return;
   const focusables = Array.from(navPanel.querySelectorAll(focusableSelector)).filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
   if (!focusables.length) return;
   const first = focusables[0];
@@ -125,20 +79,67 @@ if (legacyToggle && legacyNavLinks) {
   resetLegacyNav();
 }
 
-// Portfolio filters
-const filterButtons = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('[data-category]');
-filterButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.filter;
-    portfolioItems.forEach((item) => {
-      if (cat === 'all' || item.dataset.category.includes(cat)) item.style.display = 'block';
-      else item.style.display = 'none';
+// Portfolio filters - Works on page load and dynamically
+function initPortfolioFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  // Only run if we found elements
+  if (filterButtons.length === 0 || portfolioItems.length === 0) {
+    console.warn('Portfolio filters: buttons or items not found');
+    return;
+  }
+  
+  console.log('Portfolio filters initialized with', filterButtons.length, 'buttons and', portfolioItems.length, 'items');
+  
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Remove active class from all buttons
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      // Get the filter value
+      const filterValue = btn.dataset.filter;
+      console.log('Filtering by:', filterValue);
+      
+      // Filter portfolio items
+      let visibleCount = 0;
+      portfolioItems.forEach((item) => {
+        const itemCategory = item.getAttribute('data-category');
+        if (!itemCategory) {
+          console.warn('Item missing data-category:', item);
+          return;
+        }
+        
+        const categories = itemCategory.split(' ');
+        const shouldShow = filterValue === 'all' || categories.includes(filterValue);
+        
+        console.log('Item categories:', categories, 'Filter:', filterValue, 'Show:', shouldShow);
+        
+        if (shouldShow) {
+          item.classList.remove('hidden');
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+          item.style.display = 'none';
+        }
+      });
+      console.log('Showing', visibleCount, 'items');
     });
   });
-});
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPortfolioFilters);
+} else {
+  initPortfolioFilters();
+}
 
 // Basic carousel drag-scroll
 const carousels = document.querySelectorAll('.carousel');
@@ -290,3 +291,98 @@ async function loadFeaturedProducts() {
     `;
   }
 }
+
+// Contact Form Handler
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    
+    const formData = new FormData(contactForm);
+    
+    try {
+      const response = await fetch('/contact-handler.php', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        // Show success message
+        contactForm.innerHTML = `
+          <div style="padding: 40px; text-align: center; background: #d4edda; color: #155724; border-radius: 8px;">
+            <i class="fas fa-check-circle" style="font-size: 48px; margin-bottom: 16px;"></i>
+            <h3 style="margin: 0 0 8px 0;">Message Sent Successfully!</h3>
+            <p style="margin: 0;">${result.message}</p>
+          </div>
+        `;
+      } else {
+        // Show error message
+        alert(result.message || 'Failed to send message. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again or contact us directly.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+     m o d a l . i n n e r H T M L   =   ` 
+         < s p a n   c l a s s = " i m a g e - m o d a l - c l o s e " > & t i m e s ; < / s p a n > 
+         < i m g   c l a s s = " i m a g e - m o d a l - c o n t e n t "   a l t = " P r o d u c t   i m a g e " > 
+     ` ; 
+     d o c u m e n t . b o d y . a p p e n d C h i l d ( m o d a l ) ; 
+ 
+     c o n s t   m o d a l I m g   =   m o d a l . q u e r y S e l e c t o r ( ' . i m a g e - m o d a l - c o n t e n t ' ) ; 
+     c o n s t   c l o s e B t n   =   m o d a l . q u e r y S e l e c t o r ( ' . i m a g e - m o d a l - c l o s e ' ) ; 
+ 
+     / /   F u n c t i o n   t o   o p e n   m o d a l 
+     f u n c t i o n   o p e n M o d a l ( i m g S r c ,   i m g A l t )   { 
+         m o d a l . c l a s s L i s t . a d d ( ' a c t i v e ' ) ; 
+         m o d a l I m g . s r c   =   i m g S r c ; 
+         m o d a l I m g . a l t   =   i m g A l t   | |   ' P r o d u c t   i m a g e ' ; 
+         d o c u m e n t . b o d y . s t y l e . o v e r f l o w   =   ' h i d d e n ' ; 
+     } 
+ 
+     / /   F u n c t i o n   t o   c l o s e   m o d a l 
+     f u n c t i o n   c l o s e M o d a l ( )   { 
+         m o d a l . c l a s s L i s t . r e m o v e ( ' a c t i v e ' ) ; 
+         d o c u m e n t . b o d y . s t y l e . o v e r f l o w   =   ' ' ; 
+     } 
+ 
+     / /   A d d   c l i c k   h a n d l e r s   t o   a l l   p r o d u c t   i m a g e s 
+     d o c u m e n t . a d d E v e n t L i s t e n e r ( ' c l i c k ' ,   f u n c t i o n ( e )   { 
+         i f   ( e . t a r g e t . m a t c h e s ( ' . p r o d u c t   i m g ' ) )   { 
+             e . p r e v e n t D e f a u l t ( ) ; 
+             o p e n M o d a l ( e . t a r g e t . s r c ,   e . t a r g e t . a l t ) ; 
+         } 
+     } ) ; 
+ 
+     / /   C l o s e   m o d a l   o n   c l o s e   b u t t o n   c l i c k 
+     c l o s e B t n . a d d E v e n t L i s t e n e r ( ' c l i c k ' ,   c l o s e M o d a l ) ; 
+ 
+     / /   C l o s e   m o d a l   w h e n   c l i c k i n g   o u t s i d e   t h e   i m a g e 
+     m o d a l . a d d E v e n t L i s t e n e r ( ' c l i c k ' ,   f u n c t i o n ( e )   { 
+         i f   ( e . t a r g e t   = = =   m o d a l )   { 
+             c l o s e M o d a l ( ) ; 
+         } 
+     } ) ; 
+ 
+     / /   C l o s e   m o d a l   o n   E s c a p e   k e y 
+     d o c u m e n t . a d d E v e n t L i s t e n e r ( ' k e y d o w n ' ,   f u n c t i o n ( e )   { 
+         i f   ( e . k e y   = = =   ' E s c a p e '   & &   m o d a l . c l a s s L i s t . c o n t a i n s ( ' a c t i v e ' ) )   { 
+             c l o s e M o d a l ( ) ; 
+         } 
+     } ) ; 
+ } ) ( ) ; 
+ 
+ 

@@ -51,6 +51,9 @@ body.home-page {
 /* Remove any light placeholders on home visuals */
 body.home-page .product img {
   background: linear-gradient(145deg, var(--navy-2), var(--navy));
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
 }
 
 /* Ensure cards stay dark on the home page even if theme toggles */
@@ -413,6 +416,13 @@ body.nav-locked { overflow: hidden; }
   letter-spacing: 0.4px;
 }
 
+.logo-image {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin-right: 8px;
+}
+
 .logo .mark {
   width: 36px;
   height: 36px;
@@ -686,6 +696,16 @@ p {
 .product img {
   border-radius: 12px;
   background: linear-gradient(135deg, var(--navy-2), var(--navy));
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.product img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.2);
 }
 
 .price-row {
@@ -861,27 +881,60 @@ p {
   background: var(--card-bg);
   border: 1px solid var(--gray-200);
   box-shadow: var(--shadow-card);
+  transition: opacity 300ms ease;
+  opacity: 1;
+}
+
+.portfolio-item.hidden {
+  display: none !important;
 }
 
 .portfolio-item img {
   width: 100%;
+  height: 280px;
+  object-fit: cover;
   display: block;
 }
 
 .overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent, rgba(10, 26, 47, 0.8));
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, rgba(10, 26, 47, 0.95));
   color: var(--white);
-  padding: 16px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  opacity: 0;
+  opacity: 1;
   transition: opacity var(--transition);
 }
 
-.portfolio-item:hover .overlay { opacity: 1; }
+.portfolio-item:hover .overlay { 
+  background: linear-gradient(180deg, rgba(10, 26, 47, 0.3), rgba(10, 26, 47, 0.98));
+}
+
+/* Shop layout: image on top, text below */
+.shop-grid .portfolio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-grid .portfolio-item img {
+  height: 260px;
+}
+
+.shop-grid .overlay {
+  position: static;
+  background: none;
+  color: var(--text);
+  padding: 18px 16px 20px;
+}
+
+.shop-grid .overlay .badge-accent {
+  align-self: flex-start;
+}
 
 .filters {
   display: flex;
@@ -891,19 +944,37 @@ p {
 }
 
 .filter-btn {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid var(--gray-200);
   background: var(--card-bg);
+  color: var(--text);
   cursor: pointer;
   font-weight: 700;
-  transition: background var(--transition), color var(--transition), border var(--transition);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 200ms ease;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  background: var(--gray-300);
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.filter-btn:active {
+  transform: translateY(0);
 }
 
 .filter-btn.active {
   background: var(--cyan);
   color: #00111f;
   border-color: var(--cyan);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
 
 .forms {
@@ -1256,4 +1327,68 @@ textarea { min-height: 140px; resize: vertical; }
   .price-row { flex-direction: column; align-items: flex-start; }
   .filters { gap: 6px; }
   .floating-btn { width: 48px; height: 48px; }
+}
+
+/* Image Modal Styles */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  animation: fadeIn 0.3s ease;
+}
+
+.image-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 80px rgba(0, 212, 255, 0.3);
+  animation: zoomIn 0.3s ease;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: var(--white);
+  font-size: 48px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color var(--transition), transform var(--transition);
+  z-index: 10000;
+  line-height: 1;
+  padding: 10px;
+}
+
+.image-modal-close:hover {
+  color: var(--cyan);
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { 
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1);
+    opacity: 1;
+  }
 }
