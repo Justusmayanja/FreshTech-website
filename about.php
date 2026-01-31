@@ -32,6 +32,7 @@ if ($isAdmin && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_ab
 </head>
 <body>
 
+<?php
 $teamMembers = $stats = $aboutImages = $partners = [];
 if ($pdo) {
     try {
