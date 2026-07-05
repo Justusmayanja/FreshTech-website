@@ -3,35 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | PulseTech Solutions</title>
+  <title>Contact | PulseTech Solutions</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+<body class="site-page contact-page">
 <header>
   <div class="container navbar">
-    <div class="logo">
-      <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-      <div>
-        <div>PulseTech Solutions</div>
-        <div class="subtle">Bringing innovation to grow your business</div>
-      </div>
-    </div>
+    <a href="index.html" class="logo"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="services.html">Services ▼</a>
-        <div class="dropdown-menu">
-          <a href="services/website-development.html">Website Development</a>
-          <a href="services/graphic-branding.html">Graphic Design & Branding</a>
-          <a href="services/ui-ux.html">Systems & App Development</a>
-          <a href="services/ecommerce.html">E-commerce Solutions</a>
-        </div>
-      </div>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="about.html">About Us</a>
-      <a class="active" href="contact.html">Contact Us</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a class="active" href="contact.html">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call +256 752 895 268"><i class="fas fa-phone"></i></a>
+      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> +256 752 895 268</a>
+      <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
+    </div>
+
     <div class="mobile-nav">
       <button class="menu-toggle" data-menu-toggle>☰</button>
     </div>
@@ -39,20 +33,19 @@
 </header>
 
 <main>
-  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+  <section class="site-hero">
     <div class="container">
-      <div class="badge">Contact Us</div>
+      <p class="site-hero__eyebrow">Contact</p>
       <h1>Get in Touch With PulseTech Solutions</h1>
-      <p>Have a project in mind? Need a quote? Or just want to chat about your tech needs? We're here to help—reach out via the form below or contact us directly.</p>
+      <p>Have a project in mind? Need a quote? Or just want to chat about your tech needs? We're here to help — reach out via the form below or contact us directly.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="site-section">
     <div class="container">
       <div class="contact-layout">
-        <!-- Left Side: Contact Details -->
         <div>
-          <div class="form-card">
+          <div class="contact-panel-card">
             <h3>Contact Information</h3>
             <div style="display: grid; gap: 16px; margin-top: 16px;">
               <div>
@@ -62,37 +55,37 @@
               </div>
               <div>
                 <div class="tag-label">Phone / WhatsApp</div>
-                <p><strong>0752895268</strong></p>
-                <p class="subtle">Mon-Fri, 9am-6pm EST</p>
+                <p><strong>+256 752 895 268</strong></p>
+                <p class="subtle">Mon–Fri, 9am–6pm EAT</p>
               </div>
               <div>
                 <div class="tag-label">Address</div>
-                <p><strong>Olympia Hostel, Makerere Kikoni</strong></p>
+                <p><strong>Makerere Kikoni</strong></p>
                 <p class="subtle">Kampala, Uganda</p>
               </div>
             </div>
           </div>
 
-          <div class="form-card" style="margin-top: 16px;">
+          <div class="contact-panel-card">
             <h4>Office Location</h4>
-            <iframe 
-              class="map-embed" 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.284476137873!2d32.57463!3d0.32858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc13c9c9c9c9%3A0x1!2sOlympia%20Hostel%20Makerere%20Kikoni%20Kampala!5e0!3m2!1sen!2s!4v1642000000000" 
-              allowfullscreen="" 
+            <iframe
+              class="map-embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.75!2d32.5746!3d0.3286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db9d6f8c8c8c9%3A0x0!2sMakerere%20Kikoni%2C%20Kampala!5e0!3m2!1sen!2sug!4v1642000000000"
+              allowfullscreen=""
               loading="lazy">
             </iframe>
           </div>
 
-          <div class="form-card" style="margin-top: 16px;">
-            <h4>Business Hours</h4>
+          <div class="contact-panel-card">
+            <h4>Business Hours <span class="subtle" style="font-weight:400;">(EAT)</span></h4>
             <div style="display: grid; gap: 8px; margin-top: 12px;">
               <div style="display: flex; justify-content: space-between;">
-                <span>Monday - Friday</span>
-                <strong>9:00 AM - 6:00 PM</strong>
+                <span>Monday – Friday</span>
+                <strong>9:00 AM – 6:00 PM</strong>
               </div>
               <div style="display: flex; justify-content: space-between;">
                 <span>Saturday</span>
-                <strong>10:00 AM - 4:00 PM</strong>
+                <strong>10:00 AM – 4:00 PM</strong>
               </div>
               <div style="display: flex; justify-content: space-between;">
                 <span>Sunday</span>
@@ -102,14 +95,13 @@
           </div>
         </div>
 
-        <!-- Right Side: Contact Form -->
         <div>
-          <div class="form-card">
+          <div class="contact-panel-card" id="contact-form">
             <h3>Send Us a Message</h3>
             <div class="selected-package" data-selected-package style="display: none; margin: 8px 0 4px 0;">
               <span class="badge-pill">Package chosen: <span data-package-name></span></span>
             </div>
-            <form id="contact-form" style="display: grid; gap: 16px; margin-top: 16px;">
+            <form style="display: grid; gap: 16px; margin-top: 16px;">
               <input type="hidden" id="selectedPackage" name="selectedPackage" />
               <div>
                 <label for="fullname">Full Name *</label>
@@ -131,9 +123,8 @@
                 <select id="service" name="service" required>
                   <option value="">-- Select a service --</option>
                   <option value="website">Website Development</option>
-                  <option value="branding">Graphic Design & Branding</option>
-                  <option value="software">Systems & App Development</option>
-                  <option value="ecommerce">E-commerce Solutions</option>
+                  <option value="software">Software Development (POS, Management Systems)</option>
+                  <option value="social">Social Media Growth</option>
                   <option value="general">General Inquiry</option>
                 </select>
               </div>
@@ -151,57 +142,71 @@
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-section site-section--alt">
     <div class="container">
-      <h2>Prefer other channels?</h2>
-      <div class="grid grid-3">
-        <div class="mini-card">
-          <h4>💬 Live Chat</h4>
+      <div class="site-section__header">
+        <h2>Prefer other channels?</h2>
+        <p>Reach us the way that works best for you.</p>
+      </div>
+      <div class="contact-channels-grid">
+        <div class="contact-channel-card">
+          <div class="contact-channel-card__icon"><i class="fas fa-comment-dots"></i></div>
+          <h4>Live Chat</h4>
           <p>Click the chat bubble in the bottom-right corner for instant support.</p>
         </div>
-        <div class="mini-card">
-          <h4>📱 WhatsApp</h4>
+        <div class="contact-channel-card">
+          <div class="contact-channel-card__icon"><i class="fab fa-whatsapp"></i></div>
+          <h4>WhatsApp</h4>
           <p>Message us on WhatsApp for quick replies and project updates.</p>
         </div>
-        <div class="mini-card">
-          <h4>📧 Email Support</h4>
-          <p>For detailed inquiries, email us at hello@pulsetechsolutions.com</p>
+        <div class="contact-channel-card">
+          <div class="contact-channel-card__icon"><i class="fas fa-envelope"></i></div>
+          <h4>Email Support</h4>
+          <p>For detailed inquiries, email us at pulsetechsolutions@gmail.com</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="site-section">
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="grid grid-2">
-        <div class="mini-card">
-          <h4>How long does a typical project take?</h4>
-          <p>Most websites ship in 2-4 weeks. Branding projects take 2-3 weeks. E-commerce builds range from 3-6 weeks depending on complexity.</p>
+      <div class="site-section__header">
+        <h2>Frequently asked questions</h2>
+        <p>Got questions? We've got answers.</p>
+      </div>
+      <div class="faq-showcase">
+        <div class="faq-showcase-item">
+          <h4>How much does a website cost in Kampala?</h4>
+          <p>Our website packages start from UGX 450,000 for a basic site. Business packages are UGX 750,000 and premium full-featured sites from UGX 1,500,000. Contact us for a custom quote.</p>
         </div>
-        <div class="mini-card">
-          <h4>Do you offer payment plans?</h4>
-          <p>Yes! We offer 50% upfront, 50% on completion for most projects. Custom payment schedules available for enterprise clients.</p>
+        <div class="faq-showcase-item">
+          <h4>Do you offer Mobile Money integration?</h4>
+          <p>Yes! We integrate MTN Mobile Money and Airtel Money for e-commerce websites, POS systems, and custom applications so your customers can pay seamlessly.</p>
         </div>
-        <div class="mini-card">
-          <h4>Do you work with startups?</h4>
-          <p>Yes! We offer flexible packages for early-stage founders and growing teams across Uganda.</p>
+        <div class="faq-showcase-item">
+          <h4>What does your social media growth service include?</h4>
+          <p>We handle everything: content strategy, on-site video recording, staff coaching, professional editing, and posting on TikTok, Instagram, Facebook, and X — including routine daily posting on X.</p>
         </div>
-        <div class="mini-card">
-          <h4>Can you redesign my existing website?</h4>
-          <p>Absolutely! We specialize in website redesigns and migrations. We'll audit your current site and create a modernization plan.</p>
+        <div class="faq-showcase-item">
+          <h4>How long does a website project take?</h4>
+          <p>Most websites take 2–4 weeks. Simple static sites can be done in 1–2 weeks. Complex software or e-commerce projects may take 4–8 weeks.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>Do you build POS and school management systems?</h4>
+          <p>Yes. We build custom POS systems for retail and hospitality, and school management platforms with student records, fees, and results management.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>Where are you located?</h4>
+          <p>We are based at Makerere Kikoni, Kampala, Uganda. We serve clients across Kampala and all of Uganda.</p>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<!-- Floating WhatsApp Button -->
 <div class="whatsapp-btn">
   <a href="https://wa.me/256752895268" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
-    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
+    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
   </a>
 </div>
 
@@ -218,37 +223,44 @@
 </div>
 
 <footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">
-        <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-        <div>PulseTech Solutions © 2025</div>
+  <div class="container">
+    <div class="footer-expanded">
+      <div>
+        <div class="logo logo--footer">
+          <img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" />
+        </div>
+        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
       </div>
-      <p class="subtle">PulseTech Solutions is a digital agency based in Kampala, Uganda. We specialize in website development, custom software, systems & app development, graphic design, branding, and e-commerce solutions.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <div class="grid">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
+      <div>
+        <h4>Get in Touch</h4>
+        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
+        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
+        <a href="mailto:pulsetechsolutions@gmail.com">pulsetechsolutions@gmail.com</a>
+        <a href="tel:+256752895268">+256 752 895 268</a>
+        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="projects.html">Case Studies</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Pricing</a>
+        <a href="contact.html">Free Consultation</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services/website-development.html">Website Development</a>
+        <a href="services/software-development.html">Software & POS</a>
+        <a href="services/social-media-growth.html">Social Media Growth</a>
+        <a href="contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
+        <a href="contact.html">IT Consultation</a>
       </div>
     </div>
-    <div>
-      <h4>Contact Us</h4>
-      <div class="grid">
-        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
-        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
-        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
-      </div>
-      <div class="social-row">
-        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
+    <div class="footer-bottom">
+      <p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p>
     </div>
   </div>
 </footer>

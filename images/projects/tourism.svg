@@ -1,0 +1,57 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="480"><stop offset="0%" stop-color="#F0FDFA"/><stop offset="100%" stop-color="#CCFBF1"/></linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <!-- Browser -->
+  <rect x="100" y="40" width="600" height="400" rx="12" fill="white" stroke="#99F6E4" stroke-width="2"/>
+  <rect x="100" y="40" width="600" height="36" rx="12" fill="#CCFBF1"/>
+  <circle cx="124" cy="58" r="6" fill="#FCA5A5"/><circle cx="144" cy="58" r="6" fill="#FCD34D"/><circle cx="164" cy="58" r="6" fill="#86EFAC"/>
+  <!-- Search header -->
+  <rect x="100" y="76" width="600" height="70" fill="#0D9488"/>
+  <text x="130" y="102" font-family="Arial" font-size="16" font-weight="bold" fill="white">Explore Kenya</text>
+  <rect x="130" y="115" width="400" height="24" rx="6" fill="white"/><text x="145" y="131" font-family="Arial" font-size="10" fill="#9CA3AF">Where would you like to go?</text>
+  <rect x="540" y="115" width="70" height="24" rx="6" fill="#F59E0B"/><text x="558" y="131" font-family="Arial" font-size="10" fill="white">Search</text>
+  <!-- Destination cards -->
+  <rect x="120" y="165" width="180" height="250" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="120" y="165" width="180" height="110" rx="8" fill="#FDE68A"/>
+  <!-- Lion silhouette -->
+  <g transform="translate(170, 200)">
+    <ellipse cx="40" cy="25" rx="30" ry="20" fill="#92400E" opacity="0.3"/>
+    <circle cx="40" cy="10" r="15" fill="#92400E" opacity="0.3"/>
+  </g>
+  <text x="135" y="295" font-family="Arial" font-size="13" font-weight="bold" fill="#1F2937">Maasai Mara Safari</text>
+  <text x="135" y="315" font-family="Arial" font-size="10" fill="#6B7280">Narok County</text>
+  <text x="135" y="335" font-family="Arial" font-size="10" fill="#6B7280">4.9 (230 reviews)</text>
+  <text x="135" y="360" font-family="Arial" font-size="10" fill="#6B7280">3 days, 2 nights</text>
+  <text x="135" y="385" font-family="Arial" font-size="14" font-weight="bold" fill="#0D9488">KES 45,000</text><text x="225" y="385" font-family="Arial" font-size="9" fill="#6B7280">/person</text>
+  <rect x="135" y="393" width="150" height="18" rx="4" fill="#0D9488"/><text x="185" y="406" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Book Now</text>
+
+  <rect x="310" y="165" width="180" height="250" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="310" y="165" width="180" height="110" rx="8" fill="#BFDBFE"/>
+  <!-- Beach waves -->
+  <g transform="translate(360, 200)">
+    <path d="M0 30 Q20 15 40 30 Q60 45 80 30" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+    <path d="M0 40 Q20 25 40 40 Q60 55 80 40" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+  </g>
+  <text x="325" y="295" font-family="Arial" font-size="13" font-weight="bold" fill="#1F2937">Diani Beach Resort</text>
+  <text x="325" y="315" font-family="Arial" font-size="10" fill="#6B7280">Kwale County</text>
+  <text x="325" y="335" font-family="Arial" font-size="10" fill="#6B7280">4.7 (185 reviews)</text>
+  <text x="325" y="360" font-family="Arial" font-size="10" fill="#6B7280">5 days, 4 nights</text>
+  <text x="325" y="385" font-family="Arial" font-size="14" font-weight="bold" fill="#0D9488">KES 72,000</text><text x="415" y="385" font-family="Arial" font-size="9" fill="#6B7280">/person</text>
+  <rect x="325" y="393" width="150" height="18" rx="4" fill="#0D9488"/><text x="375" y="406" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Book Now</text>
+
+  <rect x="500" y="165" width="180" height="250" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="500" y="165" width="180" height="110" rx="8" fill="#D1FAE5"/>
+  <!-- Mountain shape -->
+  <g transform="translate(540, 190)">
+    <path d="M0 60 L40 10 L60 30 L80 5 L100 60 Z" fill="#059669" opacity="0.3"/>
+    <path d="M70 5 L80 5 L85 15 L75 15 Z" fill="white" opacity="0.5"/>
+  </g>
+  <text x="515" y="295" font-family="Arial" font-size="13" font-weight="bold" fill="#1F2937">Mt. Kenya Hiking</text>
+  <text x="515" y="315" font-family="Arial" font-size="10" fill="#6B7280">Nyeri County</text>
+  <text x="515" y="335" font-family="Arial" font-size="10" fill="#6B7280">4.8 (142 reviews)</text>
+  <text x="515" y="360" font-family="Arial" font-size="10" fill="#6B7280">4 days, 3 nights</text>
+  <text x="515" y="385" font-family="Arial" font-size="14" font-weight="bold" fill="#0D9488">KES 38,000</text><text x="605" y="385" font-family="Arial" font-size="9" fill="#6B7280">/person</text>
+  <rect x="515" y="393" width="150" height="18" rx="4" fill="#0D9488"/><text x="565" y="406" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Book Now</text>
+</svg>

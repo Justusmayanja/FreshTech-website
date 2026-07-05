@@ -7,182 +7,263 @@
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+<body class="site-page">
 <header>
   <div class="container navbar">
-    <div class="logo">
-      <img src="../images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-      <div>
-        <div>PulseTech Solutions</div>
-        <div class="subtle">Bringing innovation to grow your business</div>
-      </div>
-    </div>
+    <a href="../index.html" class="logo"><img src="../images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
-      <div class="dropdown">
-        <a class="active" href="../services.html">Services ▼</a>
-        <div class="dropdown-menu">
-          <a href="website-development.html">Website Development</a>
-          <a href="graphic-branding.html">Graphic Design & Branding</a>
-          <a href="ui-ux.html">Systems & App Development</a>
-          <a href="ecommerce.html">E-commerce Solutions</a>
-        </div>
-      </div>
-      <a href="../portfolio.html">Portfolio</a>
-      <a href="../about.html">About Us</a>
-      <a href="../contact.html">Contact Us</a>
+      <a href="../products.html">Products</a>
+      <a href="../projects.html">Projects</a>
+      <a class="active" href="../services.html">Services</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call +256 752 895 268"><i class="fas fa-phone"></i></a>
+      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> +256 752 895 268</a>
+      <a href="../contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
+    </div>
+
     <div class="mobile-nav">
-      <button class="menu-toggle" data-menu-toggle>☰</button>
+      <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+  <section class="site-hero">
     <div class="container">
-      <div class="badge">Website Development</div>
-      <h1>Lightning-fast websites that convert</h1>
-      <p>We build high-performance sites with modern frameworks, optimized for speed, SEO, and user experience. From landing pages to full SaaS platforms.</p>
+      <p class="site-hero__eyebrow">Our Core Service</p>
+      <h1>Static &amp; dynamic website development</h1>
+      <p>We design and build professional websites for every kind of organisation — from simple static sites to fully dynamic platforms with dashboards, portals, and online payments.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="site-section">
     <div class="container">
-      <h2>Our website development packages</h2>
-      <p class="subtle">Choose a package that fits your project scope.</p>
-      <div class="pricing">
-        <div class="price-card">
-          <div class="badge-accent">Starter</div>
-          <p>Perfect for startups and small businesses</p>
-          <ul class="list">
-            <li>5 custom pages</li>
-            <li>Mobile responsive</li>
-            <li>Basic SEO setup</li>
-            <li>Contact form</li>
-            <li>1 month delivery</li>
-          </ul>
-          <div class="amount" style="color: var(--text); margin-top: 20px;">UGX 330,000</div>
-          <a class="btn btn-primary" href="../contact.html?package=Website%20Dev%20Starter#contact-form">Get Started</a>
+      <div class="section-header">
+        <div>
+          <div class="tag-label">What we build</div>
+          <h2>Static & dynamic websites</h2>
+          <p>Whether you need a fast brochure site or a system that updates in real time, we deliver websites tailored to how your organisation actually works.</p>
         </div>
-        <div class="price-card" style="border: 2px solid var(--cyan);">
-          <div class="badge-accent">Professional</div>
-          <p>Most popular for growing companies</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="service-icon"><i class="fas fa-file-code"></i></div>
+          <h3>Static Websites</h3>
+          <p>Fast, secure, and affordable sites perfect for organisations that need a strong online presence without complex backend systems.</p>
           <ul class="list">
-            <li>10-15 custom pages</li>
-            <li>CMS integration (Webflow/WordPress)</li>
-            <li>Advanced SEO + Analytics</li>
-            <li>Blog + dynamic content</li>
-            <li>2 months delivery</li>
-            <li>3 months support</li>
+            <li>Lightning-fast page loads</li>
+            <li>Mobile-responsive design</li>
+            <li>SEO-ready structure</li>
+            <li>Easy to host and maintain</li>
+            <li>Ideal for portfolios, landing pages & info sites</li>
           </ul>
-          <div class="amount" style="color: var(--text); margin-top: 20px;">UGX 650,000</div>
-          <a class="btn btn-primary" href="../contact.html?package=Website%20Dev%20Professional#contact-form">Get Started</a>
         </div>
-        <div class="price-card">
-          <div class="badge-accent">Enterprise</div>
-          <p>Custom solutions for large organizations</p>
+        <div class="card">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3>Dynamic Websites</h3>
+          <p>Interactive websites with admin panels, user logins, databases, and features that grow with your business.</p>
           <ul class="list">
-            <li>Unlimited pages</li>
-            <li>Headless CMS / Next.js</li>
-            <li>Custom integrations</li>
-            <li>Multi-language support</li>
-            <li>4 months delivery</li>
-            <li>12 months support</li>
+            <li>Content management systems (CMS)</li>
+            <li>User accounts & role-based access</li>
+            <li>Online forms, bookings & payments</li>
+            <li>Dashboards & reporting</li>
+            <li>API integrations & automation</li>
           </ul>
-          <div class="amount" style="color: var(--text); margin-top: 20px;">UGX 1,000,000</div>
-          <a class="btn btn-primary" href="../contact.html?package=Website%20Dev%20Enterprise#contact-form">Contact Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-section site-section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="tag-label">Industries</div>
+          <h2>Websites we build for every sector</h2>
+          <p>No matter your industry, we create websites that represent your brand and serve your audience.</p>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <div class="mini-card">
+          <h4><i class="fas fa-school"></i> Schools & Universities</h4>
+          <p>School portals, admission pages, results systems, parent communication, and academic calendars.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-building"></i> Businesses & Corporates</h4>
+          <p>Company profiles, service catalogues, client portals, and lead-generation landing pages.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-hands-helping"></i> NGOs & Nonprofits</h4>
+          <p>Donation pages, impact stories, volunteer sign-ups, and programme showcases.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-store"></i> E-commerce & Retail</h4>
+          <p>Online shops, product catalogues, shopping carts, and mobile-money payment integration.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-hospital"></i> Hospitals & Clinics</h4>
+          <p>Appointment booking, doctor directories, patient information, and service listings.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-utensils"></i> Restaurants & Hotels</h4>
+          <p>Menus, online reservations, gallery showcases, and delivery ordering systems.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-church"></i> Churches & Institutions</h4>
+          <p>Event calendars, sermon archives, membership info, and community outreach pages.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-home"></i> Real Estate & Property</h4>
+          <p>Property listings, search filters, agent profiles, and inquiry forms.</p>
+        </div>
+        <div class="mini-card">
+          <h4><i class="fas fa-landmark"></i> Government & Public Sector</h4>
+          <p>Information portals, service directories, document downloads, and public notices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-section">
     <div class="container">
       <h2>Our development process</h2>
-      <p class="subtle">A proven 5-step workflow from discovery to launch.</p>
+      <p class="subtle">A proven workflow from discovery to launch.</p>
       <div class="timeline">
         <div class="timeline-step">
-          <h4>1. Discovery & Strategy</h4>
-          <p>Kickoff call, competitor analysis, sitemap, and content planning.</p>
+          <h4>1. Discovery & Planning</h4>
+          <p>We learn your goals, audience, and requirements — then plan the site structure and features.</p>
         </div>
         <div class="timeline-step">
-          <h4>2. Design Mockups</h4>
-          <p>High-fidelity designs in Figma with device mockups (desktop + mobile).</p>
+          <h4>2. Design</h4>
+          <p>Modern, mobile-first designs that reflect your brand and work beautifully on every device.</p>
         </div>
         <div class="timeline-step">
           <h4>3. Development</h4>
-          <p>Clean code in Next.js/Webflow/WordPress. CMS setup and integrations.</p>
+          <p>Clean, reliable code — static HTML/CSS/JS or dynamic systems with databases and admin panels.</p>
         </div>
         <div class="timeline-step">
-          <h4>4. Testing & QA</h4>
-          <p>Cross-browser testing, performance audit, SEO validation.</p>
+          <h4>4. Testing & Launch</h4>
+          <p>Thorough testing across devices and browsers, then deployment with domain and SSL setup.</p>
         </div>
         <div class="timeline-step">
-          <h4>5. Launch & Support</h4>
-          <p>Domain setup, SSL, analytics, and post-launch monitoring.</p>
+          <h4>5. Support</h4>
+          <p>Post-launch support, updates, and training so your team can manage the site confidently.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="site-section site-section--alt">
     <div class="container">
-      <h2>Tech stack we use</h2>
-      <div class="chip-row">
-        <span class="chip">Next.js</span>
-        <span class="chip">React</span>
-        <span class="chip">Webflow</span>
-        <span class="chip">WordPress</span>
-        <span class="chip">Tailwind CSS</span>
-        <span class="chip">Vercel</span>
-        <span class="chip">Netlify</span>
-        <span class="chip">Sanity CMS</span>
+      <h2>Website development packages</h2>
+      <p class="subtle">Transparent pricing in UGX. No hidden costs.</p>
+      <div class="pricing" style="margin-top: 28px;">
+        <div class="price-card">
+          <div class="badge-accent">Starter</div>
+          <p>Perfect for small businesses getting online</p>
+          <ul class="list">
+            <li>Up to 5 pages</li>
+            <li>Mobile responsive design</li>
+            <li>Basic SEO setup</li>
+            <li>Contact form</li>
+            <li>Social media links</li>
+            <li>30 days support</li>
+          </ul>
+          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 450,000</div>
+          <a class="btn btn-primary" href="../contact.html?package=Website%20Starter#contact-form">Choose Package</a>
+          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
+        </div>
+        <div class="price-card featured">
+          <span class="popular-badge">Most Popular</span>
+          <div class="badge-accent">Business</div>
+          <p>Ideal for growing organisations</p>
+          <ul class="list">
+            <li>Up to 10 pages</li>
+            <li>Dynamic CMS</li>
+            <li>Advanced SEO</li>
+            <li>WhatsApp integration</li>
+            <li>Google Analytics</li>
+            <li>60 days support</li>
+          </ul>
+          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 750,000</div>
+          <a class="btn btn-primary" href="../contact.html?package=Website%20Business#contact-form">Choose Package</a>
+          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
+        </div>
+        <div class="price-card">
+          <div class="badge-accent">Premium</div>
+          <p>Full-featured for established businesses</p>
+          <ul class="list">
+            <li>Unlimited pages</li>
+            <li>E-commerce capabilities</li>
+            <li>Mobile Money integration</li>
+            <li>Custom features & APIs</li>
+            <li>Admin dashboard</li>
+            <li>90 days support</li>
+          </ul>
+          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 1,500,000</div>
+          <a class="btn btn-primary" href="../contact.html?package=Website%20Premium#contact-form">Choose Package</a>
+          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-cta">
     <div class="container">
       <h2>Ready to build your website?</h2>
-      <p>Let's discuss your project and find the perfect package.</p>
-      <a class="btn btn-primary" href="../contact.html?package=Website%20Development%20Inquiry#contact-form">Schedule a Call</a>
+      <p>Tell us about your organisation and we'll recommend the right approach — static or dynamic.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="../contact.html?package=Website%20Development%20Inquiry#contact-form">Get a Free Quote</a>
+        <a class="btn btn-outline" href="../products.html">View Packages</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">
-        <img src="../images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-        <div>PulseTech Solutions © 2025</div>
+  <div class="container">
+    <div class="footer-expanded">
+      <div>
+        <div class="logo logo--footer">
+          <img src="../images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" />
+        </div>
+        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
       </div>
-      <p class="subtle">PulseTech Solutions is a digital agency based in Kampala, Uganda. We specialize in website development, custom software, systems & app development, graphic design, branding, and e-commerce solutions.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <div class="grid">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Services</a>
-        <a href="../portfolio.html">Portfolio</a>
+      <div>
+        <h4>Get in Touch</h4>
+        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
+        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
+        <a href="mailto:pulsetechsolutions@gmail.com">pulsetechsolutions@gmail.com</a>
+        <a href="tel:+256752895268">+256 752 895 268</a>
+        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
         <a href="../about.html">About Us</a>
-        <a href="../contact.html">Contact Us</a>
+        <a href="../projects.html">Our Projects</a>
+        <a href="../projects.html">Case Studies</a>
+        <a href="../services.html">Services</a>
+        <a href="../contact.html">Pricing</a>
+        <a href="../contact.html">Free Consultation</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="website-development.html">Website Development</a>
+        <a href="software-development.html">Software & POS</a>
+        <a href="social-media-growth.html">Social Media Growth</a>
+        <a href="../contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
+        <a href="../contact.html">IT Consultation</a>
       </div>
     </div>
-    <div>
-      <h4>Contact Us</h4>
-      <div class="grid">
-        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
-        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
-        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
-      </div>
-      <div class="social-row">
-        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
+    <div class="footer-bottom">
+      <p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p>
     </div>
   </div>
 </footer>

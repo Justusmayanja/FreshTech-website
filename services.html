@@ -3,177 +3,364 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services | PulseTech Solutions</title>
+  <title>Our Services | PulseTech Solutions — Kampala</title>
+  <meta name="description" content="Website development, software, Mobile Money integration, social media growth, and IT consultation in Kampala — transparent UGX pricing from PulseTech Solutions." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+<body class="site-page services-page">
 <header>
   <div class="container navbar">
-    <div class="logo">
-      <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-      <div>
-        <div>PulseTech Solutions</div>
-        <div class="subtle">Bringing innovation to grow your business</div>
-      </div>
-    </div>
+    <a href="index.html" class="logo"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a class="active" href="services.html">Services ▼</a>
-        <div class="dropdown-menu">
-          <a href="services/website-development.html">Website Development</a>
-          <a href="services/graphic-branding.html">Graphic Design & Branding</a>
-          <a href="services/ui-ux.html">Systems & App Development</a>
-          <a href="services/ecommerce.html">E-commerce Solutions</a>
-        </div>
-      </div>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call +256 752 895 268"><i class="fas fa-phone"></i></a>
+      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> +256 752 895 268</a>
+      <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
+    </div>
     <div class="mobile-nav">
-      <button class="menu-toggle" data-menu-toggle>☰</button>
+      <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+  <section class="products-hero">
     <div class="container">
-      <div class="badge">Full-service digital agency</div>
-      <h1>Services that scale your brand</h1>
-      <p>From concept to conversion, we build digital products that perform. Choose from our core services or bundle them for maximum impact.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="grid grid-2">
-        <div class="card">
-          <div class="service-icon">W</div>
-          <h3>Website Development</h3>
-          <p>High-performance websites built with modern frameworks (Next.js, Webflow, WordPress). SEO-optimized, lightning-fast, fully responsive.</p>
-          <ul class="list">
-            <li>Custom CMS integration</li>
-            <li>Core Web Vitals optimized</li>
-            <li>Mobile-first responsive</li>
-            <li>Analytics & tracking setup</li>
-          </ul>
-          <a class="btn btn-primary" href="services/website-development.html">Learn More</a>
-        </div>
-        <div class="card">
-          <div class="service-icon">G</div>
-          <h3>Graphic Design & Branding</h3>
-          <p>Logo design, brand identity systems, print collateral, and social media assets. Complete visual language for your business.</p>
-          <ul class="list">
-            <li>Logo suite + variations</li>
-            <li>Brand guidelines</li>
-            <li>Marketing materials</li>
-            <li>Social media templates</li>
-          </ul>
-          <a class="btn btn-primary" href="services/graphic-branding.html">Learn More</a>
-        </div>
-        <div class="card">
-          <div class="service-icon">U</div>
-          <h3>UI/UX Design</h3>
-          <p>User research, wireframes, high-fidelity prototypes, and design systems. Conversion-focused interfaces that users love.</p>
-          <ul class="list">
-            <li>User research & personas</li>
-            <li>Wireframes & flows</li>
-            <li>Interactive prototypes</li>
-            <li>Design system libraries</li>
-          </ul>
-          <a class="btn btn-primary" href="services/ui-ux.html">Learn More</a>
-        </div>
-        <div class="card">
-          <div class="service-icon">E</div>
-          <h3>E-commerce Solutions</h3>
-          <p>Complete online stores on Shopify, WooCommerce, or headless commerce. Optimized checkout flows and conversion funnels.</p>
-          <ul class="list">
-            <li>Shopify/WooCommerce setup</li>
-            <li>Product page optimization</li>
-            <li>Payment gateway integration</li>
-            <li>Inventory management</li>
-          </ul>
-          <a class="btn btn-primary" href="services/ecommerce.html">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: var(--gray-100);">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Why choose PulseTech?</h2>
-          <p>We combine agency-grade design with developer-level execution.</p>
-        </div>
-      </div>
-      <div class="grid grid-3">
-        <div class="mini-card">
-          <h4>Fast turnaround</h4>
-          <p>Most projects ship in 2-4 weeks with milestone reviews.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Conversion-first</h4>
-          <p>Every design decision is backed by UX research and A/B testing.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Device mockups</h4>
-          <p>All web projects showcased on realistic iPhone/MacBook/iPad mockups.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Ready to start?</h2>
-      <p>Book a free 30-min strategy call to discuss your project.</p>
+      <p class="products-hero__eyebrow">Makerere Kikoni · Kampala, Uganda</p>
+      <h1>Everything Your Organisation Needs to Succeed Online</h1>
+      <p>Comprehensive digital solutions to help your business, school, or institution thrive in Uganda's digital world.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="contact.html">Get Started</a>
-        <a class="btn btn-outline" href="portfolio.html">View Portfolio</a>
+        <a class="btn btn-outline" href="#pricing">View Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="container">
+      <div class="products-section__header">
+        <h2>What We Offer</h2>
+        <p>Professional services designed to transform your organisation digitally</p>
+      </div>
+      <div class="services-offer-grid">
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 450,000</p>
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h3>Website &amp; Software Development</h3>
+          <p class="services-offer-card__desc">Custom websites and business software built with modern, reliable technologies.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> Responsive web design</li>
+            <li><i class="fas fa-check"></i> Static &amp; dynamic websites</li>
+            <li><i class="fas fa-check"></i> School &amp; NGO portals</li>
+            <li><i class="fas fa-check"></i> E-commerce platforms</li>
+            <li><i class="fas fa-check"></i> Content management systems</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Website%20Development#contact-form">Get a Quote</a>
+        </article>
+
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 170,000</p>
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Mobile Money &amp; API Integration</h3>
+          <p class="services-offer-card__desc">Seamless payment connections and automated processes for your digital platforms.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> MTN Mobile Money integration</li>
+            <li><i class="fas fa-check"></i> Airtel Money integration</li>
+            <li><i class="fas fa-check"></i> E-commerce checkout flows</li>
+            <li><i class="fas fa-check"></i> Third-party service connections</li>
+            <li><i class="fas fa-check"></i> Custom API development</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Mobile%20Money%20Integration#contact-form">Get a Quote</a>
+        </article>
+
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 450,000</p>
+          <div class="service-icon"><i class="fas fa-sitemap"></i></div>
+          <h3>Management Systems &amp; POS</h3>
+          <p class="services-offer-card__desc">Custom business systems tailored for schools, retail, finance, and daily operations.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> POS system setup</li>
+            <li><i class="fas fa-check"></i> School management platforms</li>
+            <li><i class="fas fa-check"></i> Team training included</li>
+            <li><i class="fas fa-check"></i> Workflow optimisation</li>
+            <li><i class="fas fa-check"></i> Data migration support</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Software%20Development#contact-form">Get a Quote</a>
+        </article>
+
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 120,000 <span>/ month</span></p>
+          <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+          <h3>Social Media Growth</h3>
+          <p class="services-offer-card__desc">Full-service social media management to grow your visibility across Uganda.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> TikTok, Instagram, Facebook &amp; X</li>
+            <li><i class="fas fa-check"></i> On-site filming &amp; editing</li>
+            <li><i class="fas fa-check"></i> Staff coaching on camera</li>
+            <li><i class="fas fa-check"></i> Daily routine posting on X</li>
+            <li><i class="fas fa-check"></i> Monthly strategy reviews</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Social%20Media%20Growth#contact-form">Get a Quote</a>
+        </article>
+
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 120,000 <span>/ month</span></p>
+          <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Digital Marketing</h3>
+          <p class="services-offer-card__desc">Grow your online presence and reach more customers across Kampala and Uganda.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> SEO optimisation for Uganda</li>
+            <li><i class="fas fa-check"></i> Social media management</li>
+            <li><i class="fas fa-check"></i> Content creation</li>
+            <li><i class="fas fa-check"></i> Facebook &amp; Instagram ads</li>
+            <li><i class="fas fa-check"></i> Google Ads management</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Digital%20Marketing#contact-form">Get a Quote</a>
+        </article>
+
+        <article class="services-offer-card">
+          <p class="services-offer-card__price-label">Starting at</p>
+          <p class="services-offer-card__price">UGX 80,000</p>
+          <div class="service-icon"><i class="fas fa-headset"></i></div>
+          <h3>IT Consultation</h3>
+          <p class="services-offer-card__desc">Expert guidance for your digital transformation and technology decisions.</p>
+          <p class="services-offer-card__includes">What's Included:</p>
+          <ul class="services-offer-card__features">
+            <li><i class="fas fa-check"></i> Website redesign consulting</li>
+            <li><i class="fas fa-check"></i> Technology stack selection</li>
+            <li><i class="fas fa-check"></i> Digital strategy planning</li>
+            <li><i class="fas fa-check"></i> Infrastructure assessment</li>
+            <li><i class="fas fa-check"></i> Security audits</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=IT%20Consultation#contact-form">Get a Quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section products-section--alt">
+    <div class="container">
+      <div class="products-section__header">
+        <h2>How We Deliver</h2>
+        <p>Our proven 4-step process ensures successful delivery every time</p>
+      </div>
+      <div class="services-process-grid">
+        <div class="services-process-step">
+          <div class="services-process-step__num">1</div>
+          <h4>Discovery &amp; Planning</h4>
+          <p>We start with a detailed consultation to understand your goals, challenges, and requirements — then create a clear project plan.</p>
+        </div>
+        <div class="services-process-step">
+          <div class="services-process-step__num">2</div>
+          <h4>Design &amp; Development</h4>
+          <p>Our team designs and builds your solution using proven technologies, with regular updates and your feedback throughout.</p>
+        </div>
+        <div class="services-process-step">
+          <div class="services-process-step__num">3</div>
+          <h4>Testing &amp; Quality Assurance</h4>
+          <p>Rigorous testing across devices and browsers ensures everything works flawlessly — performance, security, and user experience.</p>
+        </div>
+        <div class="services-process-step">
+          <div class="services-process-step__num">4</div>
+          <h4>Launch &amp; Support</h4>
+          <p>We handle deployment and launch, then provide training, documentation, and ongoing support for long-term success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="pricing">
+    <div class="container">
+      <div class="products-section__header">
+        <h2>Flexible Pricing</h2>
+        <p>Website packages for every organisation size. Transparent pricing with no hidden costs.</p>
+      </div>
+      <div class="package-grid">
+        <article class="package-card">
+          <div class="package-card__head">
+            <h3>Starter</h3>
+            <p>Perfect for small businesses getting started online</p>
+            <div class="package-card__price">UGX 450,000</div>
+          </div>
+          <ul class="package-card__features">
+            <li><i class="fas fa-check"></i> Up to 5 pages</li>
+            <li><i class="fas fa-check"></i> Mobile responsive design</li>
+            <li><i class="fas fa-check"></i> Hosting setup guidance</li>
+            <li><i class="fas fa-check"></i> Domain registration help</li>
+            <li><i class="fas fa-check"></i> Basic SEO optimisation</li>
+            <li><i class="fas fa-check"></i> Contact form</li>
+            <li><i class="fas fa-check"></i> Social media integration</li>
+            <li><i class="fas fa-check"></i> 30 days support</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Website%20Starter#contact-form">Choose This Package</a>
+        </article>
+        <article class="package-card package-card--featured">
+          <span class="package-card__badge">Most Popular</span>
+          <div class="package-card__head">
+            <h3>Business</h3>
+            <p>Ideal for growing organisations across Uganda</p>
+            <div class="package-card__price">UGX 750,000</div>
+          </div>
+          <ul class="package-card__features">
+            <li><i class="fas fa-check"></i> Up to 10 pages</li>
+            <li><i class="fas fa-check"></i> Advanced responsive design</li>
+            <li><i class="fas fa-check"></i> Hosting setup guidance</li>
+            <li><i class="fas fa-check"></i> Domain registration help</li>
+            <li><i class="fas fa-check"></i> Advanced SEO optimisation</li>
+            <li><i class="fas fa-check"></i> Multiple contact forms</li>
+            <li><i class="fas fa-check"></i> Google Analytics setup</li>
+            <li><i class="fas fa-check"></i> WhatsApp integration</li>
+            <li><i class="fas fa-check"></i> 60 days support</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Website%20Business#contact-form">Choose This Package</a>
+        </article>
+        <article class="package-card">
+          <div class="package-card__head">
+            <h3>Premium</h3>
+            <p>Full-featured solution for established businesses</p>
+            <div class="package-card__price">UGX 1,500,000</div>
+          </div>
+          <ul class="package-card__features">
+            <li><i class="fas fa-check"></i> Unlimited pages</li>
+            <li><i class="fas fa-check"></i> Custom design &amp; features</li>
+            <li><i class="fas fa-check"></i> Hosting setup guidance</li>
+            <li><i class="fas fa-check"></i> Domain registration help</li>
+            <li><i class="fas fa-check"></i> E-commerce capabilities</li>
+            <li><i class="fas fa-check"></i> Mobile Money integration</li>
+            <li><i class="fas fa-check"></i> Payment gateway setup</li>
+            <li><i class="fas fa-check"></i> API integrations</li>
+            <li><i class="fas fa-check"></i> Content management system</li>
+            <li><i class="fas fa-check"></i> 90 days support</li>
+            <li><i class="fas fa-check"></i> 3 months free maintenance</li>
+          </ul>
+          <a class="btn btn-outline" href="contact.html?package=Website%20Premium#contact-form">Choose This Package</a>
+        </article>
+      </div>
+      <p class="products-note">Flexible payment: 50% deposit, 50% before launch</p>
+    </div>
+  </section>
+
+  <section class="products-section products-section--alt">
+    <div class="container">
+      <div class="products-callout services-callout">
+        <div class="products-callout__icon"><i class="fas fa-puzzle-piece"></i></div>
+        <h2>Need a Custom Solution?</h2>
+        <p>Every organisation is unique. Let's discuss your specific requirements and create a custom package that perfectly fits your needs and budget.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="contact.html">Request Custom Quote</a>
+          <a class="btn btn-outline" href="https://wa.me/256752895268" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="container">
+      <div class="products-section__header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about our services</p>
+      </div>
+      <div class="faq-showcase">
+        <div class="faq-showcase-item">
+          <h4>What services do you offer?</h4>
+          <p>We offer website development, custom software &amp; POS systems, Mobile Money integration, social media growth, digital marketing (SEO, social media, ads), and IT consultation. Each service is customised to meet your organisation's needs across Uganda.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>Can you integrate Mobile Money and other payment systems?</h4>
+          <p>Absolutely! We specialise in MTN Mobile Money and Airtel Money integration for websites, e-commerce stores, and custom software — with secure payment flows, proper error handling, and testing before go-live.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>Do you provide software setup and training?</h4>
+          <p>Yes! We implement school management systems, POS platforms, and custom business software tailored to your workflow. Our service includes setup, data migration where needed, and hands-on team training so your staff can use the system confidently.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>What is included in your digital marketing service?</h4>
+          <p>Our digital marketing service includes SEO optimisation for the Ugandan market, social media management (Facebook, Instagram, TikTok, X), content creation, paid advertising campaigns, performance tracking, and monthly reports to help you reach more customers.</p>
+        </div>
+        <div class="faq-showcase-item">
+          <h4>Do you offer maintenance and support after project completion?</h4>
+          <p>Yes, we provide ongoing maintenance and support. All packages include initial support (30–90 days depending on the package). After that, we offer flexible maintenance plans covering updates, security, backups, and technical support. Our Premium package includes 3 months of free maintenance.</p>
+        </div>
+      </div>
+      <p class="services-faq-footer">Have more questions? We're here to help! <a href="contact.html">Contact Us</a></p>
+    </div>
+  </section>
+
+  <section class="products-cta">
+    <div class="container">
+      <h2>Let's Build Something Great</h2>
+      <p>Ready to transform your organisation with technology? Get in touch today and let's discuss how we can help you achieve your goals.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html">Get Started Today</a>
+        <a class="btn btn-outline" href="products.html">View All Packages</a>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">
-        <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-        <div>PulseTech Solutions © 2025</div>
+  <div class="container">
+    <div class="footer-expanded">
+      <div>
+        <div class="logo logo--footer"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" /></div>
+        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
       </div>
-      <p class="subtle">PulseTech Solutions is a digital agency based in Kampala, Uganda. We specialize in website development, custom software, systems & app development, graphic design, branding, and e-commerce solutions.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <div class="grid">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
+      <div>
+        <h4>Get in Touch</h4>
+        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
+        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
+        <a href="mailto:pulsetechsolutions@gmail.com">pulsetechsolutions@gmail.com</a>
+        <a href="tel:+256752895268">+256 752 895 268</a>
+        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="projects.html">Case Studies</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Pricing</a>
+        <a href="contact.html">Free Consultation</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services/website-development.html">Website Development</a>
+        <a href="services/software-development.html">Software &amp; POS</a>
+        <a href="services/social-media-growth.html">Social Media Growth</a>
+        <a href="contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
+        <a href="contact.html">IT Consultation</a>
       </div>
     </div>
-    <div>
-      <h4>Contact Us</h4>
-      <div class="grid">
-        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
-        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
-        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
-      </div>
-      <div class="social-row">
-        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
+    <div class="footer-bottom"><p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p></div>
   </div>
 </footer>
+
+<div class="whatsapp-btn">
+  <a href="https://wa.me/256752895268" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
+  </a>
+</div>
 
 <script src="js/main.js"></script>
 </body>

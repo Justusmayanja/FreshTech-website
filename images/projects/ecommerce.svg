@@ -1,0 +1,35 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="480"><stop offset="0%" stop-color="#EEF2FF"/><stop offset="100%" stop-color="#E0E7FF"/></linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <!-- Browser window -->
+  <rect x="150" y="60" width="500" height="350" rx="12" fill="white" stroke="#C7D2FE" stroke-width="2"/>
+  <rect x="150" y="60" width="500" height="36" rx="12" fill="#E0E7FF"/>
+  <circle cx="174" cy="78" r="6" fill="#FCA5A5"/><circle cx="194" cy="78" r="6" fill="#FCD34D"/><circle cx="214" cy="78" r="6" fill="#86EFAC"/>
+  <!-- Product cards -->
+  <rect x="180" y="120" width="140" height="160" rx="8" fill="#F5F3FF" stroke="#C7D2FE" stroke-width="1"/>
+  <rect x="190" y="130" width="120" height="80" rx="4" fill="#C7D2FE"/>
+  <rect x="190" y="220" width="80" height="10" rx="2" fill="#6366F1" opacity="0.3"/>
+  <rect x="190" y="240" width="50" height="14" rx="4" fill="#db1a1a"/>
+  <text x="200" y="252" font-family="Arial" font-size="10" fill="white">KES 2,500</text>
+  <rect x="340" y="120" width="140" height="160" rx="8" fill="#F5F3FF" stroke="#C7D2FE" stroke-width="1"/>
+  <rect x="350" y="130" width="120" height="80" rx="4" fill="#C7D2FE"/>
+  <rect x="350" y="220" width="80" height="10" rx="2" fill="#6366F1" opacity="0.3"/>
+  <rect x="350" y="240" width="50" height="14" rx="4" fill="#db1a1a"/>
+  <text x="360" y="252" font-family="Arial" font-size="10" fill="white">KES 4,800</text>
+  <rect x="500" y="120" width="140" height="160" rx="8" fill="#F5F3FF" stroke="#C7D2FE" stroke-width="1"/>
+  <rect x="510" y="130" width="120" height="80" rx="4" fill="#C7D2FE"/>
+  <rect x="510" y="220" width="80" height="10" rx="2" fill="#6366F1" opacity="0.3"/>
+  <rect x="510" y="240" width="50" height="14" rx="4" fill="#db1a1a"/>
+  <text x="520" y="252" font-family="Arial" font-size="10" fill="white">KES 1,200</text>
+  <!-- Shopping cart icon -->
+  <g transform="translate(350, 310)">
+    <circle cx="45" cy="40" r="8" fill="none" stroke="#db1a1a" stroke-width="3"/>
+    <circle cx="85" cy="40" r="8" fill="none" stroke="#db1a1a" stroke-width="3"/>
+    <path d="M10 0 L25 0 L40 30 L90 30 L100 10 L35 10" fill="none" stroke="#db1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- M-Pesa badge -->
+  <rect x="590" y="340" width="80" height="30" rx="6" fill="#4CAF50"/>
+  <text x="630" y="360" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="white">M-PESA</text>
+</svg>

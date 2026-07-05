@@ -1,0 +1,39 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="480"><stop offset="0%" stop-color="#FFF1F2"/><stop offset="100%" stop-color="#FFE4E6"/></linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <!-- Dashboard -->
+  <rect x="120" y="50" width="560" height="380" rx="12" fill="white" stroke="#FECACA" stroke-width="2"/>
+  <rect x="120" y="50" width="560" height="36" rx="12" fill="#FFE4E6"/>
+  <circle cx="144" cy="68" r="6" fill="#FCA5A5"/><circle cx="164" cy="68" r="6" fill="#FCD34D"/><circle cx="184" cy="68" r="6" fill="#86EFAC"/>
+  <!-- Sidebar -->
+  <rect x="120" y="86" width="120" height="344" fill="#FFF1F2"/>
+  <rect x="130" y="100" width="100" height="24" rx="4" fill="#db1a1a"/><text x="145" y="116" font-family="Arial" font-size="10" fill="white">Dashboard</text>
+  <text x="145" y="148" font-family="Arial" font-size="10" fill="#6B7280">Patients</text>
+  <text x="145" y="172" font-family="Arial" font-size="10" fill="#6B7280">Appointments</text>
+  <text x="145" y="196" font-family="Arial" font-size="10" fill="#6B7280">Prescriptions</text>
+  <text x="145" y="220" font-family="Arial" font-size="10" fill="#6B7280">Billing</text>
+  <!-- Stats -->
+  <rect x="260" y="100" width="130" height="65" rx="8" fill="#FFF1F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="275" y="120" font-family="Arial" font-size="10" fill="#6B7280">Today's Patients</text>
+  <text x="275" y="148" font-family="Arial" font-size="22" font-weight="bold" fill="#db1a1a">47</text>
+  <rect x="410" y="100" width="130" height="65" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="425" y="120" font-family="Arial" font-size="10" fill="#6B7280">Appointments</text>
+  <text x="425" y="148" font-family="Arial" font-size="22" font-weight="bold" fill="#10B981">23</text>
+  <rect x="560" y="100" width="100" height="65" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="572" y="120" font-family="Arial" font-size="10" fill="#6B7280">Revenue</text>
+  <text x="572" y="148" font-family="Arial" font-size="16" font-weight="bold" fill="#193d77">KES 340K</text>
+  <!-- Patient list -->
+  <rect x="260" y="180" width="400" height="180" rx="8" fill="#FAFAFA" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="275" y="205" font-family="Arial" font-size="12" font-weight="bold" fill="#374151">Recent Patients</text>
+  <line x1="260" y1="215" x2="660" y2="215" stroke="#E5E7EB"/>
+  <circle cx="285" cy="238" r="12" fill="#FECACA"/><text x="305" y="235" font-family="Arial" font-size="11" fill="#374151">Jane Wanjiku</text><text x="305" y="250" font-family="Arial" font-size="9" fill="#9CA3AF">General Checkup</text><rect x="590" y="228" width="55" height="20" rx="4" fill="#ECFDF5"/><text x="598" y="242" font-family="Arial" font-size="9" fill="#10B981">Completed</text>
+  <circle cx="285" cy="278" r="12" fill="#BFDBFE"/><text x="305" y="275" font-family="Arial" font-size="11" fill="#374151">John Kamau</text><text x="305" y="290" font-family="Arial" font-size="9" fill="#9CA3AF">Dental Appointment</text><rect x="590" y="268" width="55" height="20" rx="4" fill="#FEF3C7"/><text x="600" y="282" font-family="Arial" font-size="9" fill="#F59E0B">Waiting</text>
+  <circle cx="285" cy="318" r="12" fill="#C7D2FE"/><text x="305" y="315" font-family="Arial" font-size="11" fill="#374151">Mary Atieno</text><text x="305" y="330" font-family="Arial" font-size="9" fill="#9CA3AF">Lab Results</text><rect x="590" y="308" width="55" height="20" rx="4" fill="#FEE2E2"/><text x="598" y="322" font-family="Arial" font-size="9" fill="#db1a1a">Pending</text>
+  <!-- Medical cross -->
+  <g transform="translate(700, 380)" opacity="0.15">
+    <rect x="15" y="0" width="20" height="50" rx="4" fill="#db1a1a"/>
+    <rect x="0" y="15" width="50" height="20" rx="4" fill="#db1a1a"/>
+  </g>
+</svg>

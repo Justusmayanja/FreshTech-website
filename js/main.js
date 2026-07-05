@@ -95,7 +95,10 @@ document.querySelectorAll('.carousel').forEach((c) => {
 });
 
 // Contact form — package prefill from URL
-const contactForm = document.getElementById('contact-form');
+const contactFormRoot = document.getElementById('contact-form');
+const contactForm = contactFormRoot?.tagName === 'FORM'
+  ? contactFormRoot
+  : contactFormRoot?.querySelector('form');
 if (contactForm) {
   const packageBadge = document.querySelector('[data-selected-package]');
   const packageNameSlot = document.querySelector('[data-package-name]');
@@ -111,10 +114,9 @@ if (contactForm) {
     if (packageHidden) packageHidden.value = decoded;
     if (serviceSelect) {
       const lower = decoded.toLowerCase();
-      if (lower.includes('brand')) serviceSelect.value = 'branding';
+      if (lower.includes('social') || lower.includes('media')) serviceSelect.value = 'social';
+      else if (lower.includes('software') || lower.includes('pos') || lower.includes('management')) serviceSelect.value = 'software';
       else if (lower.includes('web')) serviceSelect.value = 'website';
-      else if (lower.includes('app') || lower.includes('system')) serviceSelect.value = 'software';
-      else if (lower.includes('commerce')) serviceSelect.value = 'ecommerce';
     }
   } else if (packageHidden) {
     packageHidden.value = '';
@@ -158,6 +160,11 @@ if (contactForm) {
   });
 }
 
+// Copyright year — updates automatically
+document.querySelectorAll('.copyright-year').forEach((el) => {
+  el.textContent = String(new Date().getFullYear());
+});
+
 // Broken image fallback
 (function ensureAllImages() {
   const imgs = document.querySelectorAll('img');
@@ -167,7 +174,7 @@ if (contactForm) {
       img.dataset.fallbackApplied = '1';
       img.onerror = null;
       img.style.objectFit = 'cover';
-      img.style.background = 'linear-gradient(145deg, var(--navy-2), var(--navy))';
+      img.style.background = 'var(--navy)';
     };
     img.addEventListener('error', setFallback);
     if (img.complete && img.naturalWidth === 0) setFallback();

@@ -3,35 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | PulseTech Solutions</title>
+  <title>About | PulseTech Solutions</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+<body class="site-page about-page">
 <header>
   <div class="container navbar">
-    <div class="logo">
-      <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-      <div>
-        <div>PulseTech Solutions</div>
-        <div class="subtle">Bringing innovation to grow your business</div>
-      </div>
-    </div>
+    <a href="index.html" class="logo"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="services.html">Services ▼</a>
-        <div class="dropdown-menu">
-          <a href="services/website-development.html">Website Development</a>
-          <a href="services/graphic-branding.html">Graphic Design & Branding</a>
-          <a href="services/ui-ux.html">Systems & App Development</a>
-          <a href="services/ecommerce.html">E-commerce Solutions</a>
-        </div>
-      </div>
-      <a href="portfolio.html">Portfolio</a>
-      <a class="active" href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a class="active" href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call +256 752 895 268"><i class="fas fa-phone"></i></a>
+      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> +256 752 895 268</a>
+      <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
+    </div>
+
     <div class="mobile-nav">
       <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
     </div>
@@ -39,193 +33,250 @@
 </header>
 
 <main>
-  <section class="hero" style="background: linear-gradient(rgba(10, 26, 47, 0.85), rgba(10, 26, 47, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=600&fit=crop') center/cover; color: white; padding: 100px 0;">
+  <section class="site-hero">
     <div class="container">
-      <div class="badge">About PulseTech</div>
-      <h1>Building digital futures since 2020</h1>
-      <p>We're a Kampala-based digital agency. We design websites, build software, and craft brand identities that help businesses grow.</p>
+      <p class="site-hero__eyebrow">Makerere Kikoni · Kampala</p>
+      <h1>Your digital partner in Kampala</h1>
+      <p>Based in Makerere Kikoni — we help organisations get online with professional websites, run smarter with custom software, and grow their audience through full-service social media management.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid grid-2">
-        <div>
-          <h2>Our Story: From a Senior Six Vacation Dream to Empowering Businesses with Tech</h2>
-          <p>It all began during my Senior Six vacation in the bustling streets of Kampala. Surrounded by vibrant markets and ambitious entrepreneurs, I noticed a growing need: businesses everywhere were struggling to thrive in a digital world. Many lacked professional online presence, stunning branding, or reliable software tools to reach more customers. That spark ignited something in me—I decided to take action.</p>
-          <p>Inspired, I dove headfirst into learning website development. What started as late-night coding sessions turned into a full passion. This drive led me to pursue a Bachelor of Science in Software Engineering at the prestigious Makerere University, where I honed my skills in building powerful, user-friendly digital solutions.</p>
-          <p>Today, PulseTech Solutions is more than a company—it's a mission to uplift Ugandan businesses through cutting-edge technology. We craft beautiful, high-performing websites, eye-catching graphics and branding, and custom software and mobile app solutions tailored to each client's needs.</p>
-        </div>
-        <div>
-          <div class="image-collage" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px 220px; gap: 12px; min-height: 684px;">
-            <div style="grid-column: 1 / span 2; overflow: hidden; border-radius: 12px;">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=440&fit=crop" alt="Team strategy session" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-            </div>
-            <div style="overflow: hidden; border-radius: 12px;">
-              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=440&fit=crop" alt="Developer coding a website" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-            </div>
-            <div style="overflow: hidden; border-radius: 12px;">
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=440&fit=crop" alt="Design desk with brand assets" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-            </div>
-            <div style="overflow: hidden; border-radius: 12px;">
-              <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=600&h=440&fit=crop" alt="UX workshop with sticky notes" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-            </div>
-            <div style="overflow: hidden; border-radius: 12px;">
-              <img src="images/computer2.jpg" alt="Web development workspace" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-            </div>
-          </div>
+  <section class="site-section">
+    <div class="container about-split">
+      <div>
+        <p class="site-hero__eyebrow" style="text-align:left;">Who we are</p>
+        <h2>A focused team for websites, software &amp; social media</h2>
+        <p>PulseTech Solutions is a digital agency based in <strong>Makerere Kikoni, Kampala, Uganda</strong> — built around three things organisations actually need: a professional website, reliable software to run daily operations, and a consistent social media presence that brings in real visibility.</p>
+        <p>We work with schools, businesses, NGOs, hospitals, churches, and institutions across Uganda — delivering practical solutions, not complicated jargon.</p>
+      </div>
+      <div class="about-mission-card">
+        <h3>Our mission</h3>
+        <p class="subtle">To make quality digital services accessible to Ugandan organisations — from a school that needs its first website, to a shop that needs a POS system, to a company that wants its social media handled professionally.</p>
+        <div class="chip-row" style="margin-top: 16px;">
+          <span class="chip">Practical</span>
+          <span class="chip">Reliable</span>
+          <span class="chip">Uganda-first</span>
+          <span class="chip">End-to-end</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-section site-section--alt">
     <div class="container">
-      <h2>Meet the Team</h2>
-      <p class="subtle">A tight-knit crew of designers, developers, and growth experts.</p>
-      <div class="grid grid-4">
-        <div class="card">
-          <img src="images/team1.jpeg" alt="Sarah Chen" style="border-radius: 12px; margin-bottom: 10px;" loading="lazy" />
-          <h4>Sarah Chen</h4>
-          <p class="subtle">Founder & CEO</p>
-          <p>Previously led design at a YC-backed fintech. Passionate about conversion-first UX.</p>
+      <div class="site-section__header">
+        <p class="site-hero__eyebrow">What we do</p>
+        <h2>Three services, one partner</h2>
+      </div>
+      <div class="about-pillar-grid">
+        <div class="about-pillar-card">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h4>Website Development</h4>
+          <p>Our core specialty. Static and dynamic websites for schools, businesses, NGOs, e-commerce, hospitals, and more.</p>
+          <a class="project-showcase-card__link" href="services/website-development.html">Learn more <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="card">
-          <img src="images/team2.jpeg" alt="Marcus Liu" style="border-radius: 12px; margin-bottom: 10px;" loading="lazy" />
-          <h4>Marcus Liu</h4>
-          <p class="subtle">Lead Developer</p>
-          <p>Full-stack engineer specializing in Next.js, headless commerce, and performance.</p>
+        <div class="about-pillar-card">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h4>Software Development</h4>
+          <p>POS systems, school management platforms, inventory tools, and custom business software built for your workflow.</p>
+          <a class="project-showcase-card__link" href="services/software-development.html">Learn more <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="card">
-          <img src="images/team3.jpeg" alt="Elena Rodriguez" style="border-radius: 12px; margin-bottom: 10px;" loading="lazy" />
-          <h4>Elena Rodriguez</h4>
-          <p class="subtle">Brand Strategist</p>
-          <p>15 years in branding for Fortune 500s. Now helping startups punch above their weight.</p>
-        </div>
-        <div class="card">
-          <img src="images/team4.jpeg" alt="David Park" style="border-radius: 12px; margin-bottom: 10px;" loading="lazy" />
-          <h4>David Park</h4>
-          <p class="subtle">E-commerce Lead</p>
-          <p>Built 40+ Shopify stores. Expert in checkout optimization and growth funnels.</p>
+        <div class="about-pillar-card social-highlight">
+          <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+          <h4>Social Media Growth</h4>
+          <p>Full-service management — strategy, on-site filming, editing, staff coaching, and daily posting on TikTok, Instagram, Facebook, and X on your behalf.</p>
+          <a class="project-showcase-card__link" href="services/social-media-growth.html">Learn more <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="site-section">
     <div class="container">
-      <h2>Why Choose PulseTech?</h2>
-      <div class="grid grid-3">
-        <div class="mini-card">
-          <h4>Full-Service Agency</h4>
-          <p>One partner for design, development, and branding. Streamlined collaboration.</p>
+      <div class="site-section__header">
+        <p class="site-hero__eyebrow">Who we serve</p>
+        <h2>Built for organisations across Uganda</h2>
+      </div>
+      <div class="why-pricing-grid">
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-school"></i></div>
+          <h3>Schools &amp; Universities</h3>
+          <p>Websites, portals, and social media that connect with students and parents.</p>
         </div>
-        <div class="mini-card">
-          <h4>Fast Turnaround</h4>
-          <p>Most projects ship in 2-4 weeks. We value speed without sacrificing quality.</p>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-building"></i></div>
+          <h3>Businesses</h3>
+          <p>Company sites, POS systems, and social content that drives real enquiries.</p>
         </div>
-        <div class="mini-card">
-          <h4>Conversion-First</h4>
-          <p>Every design decision backed by UX research, A/B testing, and analytics.</p>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-hands-helping"></i></div>
+          <h3>NGOs &amp; Institutions</h3>
+          <p>Impact-focused websites and visibility campaigns that reach supporters.</p>
         </div>
-        <div class="mini-card">
-          <h4>Device Mockups</h4>
-          <p>All web projects showcased on realistic iPhone/MacBook/iPad mockups.</p>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-store"></i></div>
+          <h3>Shops &amp; Retail</h3>
+          <p>E-commerce sites and POS systems for everyday sales and stock control.</p>
         </div>
-        <div class="mini-card">
-          <h4>Transparent Pricing</h4>
-          <p>Clear packages with no hidden fees. Know exactly what you're getting.</p>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-hospital"></i></div>
+          <h3>Clinics &amp; Hospitals</h3>
+          <p>Information portals, booking flows, and patient-facing digital tools.</p>
         </div>
-        <div class="mini-card">
-          <h4>Post-Launch Support</h4>
-          <p>We don't ghost. 3-12 months support included depending on package.</p>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-church"></i></div>
+          <h3>Churches &amp; Community</h3>
+          <p>Event updates, outreach content, and platforms for member engagement.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-section site-section--alt">
     <div class="container">
-      <h2>Certifications & Partners</h2>
-      <div class="client-logos">
-        <div class="logo-tile">Shopify Partner</div>
-        <div class="logo-tile">Webflow Expert</div>
-        <div class="logo-tile">Meta Blueprint</div>
-        <div class="logo-tile">Google Partner</div>
-        <div class="logo-tile">Figma Community</div>
-        <div class="logo-tile">AWS Certified</div>
+      <div class="site-section__header">
+        <h2>How we work</h2>
+        <p>A straightforward process from first conversation to launch and beyond.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>By the Numbers</h2>
-      <div class="grid grid-4">
-        <div class="mini-card">
-          <h2>200+</h2>
-          <p>Projects Shipped</p>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h4>Listen &amp; understand</h4>
+          <p>We learn your goals, audience, and daily operations before recommending a solution.</p>
         </div>
-        <div class="mini-card">
-          <h2>50+</h2>
-          <p>Active Clients</p>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h4>Plan &amp; quote</h4>
+          <p>Clear scope, timeline, and pricing — no hidden surprises.</p>
         </div>
-        <div class="mini-card">
-          <h2>2.4s</h2>
-          <p>Avg. Site Load Time</p>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h4>Build &amp; review</h4>
+          <p>Regular check-ins so you see progress and can give feedback along the way.</p>
         </div>
-        <div class="mini-card">
-          <h2>98%</h2>
-          <p>Client Satisfaction</p>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <h4>Launch &amp; support</h4>
+          <p>We deploy, train your team, and stay available for updates and improvements.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--gray-100);">
+  <section class="site-section">
+    <div class="container">
+      <div class="site-section__header">
+        <h2>Why organisations choose PulseTech</h2>
+      </div>
+      <div class="why-pricing-grid">
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-layer-group"></i></div>
+          <h3>One team, full coverage</h3>
+          <p>Website, software, and social media under one roof — no juggling multiple vendors.</p>
+        </div>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Local presence</h3>
+          <p>Based in Makerere Kikoni with solutions designed around Mobile Money and how Ugandan teams work.</p>
+        </div>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-bolt"></i></div>
+          <h3>Fast delivery</h3>
+          <p>Most website projects ship in 2–4 weeks. Software timelines agreed upfront.</p>
+        </div>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-comments"></i></div>
+          <h3>Clear communication</h3>
+          <p>Plain language, regular updates, and a direct line to the people building your project.</p>
+        </div>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-tag"></i></div>
+          <h3>Transparent pricing</h3>
+          <p>You know what you're paying for before work begins.</p>
+        </div>
+        <div class="why-pricing-card">
+          <div class="why-pricing-card__icon"><i class="fas fa-life-ring"></i></div>
+          <h3>Post-launch support</h3>
+          <p>We don't disappear after delivery — training, fixes, and ongoing help included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-section site-section--alt">
+    <div class="container">
+      <div class="site-section__header">
+        <h2>By the numbers</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><h2>30+</h2><p>Projects delivered</p></div>
+        <div class="stat-card"><h2>20+</h2><p>Happy clients</p></div>
+        <div class="stat-card"><h2>10+</h2><p>Industries served</p></div>
+        <div class="stat-card"><h2>2+</h2><p>Years experience</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-cta">
     <div class="container">
       <h2>Ready to work together?</h2>
-      <p>Let's build something exceptional.</p>
-      <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+      <p>Tell us what you need — a website, software system, or social media support — and we'll take it from there.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+        <a class="btn btn-outline" href="projects.html">View Our Work</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">
-        <img src="images/PulseTech__2_-removebg-preview.png" alt="PulseTech Solutions logo" class="logo-image" />
-        <div>PulseTech Solutions © 2025</div>
+  <div class="container">
+    <div class="footer-expanded">
+      <div>
+        <div class="logo logo--footer">
+          <img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" />
+        </div>
+        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
       </div>
-      <p class="subtle">PulseTech Solutions is a digital agency based in Kampala, Uganda. We specialize in website development, custom software, systems & app development, graphic design, branding, and e-commerce solutions.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <div class="grid">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
+      <div>
+        <h4>Get in Touch</h4>
+        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
+        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
+        <a href="mailto:pulsetechsolutions@gmail.com">pulsetechsolutions@gmail.com</a>
+        <a href="tel:+256752895268">+256 752 895 268</a>
+        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="projects.html">Case Studies</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Pricing</a>
+        <a href="contact.html">Free Consultation</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services/website-development.html">Website Development</a>
+        <a href="services/software-development.html">Software & POS</a>
+        <a href="services/social-media-growth.html">Social Media Growth</a>
+        <a href="contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
+        <a href="contact.html">IT Consultation</a>
       </div>
     </div>
-    <div>
-      <h4>Contact Us</h4>
-      <div class="grid">
-        <p class="subtle" style="margin: 0 0 8px 0;">📍 Kampala, Uganda</p>
-        <p class="subtle" style="margin: 0 0 8px 0;">📧 hello@pulsetechsolutions.com</p>
-        <p class="subtle" style="margin: 0 0 16px 0;">📱 +256752895268</p>
-      </div>
-      <div class="social-row">
-        <a class="social" href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="social" href="https://www.linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a class="social" href="https://twitter.com" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a class="social" href="https://www.tiktok.com" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
+    <div class="footer-bottom">
+      <p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p>
     </div>
   </div>
 </footer>
+
+<div class="whatsapp-btn">
+  <a href="https://wa.me/256752895268" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
+  </a>
+</div>
 
 <script src="js/main.js"></script>
 </body>
