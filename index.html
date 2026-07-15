@@ -22,8 +22,8 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
-      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call +256 752 895 268"><i class="fas fa-phone"></i></a>
-      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> +256 752 895 268</a>
+      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call 0752 895 268"><i class="fas fa-phone"></i></a>
+      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> 0752 895 268</a>
       <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
     </div>
     <div class="mobile-nav">
@@ -51,12 +51,27 @@
           <div class="stat-item"><strong>2+</strong><span>Years Experience</span></div>
         </div>
       </div>
-      <div class="hero-device">
-        <div class="ribbon">Our Work</div>
-        <div class="device-stack">
-          <div class="device macbook"><img src="images/hero/computer2.jpg" alt="PulseTech laptop showcase" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /></div>
-          <div class="device ipad"><img src="images/hero/comp3.jpg" alt="PulseTech tablet showcase" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /></div>
-          <div class="device iphone"><img src="images/hero/computer1.jpg" alt="PulseTech mobile showcase" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /></div>
+      <div class="hero-device hero-flyers">
+        <div class="ribbon">Our Services</div>
+        <div class="hero-flyers__viewer" data-hero-flyers>
+          <div class="hero-flyers__slide is-active">
+            <img src="images/website%20development.png" alt="PulseTech website development services" />
+          </div>
+          <div class="hero-flyers__slide">
+            <img src="images/mobile%20money%20integration.png" alt="PulseTech Mobile Money integration" />
+          </div>
+          <div class="hero-flyers__slide">
+            <img src="images/point%20of%20sale%20system.png" alt="PulseTech point of sale systems" />
+          </div>
+          <div class="hero-flyers__slide">
+            <img src="images/GrowingOnX.png" alt="PulseTech social media growth on X and other platforms" />
+          </div>
+        </div>
+        <div class="hero-flyers__dots" data-hero-flyer-dots aria-label="Service flyers">
+          <button type="button" class="is-active" aria-label="Website development" data-hero-flyer-dot="0"></button>
+          <button type="button" aria-label="Mobile Money integration" data-hero-flyer-dot="1"></button>
+          <button type="button" aria-label="Point of sale system" data-hero-flyer-dot="2"></button>
+          <button type="button" aria-label="Social media growth" data-hero-flyer-dot="3"></button>
         </div>
       </div>
     </div>
@@ -66,7 +81,7 @@
   <section class="site-section">
     <div class="container intro-block">
       <h2>Professional Web Design & Software Development Company in Kampala</h2>
-      <p><strong>PulseTech Solutions</strong> is a leading website development and digital agency based in <strong>Makerere Kikoni, Kampala</strong>. We specialise in building static and dynamic websites, custom business software, POS systems, school management platforms, and full-service social media growth for organisations across Uganda.</p>
+      <p><strong>PulseTech Solutions</strong> is a software development and digital agency based in <strong>Makerere Kikoni, Kampala</strong>. We specialise in building static and dynamic websites, custom business software, POS systems, school management platforms, and full-service social media growth for organisations across Uganda.</p>
       <p>From <strong>mobile money integration</strong> and mobile-first design to on-site video production and daily posting on TikTok, Instagram, Facebook, and X — we build digital solutions that work for the Ugandan market. Whether you need a school portal, an e-commerce store, a POS system, or a team to manage your social media entirely, we deliver at transparent prices.</p>
       <ul class="capability-list">
         <li><i class="fas fa-check-circle"></i> Custom static & dynamic website development</li>
@@ -285,6 +300,28 @@
             <a class="project-showcase-card__link" href="https://grosscredit.co.ug" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
+        <article class="project-showcase-card">
+          <div class="project-showcase-card__media">
+            <img src="images/hero/Jonakee%20Holdings%20.jpeg" alt="Jonakee Holdings loan platform project" />
+            <span class="project-showcase-card__badge">Software</span>
+          </div>
+          <div class="project-showcase-card__body">
+            <h3>Jonakee Holdings Limited</h3>
+            <p class="project-showcase-card__desc">Loan management platform with online applications, approval workflows, and client dashboards.</p>
+            <a class="project-showcase-card__link" href="https://jonakeeholdings.com" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="project-showcase-card">
+          <div class="project-showcase-card__media">
+            <img src="images/hero/Tenywa%20property%20services.jpeg" alt="Tenywa Property Services website project" />
+            <span class="project-showcase-card__badge">Real Estate</span>
+          </div>
+          <div class="project-showcase-card__body">
+            <h3>Tenywa Property Services Limited</h3>
+            <p class="project-showcase-card__desc">Property listings website for plots, land, and houses across Kampala with inquiry forms and clear listing layouts.</p>
+            <a class="project-showcase-card__link" href="https://tenywapropertyserviceslimited.com" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -421,40 +458,41 @@
     <div class="container">
       <div class="site-section__header">
         <h2>Latest from our blog</h2>
-        <p>Expert insights on web design, software development, and growing your business online in Uganda.</p>
+        <p>See how PulseTech helps organisations across Uganda launch websites, accept payments, and grow online.</p>
       </div>
       <div class="blog-showcase-grid">
-        <article class="blog-showcase-card">
-          <div class="blog-showcase-card__media">
-            <img src="images/cards/finance.jpg" alt="Business registration documents" loading="lazy" />
+        <article class="blog-showcase-card" data-blog-card>
+          <div class="blog-showcase-card__media blog-showcase-card__media--flyer">
+            <img src="images/mobile%20money%20integration.png" alt="Mobile Money integration services" loading="lazy" />
           </div>
           <div class="blog-showcase-card__body">
-            <span class="blog-showcase-card__badge">Business</span>
-            <h3>How to Register a Business in Uganda</h3>
-            <p>Step-by-step guide through URSB registration — costs, timelines, and what to do after.</p>
-            <a class="blog-showcase-card__link" href="blog.html#article-ursb">Read More <i class="fas fa-arrow-right"></i></a>
+            <span class="blog-showcase-card__badge">Mobile Money Integration</span>
+            <h3>Accept Mobile Money on Your Website</h3>
+            <p class="blog-showcase-card__summary">We integrate MTN Mobile Money and Airtel Money into your website or software so customers can pay you without manual follow-up.</p>
+            <div class="blog-showcase-card__expand" hidden>
+              <p>PulseTech handles merchant setup guidance, secure checkout flows, sandbox testing, and go-live support for e-commerce stores, school fee portals, and custom applications. Integration projects start from UGX 200,000.</p>
+              <a class="btn btn-primary btn-sm" href="contact.html?package=Mobile%20Money%20Integration">Request Integration Help</a>
+            </div>
+            <button type="button" class="blog-showcase-card__link" data-blog-read-more aria-expanded="false">
+              <span class="blog-showcase-card__link-text">Read More</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
-        <article class="blog-showcase-card">
-          <div class="blog-showcase-card__media">
-            <img src="images/cards/dashboard.jpg" alt="Mobile Money integration" loading="lazy" />
+        <article class="blog-showcase-card" data-blog-card>
+          <div class="blog-showcase-card__media blog-showcase-card__media--flyer">
+            <img src="images/website%20development.png" alt="Website development services in Kampala" loading="lazy" />
           </div>
           <div class="blog-showcase-card__body">
-            <span class="blog-showcase-card__badge">Technical</span>
-            <h3>Mobile Money Integration for Ugandan Websites</h3>
-            <p>How to accept MTN Mobile Money and Airtel Money on your website — setup, testing, and going live.</p>
-            <a class="blog-showcase-card__link" href="blog.html#article-mobile-money">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-showcase-card">
-          <div class="blog-showcase-card__media">
-            <img src="images/cards/web-dev.jpg" alt="Web development in Kampala" loading="lazy" />
-          </div>
-          <div class="blog-showcase-card__body">
-            <span class="blog-showcase-card__badge">Guide</span>
-            <h3>Best Web Developers in Kampala — What to Look For</h3>
-            <p>Choosing a web partner in Uganda — pricing in UGX, portfolio quality, and local support.</p>
-            <a class="blog-showcase-card__link" href="blog.html#article-web-dev">Read More <i class="fas fa-arrow-right"></i></a>
+            <span class="blog-showcase-card__badge">Website Development</span>
+            <h3>Your Web Partner in Kampala</h3>
+            <p class="blog-showcase-card__summary">We build websites and software for Ugandan schools, NGOs, businesses, and institutions — with clear pricing and local support.</p>
+            <div class="blog-showcase-card__expand" hidden>
+              <p>PulseTech delivers live client sites across finance, education, and community sectors. Every project includes transparent UGX pricing, mobile-first design, 30–90 days post-launch support, and a free consultation to scope your needs before you commit.</p>
+              <a class="btn btn-primary btn-sm" href="services/website-development.html">See How We Work</a>
+            </div>
+            <button type="button" class="blog-showcase-card__link" data-blog-read-more aria-expanded="false">
+              <span class="blog-showcase-card__link-text">Read More</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
       </div>
@@ -527,8 +565,8 @@
         <h4>Get in Touch</h4>
         <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
         <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
-        <a href="mailto:pulsetechsolutions@gmail.com">pulsetechsolutions@gmail.com</a>
-        <a href="tel:+256752895268">+256 752 895 268</a>
+        <a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@gmail.com</a>
+        <a href="tel:+256752895268">0752 895 268</a>
         <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
       </div>
       <div>
