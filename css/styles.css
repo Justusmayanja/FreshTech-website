@@ -675,6 +675,7 @@ details.demand p { padding: 0 4px 14px; color: #555; margin: 0; }
   padding: 18px 18px 8px;
 }
 .form { display: grid; gap: 10px; max-width: 640px; margin: 0 auto; }
+.contact-grid > .form { width: 100%; max-width: none; margin: 0; }
 .form label { font-weight: 700; font-size: 14px; }
 .contact-grid {
   display: grid;
