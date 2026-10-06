@@ -1,606 +1,240 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PulseTech Solutions | Website Development, Software & Social Media — Kampala</title>
-  <meta name="description" content="PulseTech Solutions — Kampala's trusted partner for website development, custom software, POS systems, and social media growth. Based in Makerere Kikoni, Uganda." />
+  <title>PulseTech Solutions | Websites, Design and Marketing</title>
+  <meta name="description" content="PulseTech Solutions provides website development, graphic design and digital marketing. Prices in US dollars." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="home-page site-page">
-<header>
-  <div class="container navbar">
-    <a href="index.html" class="logo"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
-    <nav class="nav-links">
-      <a class="active" href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="blog.html">Blog</a>
+<body class="home">
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="PulseTech Solutions"><span class="brand-mark" aria-hidden="true"></span><span class="brand-side">PulseTech Solutions</span></a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-label="Open menu">☰</button>
+    <nav class="menu" data-menu>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="products.html">Products</a>
+      <a href="website.html">Website</a>
+      <a href="graphic.html">Graphic</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+      <a href="blog.html">Blog</a>
     </nav>
-    <div class="nav-actions">
-      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call 0752 895 268"><i class="fas fa-phone"></i></a>
-      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> 0752 895 268</a>
-      <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
-    </div>
-    <div class="mobile-nav">
-      <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
-    </div>
   </div>
 </header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero hero--kenzobe">
-    <div class="container hero-grid">
+<main id="content">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Creative, Strategic, Innovative<br>&amp; Results-Driven Solutions</h1>
+      <p>We combine design and technology to help organisations grow.</p>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Company figures">
+    <div class="stat"><i class="fas fa-cubes"></i><strong>50+</strong><span>PROJECTS COMPLETED</span></div>
+    <div class="stat"><i class="fas fa-people-carry"></i><strong>30+</strong><span>INDUSTRIES SERVED</span></div>
+    <div class="stat"><i class="far fa-calendar-alt"></i><strong>3</strong><span>YEARS OF EXPERIENCE</span></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap why">
       <div>
-        <div class="badge">Makerere Kikoni · Kampala, Uganda</div>
-        <h1>Website Development, Software & Social Media Solutions in Kampala</h1>
-        <p>We design and build custom websites, business software, POS & management systems, and run full social media growth for companies, schools, and institutions across Uganda. Mobile money integration, local support, and transparent pricing.</p>
-        <div class="btn-row" style="margin-top: 24px;">
-          <a class="btn btn-primary" href="contact.html">Get a Free Quote</a>
-          <a class="btn btn-outline" href="projects.html">View Our Work</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item"><strong>30+</strong><span>Projects Delivered</span></div>
-          <div class="stat-item"><strong>20+</strong><span>Happy Clients</span></div>
-          <div class="stat-item"><strong>10+</strong><span>Industries Served</span></div>
-          <div class="stat-item"><strong>2+</strong><span>Years Experience</span></div>
-        </div>
+        <h2>WHY CHOOSE US</h2>
+        <p>PulseTech Solutions is a website development, graphic design, and digital marketing studio in Kampala. We also install business systems for a shop, a restaurant, a school, or a clinic.</p>
+        <p>A website is built for a phone and a desk, prepared so search engines can read it, and handed to your staff so they can edit the pages. A logo, card, flyer, or stationery set comes as a print-ready file that still holds on a sign, a shirt, and the website. Social media, search, and ads are planned around the enquiries you want, and checked against those enquiries. A system is installed on site, filled with the records you already keep, and the people who will use it are trained before we leave.</p>
       </div>
-      <div class="hero-device hero-flyers">
-        <div class="ribbon">Our Services</div>
-        <div class="hero-flyers__viewer" data-hero-flyers>
-          <div class="hero-flyers__slide is-active">
-            <img src="images/website%20development.png" alt="PulseTech website development services" />
-          </div>
-          <div class="hero-flyers__slide">
-            <img src="images/mobile%20money%20integration.png" alt="PulseTech Mobile Money integration" />
-          </div>
-          <div class="hero-flyers__slide">
-            <img src="images/point%20of%20sale%20system.png" alt="PulseTech point of sale systems" />
-          </div>
-          <div class="hero-flyers__slide">
-            <img src="images/GrowingOnX.png" alt="PulseTech social media growth on X and other platforms" />
-          </div>
-        </div>
-        <div class="hero-flyers__dots" data-hero-flyer-dots aria-label="Service flyers">
-          <button type="button" class="is-active" aria-label="Website development" data-hero-flyer-dot="0"></button>
-          <button type="button" aria-label="Mobile Money integration" data-hero-flyer-dot="1"></button>
-          <button type="button" aria-label="Point of sale system" data-hero-flyer-dot="2"></button>
-          <button type="button" aria-label="Social media growth" data-hero-flyer-dot="3"></button>
-        </div>
+      <img src="images/home/office.jpg" alt="Design studio workspace" />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="center">FEATURES</h2>
+      <div class="feature-grid">
+        <article class="feature"><i class="fas fa-mobile-alt"></i><h3>RESPONSIVE DESIGN</h3><p>Layouts are prepared for desktop, laptop, tablet and mobile screens.</p></article>
+        <article class="feature"><i class="fas fa-laptop"></i><h3>BROWSER COMPATIBILITY</h3><p>Pages are tested for consistent display across current browsers.</p></article>
+        <article class="feature"><i class="fas fa-share-alt"></i><h3>SOCIAL MEDIA SHARING</h3><p>Social profiles and sharing are included so published work can travel.</p></article>
+        <article class="feature"><i class="fas fa-spinner"></i><h3>HIGH SPEED TECHNOLOGY</h3><p>Pages are kept light so they open quickly on ordinary connections.</p></article>
+        <article class="feature"><i class="fas fa-chart-bar"></i><h3>ANALYTICS INTEGRATION</h3><p>Google Analytics is set up so you can see how the site is used.</p></article>
+        <article class="feature"><i class="fas fa-lock"></i><h3>SECURITY &amp; BACKUP</h3><p>Sites ship with HTTPS, a protected admin area and a restorable backup.</p></article>
+        <article class="feature"><i class="fas fa-thumbs-up"></i><h3>CUSTOMER SATISFACTION</h3><p>Support after launch is part of the package, not an extra conversation.</p></article>
+        <article class="feature"><i class="fas fa-search-plus"></i><h3>SEARCH ENGINE FRIENDLY</h3><p>Titles, headings and structure are written so search engines can read the site.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- Intro -->
-  <section class="site-section">
-    <div class="container intro-block">
-      <h2>Professional Web Design & Software Development Company in Kampala</h2>
-      <p><strong>PulseTech Solutions</strong> is a software development and digital agency based in <strong>Makerere Kikoni, Kampala</strong>. We specialise in building static and dynamic websites, custom business software, POS systems, school management platforms, and full-service social media growth for organisations across Uganda.</p>
-      <p>From <strong>mobile money integration</strong> and mobile-first design to on-site video production and daily posting on TikTok, Instagram, Facebook, and X — we build digital solutions that work for the Ugandan market. Whether you need a school portal, an e-commerce store, a POS system, or a team to manage your social media entirely, we deliver at transparent prices.</p>
-      <ul class="capability-list">
-        <li><i class="fas fa-check-circle"></i> Custom static & dynamic website development</li>
-        <li><i class="fas fa-check-circle"></i> E-commerce with Mobile Money integration</li>
-        <li><i class="fas fa-check-circle"></i> POS & school management systems</li>
-        <li><i class="fas fa-check-circle"></i> Social media growth — film, edit & post for you</li>
-        <li><i class="fas fa-check-circle"></i> Routine daily posting on X (Twitter)</li>
-        <li><i class="fas fa-check-circle"></i> SEO & digital visibility for Uganda</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <div class="site-section__header">
-        <div class="tag-label">Our Services</div>
-        <h2>Web design, software & social media — all in one place</h2>
-        <p>Comprehensive digital services for organisations in Kampala and across Uganda.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card service-card">
-          <div class="service-icon"><i class="fas fa-globe"></i></div>
-          <h3>Website Development</h3>
-          <p>Static and dynamic websites built for speed, SEO, and conversions.</p>
-          <ul class="list">
-            <li>Responsive web design</li>
-            <li>Static & dynamic CMS sites</li>
-            <li>E-commerce platforms</li>
-            <li>School & NGO portals</li>
-          </ul>
-          <div class="card-price">From UGX 450,000</div>
-          <a class="btn btn-primary" href="services/website-development.html">Learn More</a>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Software & POS Systems</h3>
-          <p>Custom software that streamlines how your business runs day to day.</p>
-          <ul class="list">
-            <li>Point of Sale (POS) systems</li>
-            <li>School management platforms</li>
-            <li>Inventory & HR systems</li>
-            <li>Custom dashboards & reports</li>
-          </ul>
-          <div class="card-price">From UGX 500,000</div>
-          <a class="btn btn-primary" href="services/software-development.html">Learn More</a>
-        </div>
-        <div class="card service-card social-highlight">
-          <div class="service-icon"><i class="fas fa-hashtag"></i></div>
-          <h3>Social Media Growth</h3>
-          <p>We grow your visibility — strategy, filming, editing, and posting on your behalf.</p>
-          <ul class="list">
-            <li>TikTok, Instagram, Facebook & X</li>
-            <li>On-site video recording & direction</li>
-            <li>Staff coaching on what to say</li>
-            <li>Routine daily posting on X</li>
-          </ul>
-          <div class="card-price">From UGX 150,000 / month</div>
-          <a class="btn btn-primary" href="services/social-media-growth.html">Learn More</a>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-          <h3>Mobile Money Integration</h3>
-          <p>Seamless payment connections for your website or software.</p>
-          <ul class="list">
-            <li>MTN Mobile Money</li>
-            <li>Airtel Money</li>
-            <li>Payment gateway setup</li>
-            <li>E-commerce checkout flows</li>
-          </ul>
-          <div class="card-price">From UGX 200,000</div>
-          <a class="btn btn-primary" href="services/website-development.html">Learn More</a>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon"><i class="fas fa-video"></i></div>
-          <h3>Content & Video Production</h3>
-          <p>Professional video content for social media and your website.</p>
-          <ul class="list">
-            <li>On-site filming & direction</li>
-            <li>Video editing & graphics</li>
-            <li>Reels, TikToks & short-form</li>
-            <li>Brand-aligned content plans</li>
-          </ul>
-          <div class="card-price">From UGX 150,000 / month</div>
-          <a class="btn btn-primary" href="services/social-media-growth.html">Learn More</a>
-        </div>
-        <div class="card service-card">
-          <div class="service-icon"><i class="fas fa-headset"></i></div>
-          <h3>IT Consultation & Support</h3>
-          <p>Expert guidance and ongoing maintenance for your digital tools.</p>
-          <ul class="list">
-            <li>Website redesign consulting</li>
-            <li>Technology stack advice</li>
-            <li>Website maintenance plans</li>
-            <li>Post-launch support</li>
-          </ul>
-          <div class="card-price">From UGX 100,000</div>
-          <a class="btn btn-primary" href="contact.html">Learn More</a>
-        </div>
+  <section class="band">
+    <div class="wrap">
+      <h2 class="center">Our Digital Marketing Approach</h2>
+      <div class="steps">
+        <article class="step">
+          <img src="images/home/step-1.png" alt="" />
+          <h3>DISCOVER</h3>
+          <p>We review what your customers search for, where competitors appear, and which channels already produce enquiries.</p>
+        </article>
+        <article class="step">
+          <img src="images/home/step-2.png" alt="" />
+          <h3>STRATEGY</h3>
+          <p>The plan is written to the budget and the priority. It may be one channel or several, with a metric agreed before launch.</p>
+        </article>
+        <article class="step">
+          <img src="images/home/step-3.png" alt="" />
+          <h3>LAUNCH</h3>
+          <p>Measurement is in place before a campaign starts. Sales cycles and purchase intent shape how the work is staged.</p>
+        </article>
+        <article class="step">
+          <img src="images/home/step-4.png" alt="" />
+          <h3>LEARN AND IMPROVE</h3>
+          <p>Campaigns are reviewed through the month and spend is moved toward what produces enquiries.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Solutions breakdown -->
-  <section class="site-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Digital solutions for Ugandan organisations</h2>
-          <p>Everything your school, business, or institution needs to thrive online.</p>
-        </div>
-      </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3><i class="fas fa-globe" style="color:var(--cyan)"></i> Website Development</h3>
-          <p>Our core specialty. Static brochure sites and dynamic platforms with CMS, logins, payments, and portals — built for schools, NGOs, businesses, hospitals, and e-commerce.</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-laptop-code" style="color:var(--cyan)"></i> Software Development</h3>
-          <p>POS systems, school management, inventory tools, loan platforms, and custom business applications — scalable, secure, and tailored to your operations.</p>
-        </div>
-        <div class="card social-highlight">
-          <h3><i class="fas fa-hashtag" style="color:var(--cyan)"></i> Social Media Growth</h3>
-          <p>Full-service management: content strategy, staff coaching, on-site filming, professional editing, and posting on TikTok, Instagram, Facebook, and X — including routine daily X posting.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industries -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <h2>Industries we serve in Uganda</h2>
-      <p class="subtle">Specialised experience across sectors with unique digital needs.</p>
-      <div class="industry-pills">
-        <span class="industry-pill"><i class="fas fa-school"></i> Schools & Universities</span>
-        <span class="industry-pill"><i class="fas fa-building"></i> Businesses & Corporates</span>
-        <span class="industry-pill"><i class="fas fa-hands-helping"></i> NGOs & Nonprofits</span>
-        <span class="industry-pill"><i class="fas fa-store"></i> E-commerce & Retail</span>
-        <span class="industry-pill"><i class="fas fa-hospital"></i> Clinics & Hospitals</span>
-        <span class="industry-pill"><i class="fas fa-utensils"></i> Restaurants & Hotels</span>
-        <span class="industry-pill"><i class="fas fa-church"></i> Churches & Ministries</span>
-        <span class="industry-pill"><i class="fas fa-home"></i> Real Estate</span>
-        <span class="industry-pill"><i class="fas fa-landmark"></i> Government & Public</span>
-        <span class="industry-pill"><i class="fas fa-graduation-cap"></i> Training Institutions</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why choose us -->
-  <section class="site-section">
-    <div class="container">
-      <h2>Why choose PulseTech in Kampala</h2>
-      <p class="subtle">Trusted by businesses, schools, and institutions across Uganda.</p>
-      <div class="grid grid-4" style="margin-top: 24px;">
-        <div class="mini-card"><h4>Tailored Solutions</h4><p>Custom-built for your needs — not generic templates.</p></div>
-        <div class="mini-card"><h4>Experienced Team</h4><p>2+ years serving Ugandan organisations. We know the local market.</p></div>
-        <div class="mini-card"><h4>Local Presence</h4><p>Based in Makerere Kikoni, Kampala. Accessible and reliable.</p></div>
-        <div class="mini-card"><h4>Ongoing Support</h4><p>We don't build and disappear. Dedicated post-launch support.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How we work -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <h2>How we work</h2>
-      <p class="subtle">A proven process for websites, software, and social media projects.</p>
-      <div class="process-grid" style="margin-top: 28px;">
-        <div class="process-step"><div class="step-num">1</div><h4>Consultation</h4><p>Free consultation to understand your goals, audience, and requirements.</p></div>
-        <div class="process-step"><div class="step-num">2</div><h4>Design & Build</h4><p>Our team brings your vision to life — design, development, or content creation.</p></div>
-        <div class="process-step"><div class="step-num">3</div><h4>Test & Launch</h4><p>Rigorous testing across devices before going live or starting your social campaigns.</p></div>
-        <div class="process-step"><div class="step-num">4</div><h4>Support</h4><p>Ongoing maintenance, updates, and social media management as you grow.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="site-section">
-    <div class="container">
-      <div class="site-section__header">
-        <h2>Projects we've built in Uganda</h2>
-        <p>Websites, software systems, and social media campaigns that deliver results.</p>
-      </div>
-      <div class="project-showcase-grid">
-        <article class="project-showcase-card">
-          <div class="project-showcase-card__media">
-            <img src="images/hero/Center%20for%20tomorrow.jpeg" alt="Center for Tomorrow website project" />
-            <span class="project-showcase-card__badge">NGO</span>
-          </div>
-          <div class="project-showcase-card__body">
-            <h3>Center for Tomorrow</h3>
-            <p class="project-showcase-card__desc">Faith-driven NGO website for education, health, and community programmes across Uganda.</p>
-            <a class="project-showcase-card__link" href="https://centerfortomorrow.org" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
+  <section class="band">
+    <div class="wrap">
+      <h2 class="center">Our Services</h2>
+      <div class="service-row">
+        <article class="service-card">
+          <img src="images/home/web-design.png" alt="" />
+          <div>
+            <h3>Website Development</h3>
+            <p>Company websites, corporate blogs and online shops, built so your team can update the content after launch.</p>
+            <a class="btn" href="website.html">View Services</a>
           </div>
         </article>
-        <article class="project-showcase-card">
-          <div class="project-showcase-card__media">
-            <img src="images/hero/real%20quality.jpeg" alt="Real Quality Junior School website project" />
-            <span class="project-showcase-card__badge">Education</span>
-          </div>
-          <div class="project-showcase-card__body">
-            <h3>Real Quality Junior School</h3>
-            <p class="project-showcase-card__desc">School website with admissions info, academics, and parent communication for Wakiso.</p>
-            <a class="project-showcase-card__link" href="https://realqualityjuniorschool.com" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
+        <article class="service-card">
+          <img src="images/home/graphic-design.png" alt="" />
+          <div>
+            <h3>Graphic Design</h3>
+            <p>Logo design, business cards, letterhead, brochures and flyers, supplied as print-ready files.</p>
+            <a class="btn" href="graphic.html">View Services</a>
           </div>
         </article>
-        <article class="project-showcase-card">
-          <div class="project-showcase-card__media">
-            <img src="images/hero/Gross%20credit.jpeg" alt="Gross Credit website project" />
-            <span class="project-showcase-card__badge">Finance</span>
-          </div>
-          <div class="project-showcase-card__body">
-            <h3>Gross Credit</h3>
-            <p class="project-showcase-card__desc">Credit and financial services website with clear product pages and client enquiry flows.</p>
-            <a class="project-showcase-card__link" href="https://grosscredit.co.ug" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <article class="project-showcase-card">
-          <div class="project-showcase-card__media">
-            <img src="images/hero/Jonakee%20Holdings%20.jpeg" alt="Jonakee Holdings loan platform project" />
-            <span class="project-showcase-card__badge">Software</span>
-          </div>
-          <div class="project-showcase-card__body">
-            <h3>Jonakee Holdings Limited</h3>
-            <p class="project-showcase-card__desc">Loan management platform with online applications, approval workflows, and client dashboards.</p>
-            <a class="project-showcase-card__link" href="https://jonakeeholdings.com" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <article class="project-showcase-card">
-          <div class="project-showcase-card__media">
-            <img src="images/hero/Tenywa%20property%20services.jpeg" alt="Tenywa Property Services website project" />
-            <span class="project-showcase-card__badge">Real Estate</span>
-          </div>
-          <div class="project-showcase-card__body">
-            <h3>Tenywa Property Services Limited</h3>
-            <p class="project-showcase-card__desc">Property listings website for plots, land, and houses across Kampala with inquiry forms and clear listing layouts.</p>
-            <a class="project-showcase-card__link" href="https://tenywapropertyserviceslimited.com" target="_blank" rel="noopener">View Details <i class="fas fa-arrow-right"></i></a>
+        <article class="service-card">
+          <img src="images/home/marketing.png" alt="" />
+          <div>
+            <h3>Digital Marketing</h3>
+            <p>Social media, search, paid advertising, content and email, planned around the way your customers already enquire.</p>
+            <a class="btn" href="marketing.html">View Services</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Website pricing -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <h2>Website development packages</h2>
-      <p class="subtle">Transparent pricing in UGX. No hidden costs.</p>
-      <div class="pricing" style="margin-top: 28px;">
-        <div class="price-card">
-          <div class="badge-accent">Starter</div>
-          <p>Perfect for small businesses getting online</p>
-          <ul class="list">
-            <li>Up to 5 pages</li>
-            <li>Mobile responsive design</li>
-            <li>Basic SEO setup</li>
-            <li>Contact form</li>
-            <li>Social media links</li>
-            <li>30 days support</li>
-          </ul>
-          <div class="amount">UGX 450,000</div>
-          <a class="btn btn-primary" href="contact.html?package=Website%20Starter">Choose Package</a>
-          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
-        </div>
-        <div class="price-card featured">
-          <span class="popular-badge">Most Popular</span>
-          <div class="badge-accent">Business</div>
-          <p>Ideal for growing organisations</p>
-          <ul class="list">
-            <li>Up to 10 pages</li>
-            <li>Dynamic CMS</li>
-            <li>Advanced SEO</li>
-            <li>WhatsApp integration</li>
-            <li>Google Analytics</li>
-            <li>60 days support</li>
-          </ul>
-          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 750,000</div>
-          <a class="btn btn-primary" href="contact.html?package=Website%20Business">Choose Package</a>
-          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
-        </div>
-        <div class="price-card">
-          <div class="badge-accent">Premium</div>
-          <p>Full-featured for established businesses</p>
-          <ul class="list">
-            <li>Unlimited pages</li>
-            <li>E-commerce capabilities</li>
-            <li>Mobile Money integration</li>
-            <li>Custom features & APIs</li>
-            <li>Admin dashboard</li>
-            <li>90 days support</li>
-          </ul>
-          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 1,500,000</div>
-          <a class="btn btn-primary" href="contact.html?package=Website%20Premium">Choose Package</a>
-          <p class="subtle" style="font-size:0.8rem;margin-top:12px;">50% deposit, 50% before launch</p>
-        </div>
+  <section class="band">
+    <div class="wrap demand-grid">
+      <img src="images/home/bulb.png" alt="" />
+      <div>
+        <h2>Creative Demand</h2>
+        <p>An idea is only useful once it is designed, written and published. These are the builds we are asked for most often.</p>
+        <details class="demand" open>
+          <summary>Company Website Design</summary>
+          <p>A company website with a distinct layout, clear services and a contact path. A standard website starts at $120.</p>
+        </details>
+        <details class="demand">
+          <summary>eCommerce Store Develop</summary>
+          <p>An online store with categories, product options, delivery settings and payment setup, including Mobile Money where the gateway supports it. From $220.</p>
+        </details>
+        <details class="demand">
+          <summary>Graphic Design</summary>
+          <p>Logos, business cards, flyers and a stationery set, supplied as print-ready files. A logo starts at $20.</p>
+        </details>
+        <details class="demand">
+          <summary>Social Media Marketing</summary>
+          <p>Posts, captions and short graphics on the platforms your customers already use. From $80 a month.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- Social media pricing -->
-  <section class="site-section">
-    <div class="container">
-      <h2>Social media growth packages</h2>
-      <p class="subtle">We handle your entire social presence — from ideas to filming to daily posting.</p>
-      <div class="pricing" style="margin-top: 28px;">
-        <div class="price-card">
-          <div class="badge-accent">Starter</div>
-          <p>Get consistent on 2 platforms</p>
-          <ul class="list">
-            <li>8 posts per month</li>
-            <li>2 platforms (e.g. Instagram + Facebook)</li>
-            <li>Content ideas & captions</li>
-            <li>Basic graphic design</li>
-          </ul>
-          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 150,000<span style="font-size:0.9rem;color:var(--muted)">/mo</span></div>
-          <a class="btn btn-primary" href="contact.html?package=Social%20Starter">Get Started</a>
-        </div>
-        <div class="price-card featured social-highlight">
-          <span class="popular-badge">Most Popular</span>
-          <div class="badge-accent">Growth</div>
-          <p>Full management with video content</p>
-          <ul class="list">
-            <li>16 posts per month</li>
-            <li>All 4 platforms (TikTok, IG, FB, X)</li>
-            <li>On-site filming & editing</li>
-            <li>Staff coaching on camera</li>
-            <li>Daily routine posting on X</li>
-          </ul>
-          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 350,000<span style="font-size:0.9rem;color:var(--muted)">/mo</span></div>
-          <a class="btn btn-primary" href="contact.html?package=Social%20Growth">Get Started</a>
-        </div>
-        <div class="price-card">
-          <div class="badge-accent">Premium</div>
-          <p>Complete social media department</p>
-          <ul class="list">
-            <li>Unlimited posts</li>
-            <li>All platforms + YouTube</li>
-            <li>Weekly on-site filming</li>
-            <li>Paid ads management</li>
-            <li>Monthly strategy review</li>
-            <li>Dedicated account manager</li>
-          </ul>
-          <div class="amount" style="color:var(--text);margin:16px 0;">UGX 600,000<span style="font-size:0.9rem;color:var(--muted)">/mo</span></div>
-          <a class="btn btn-primary" href="contact.html?package=Social%20Premium">Get Started</a>
-        </div>
+  <section class="section">
+    <div class="wrap">
+      <h2 class="center">Industry Partners</h2>
+      <div class="partners">
+        <div class="partner"><img src="images/clients/jonakee.png" alt="Jonakee Holdings Limited" /></div>
+        <div class="partner cft"><img src="images/clients/center-for-tomorrow.png" alt="Center For Tomorrow" /><span class="name">Center For Tomorrow</span></div>
+        <div class="partner"><img src="images/clients/gross-credit.png" alt="Gross Credit Limited" /></div>
+        <div class="partner"><img src="images/clients/st-josephs.png" alt="Nansana St Joseph's Secondary School" /></div>
+        <div class="partner"><img src="images/clients/real-quality.png" alt="Real Quality Junior School" /></div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <h2>What our clients say</h2>
-      <div class="testimonials" style="margin-top: 24px;">
-        <div class="testimonial">
-          <p>"PulseTech delivered a donor-friendly NGO website that highlights our impact stories and community programs, helping us reach more people in need."</p>
-          <strong><a href="https://centerfortomorrow.org" style="color:var(--cyan);text-decoration:underline;">Center for Tomorrow</a> — NGO</strong>
-        </div>
-        <div class="testimonial">
-          <p>"They built a secure loan application platform for our clients. Applications, approvals, and updates now run smoothly online."</p>
-          <strong><a href="https://jonakeeholdings.com" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;">Jonakee Holdings Limited</a> — Finance</strong>
-        </div>
-        <div class="testimonial">
-          <p>"Our school website helps parents find admissions info, results, and updates in one place — professional and easy to use."</p>
-          <strong><a href="https://realqualityjuniorschool.com" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;">Real Quality Junior School</a> — Education</strong>
-        </div>
+  <section class="section alt">
+    <div class="wrap">
+      <h2 class="center">What Our Clients Have to Say</h2>
+      <div class="quotes">
+        <blockquote class="quote">
+          <p>“The website presents our programmes clearly, and partners can find the office and the work without a separate document.”</p>
+          <strong>Center For Tomorrow</strong>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Applications that used to arrive by message now come through the site, and the team can see what is waiting for review.”</p>
+          <strong>Jonakee Holdings Limited</strong>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Admissions information and fees are on the website, so parents no longer need to call for the same details.”</p>
+          <strong>Real Quality Junior School</strong>
+        </blockquote>
       </div>
     </div>
   </section>
-
-  <!-- Blog -->
-  <section class="site-section site-section--alt">
-    <div class="container">
-      <div class="site-section__header">
-        <h2>Latest from our blog</h2>
-        <p>See how PulseTech helps organisations across Uganda launch websites, accept payments, and grow online.</p>
-      </div>
-      <div class="blog-showcase-grid">
-        <article class="blog-showcase-card" data-blog-card>
-          <div class="blog-showcase-card__media blog-showcase-card__media--flyer">
-            <img src="images/mobile%20money%20integration.png" alt="Mobile Money integration services" loading="lazy" />
-          </div>
-          <div class="blog-showcase-card__body">
-            <span class="blog-showcase-card__badge">Mobile Money Integration</span>
-            <h3>Accept Mobile Money on Your Website</h3>
-            <p class="blog-showcase-card__summary">We integrate MTN Mobile Money and Airtel Money into your website or software so customers can pay you without manual follow-up.</p>
-            <div class="blog-showcase-card__expand" hidden>
-              <p>PulseTech handles merchant setup guidance, secure checkout flows, sandbox testing, and go-live support for e-commerce stores, school fee portals, and custom applications. Integration projects start from UGX 200,000.</p>
-              <a class="btn btn-primary btn-sm" href="contact.html?package=Mobile%20Money%20Integration">Request Integration Help</a>
-            </div>
-            <button type="button" class="blog-showcase-card__link" data-blog-read-more aria-expanded="false">
-              <span class="blog-showcase-card__link-text">Read More</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        </article>
-        <article class="blog-showcase-card" data-blog-card>
-          <div class="blog-showcase-card__media blog-showcase-card__media--flyer">
-            <img src="images/website%20development.png" alt="Website development services in Kampala" loading="lazy" />
-          </div>
-          <div class="blog-showcase-card__body">
-            <span class="blog-showcase-card__badge">Website Development</span>
-            <h3>Your Web Partner in Kampala</h3>
-            <p class="blog-showcase-card__summary">We build websites and software for Ugandan schools, NGOs, businesses, and institutions — with clear pricing and local support.</p>
-            <div class="blog-showcase-card__expand" hidden>
-              <p>PulseTech delivers live client sites across finance, education, and community sectors. Every project includes transparent UGX pricing, mobile-first design, 30–90 days post-launch support, and a free consultation to scope your needs before you commit.</p>
-              <a class="btn btn-primary btn-sm" href="services/website-development.html">See How We Work</a>
-            </div>
-            <button type="button" class="blog-showcase-card__link" data-blog-read-more aria-expanded="false">
-              <span class="blog-showcase-card__link-text">Read More</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:32px;">
-        <a class="btn btn-outline" href="blog.html">View All Articles</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="site-section">
-    <div class="container">
-      <div class="site-section__header">
-        <h2>Frequently asked questions</h2>
-        <p>Got questions? We've got answers.</p>
-      </div>
-      <div class="faq-showcase">
-        <div class="faq-showcase-item">
-          <h4>How much does a website cost in Kampala?</h4>
-          <p>Our website packages start from UGX 450,000 for a basic site. Business packages are UGX 750,000 and premium full-featured sites from UGX 1,500,000. Contact us for a custom quote.</p>
-        </div>
-        <div class="faq-showcase-item">
-          <h4>Do you offer Mobile Money integration?</h4>
-          <p>Yes! We integrate MTN Mobile Money and Airtel Money for e-commerce websites, POS systems, and custom applications so your customers can pay seamlessly.</p>
-        </div>
-        <div class="faq-showcase-item">
-          <h4>What does your social media growth service include?</h4>
-          <p>We handle everything: content strategy, on-site video recording, staff coaching, professional editing, and posting on TikTok, Instagram, Facebook, and X — including routine daily posting on X.</p>
-        </div>
-        <div class="faq-showcase-item">
-          <h4>How long does a website project take?</h4>
-          <p>Most websites take 2–4 weeks. Simple static sites can be done in 1–2 weeks. Complex software or e-commerce projects may take 4–8 weeks.</p>
-        </div>
-        <div class="faq-showcase-item">
-          <h4>Do you build POS and school management systems?</h4>
-          <p>Yes. We build custom POS systems for retail and hospitality, and school management platforms with student records, fees, and results management.</p>
-        </div>
-        <div class="faq-showcase-item">
-          <h4>Where are you located?</h4>
-          <p>We are based in Makerere Kikoni, Kampala, Uganda. We serve clients across Kampala and all of Uganda.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
   <section class="site-cta">
-    <div class="container">
-      <h2>Get a free quote in 24 hours</h2>
-      <p>Tell us about your project — website, software, or social media — and we'll send a personalised quote. No obligation.</p>
+    <div class="wrap">
+      <h2>Need a website, a system, or help on social media?</h2>
+      <p>Tell us what you need. We reply from this office in Kampala.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="contact.html">Start Your Project</a>
-        <a class="btn btn-outline" href="https://wa.me/256752895268" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+        <a class="btn" href="contact.html">Contact us</a>
+        <a class="btn ghost" href="products.html">View products</a>
       </div>
-      <p class="subtle" style="margin-top:20px;font-size:0.85rem;color:rgba(232,240,255,0.75);">Based in Makerere Kikoni, Kampala | Serving organisations across Uganda</p>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-expanded">
-      <div>
-        <div class="logo logo--footer">
-          <img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" />
-        </div>
-        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
-      </div>
-      <div>
-        <h4>Get in Touch</h4>
-        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
-        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
-        <a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@gmail.com</a>
-        <a href="tel:+256752895268">0752 895 268</a>
-        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="about.html">About Us</a>
-        <a href="projects.html">Our Projects</a>
-        <a href="projects.html">Case Studies</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Pricing</a>
-        <a href="contact.html">Free Consultation</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="services/website-development.html">Website Development</a>
-        <a href="services/software-development.html">Software & POS</a>
-        <a href="services/social-media-growth.html">Social Media Growth</a>
-        <a href="contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
-        <a href="contact.html">IT Consultation</a>
-      </div>
+<a class="wa" href="https://wa.me/256752895268" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-contact">
+      <h3>Email</h3>
+      <p><a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@<wbr>gmail.com</a></p>
+      <h3>Address</h3>
+      <p>Kampala, Uganda</p>
     </div>
-    <div class="footer-bottom">
-      <p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p>
+    <div class="foot-mid">
+      <a class="brand" href="index.html" aria-label="PulseTech Solutions"><span class="brand-mark" aria-hidden="true"></span><span class="brand-side">PulseTech Solutions</span></a>
+      <a class="foot-products" href="products.html">Featured Products</a>
+    </div>
+    <div class="foot-news">
+      <h2>Subscribe To Our Newsletter</h2>
+      <form class="news" data-newsletter>
+        <input name="name" placeholder="Name" required aria-label="Name" />
+        <input name="email" type="email" placeholder="Email" required aria-label="Email" />
+        <button type="submit">Submit</button>
+        <p data-newsletter-note hidden>Thank you. We will be in touch.</p>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="wrap foot-bottom">
+      <p>Copyright © <span class="copyright-year">2026</span> PulseTech Solutions</p>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">T&amp;C</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 </footer>
-
-<div class="whatsapp-btn">
-  <a href="https://wa.me/256752895268" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
-  </a>
-</div>
-
+<script src="js/catalog.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,326 +1,157 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products & Packages | PulseTech Solutions</title>
-  <meta name="description" content="Explore website packages, software products, and digital solutions from PulseTech Solutions. Transparent pricing in UGX for Ugandan businesses." />
+  <title>Products | PulseTech Solutions</title>
+  <meta name="description" content="Systems, graphic design, and social media from PulseTech Solutions. Prices in US dollars." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="site-page products-page">
-<header>
-  <div class="container navbar">
-    <a href="index.html" class="logo"><img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image" /></a>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a class="active" href="products.html">Products</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="blog.html">Blog</a>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="topbar">
+  <div class="wrap">
+    
+    <span><a href="https://wa.me/256752895268" target="_blank" rel="noopener">+256752895268</a> · <a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@gmail.com</a></span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="PulseTech Solutions"><span class="brand-mark" aria-hidden="true"></span><span class="brand-side">PulseTech Solutions</span></a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-label="Open menu">☰</button>
+    <nav class="menu" data-menu>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a class="active" href="products.html">Products</a>
+      <a href="website.html">Website</a>
+      <a href="graphic.html">Graphic</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+      <a href="blog.html">Blog</a>
     </nav>
-    <div class="nav-actions">
-      <a href="tel:+256752895268" class="nav-phone-icon" aria-label="Call 0752 895 268"><i class="fas fa-phone"></i></a>
-      <a href="tel:+256752895268" class="nav-phone"><i class="fas fa-phone"></i> 0752 895 268</a>
-      <a href="contact.html" class="btn btn-primary btn-nav">Free Consultation</a>
-    </div>
-    <div class="mobile-nav">
-      <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
-    </div>
   </div>
 </header>
 
-<main>
-  <section class="products-hero">
-    <div class="container">
-      <p class="products-hero__eyebrow">Transparent pricing for all our services</p>
-      <h1>Products &amp; Packages</h1>
-      <p>Choose the package that fits your needs. No hidden fees, no surprises — just clear, honest pricing for quality services in Uganda.</p>
+<main id="content">
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Products</h1>
+      <p>Systems we install, design files for print, websites we build, and social media we post for you.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="note" style="margin-top:0">Business systems are tills and records we set up on site. Graphic design is a logo, a card, a flyer, and a stationery set. Social media is the posting and short video we do each month. Website development is a static site, a site your staff can edit, or a web application.</p>
+
+      <h2 class="group-label">BUSINESS SYSTEMS</h2>
+      <p class="lead">Installed for a shop, a restaurant, a school, or a clinic. We bring in the records you already keep and train the people who will use it. Most are ready in two to four weeks.</p>
+      <div class="product-row">
+        <article class="pcard"><img class="photo pos-shop" src="images/products/retail-pos.jpg?v=3" alt="Retail POS system on a shop counter" /><h3>Retail POS system</h3><div class="price"><span class="cur">$</span>270<span class="cents">00</span></div><span class="kind">Shop</span><button class="btn block" type="button" data-buy="pos">Buy now</button><p>Counter sales, stock alerts, receipts, and a daily report. More than one cashier can sign in. It keeps selling when the internet drops.</p></article>
+        <article class="pcard"><img class="photo pos-dining" src="images/products/restaurant-pos.jpg?v=3" alt="Restaurant POS on a dining counter" /><h3>Restaurant POS</h3><div class="price"><span class="cur">$</span>270<span class="cents">00</span></div><span class="kind">Restaurant</span><button class="btn block" type="button" data-buy="restaurant-pos">Buy now</button><p>Orders at the counter, receipts, and the day’s takings by item. Built for a kitchen that has outgrown a notebook.</p></article>
+        <article class="pcard"><img class="photo" src="images/cards/school.jpg" alt="Classroom" /><h3>School management</h3><div class="price"><span class="cur">$</span>270<span class="cents">00</span></div><span class="kind">School</span><button class="btn block" type="button" data-buy="school-sys">Buy now</button><p>Student records, fees, results, and a simple parent view. SMS alerts for balances and report cards can be added.</p></article>
+        <article class="pcard"><img src="images/projects/hospital.svg" alt="Clinic records screen" /><h3>Clinic records</h3><div class="price"><span class="cur">$</span>270<span class="cents">00</span></div><span class="kind">Clinic</span><button class="btn block" type="button" data-buy="clinic">Buy now</button><p>Patient list, visits, and who is due back. A simple bill for the visit, so the book is not a stack of cards.</p></article>
+        <article class="pcard"><img src="images/mobile%20money%20integration.png" alt="Mobile Money integration" /><h3>Mobile Money</h3><div class="price"><span class="cur">$</span>55<span class="cents">00</span></div><span class="kind">Add-on</span><button class="btn block" type="button" data-buy="momo">Buy now</button><p>MTN Mobile Money and Airtel Money on a site or till you already have. From a test payment to a live one.</p></article>
+        <article class="pcard"><img class="photo" src="images/home/office.jpg" alt="PulseTech office" /><h3>A system not listed</h3><div class="price">Quote</div><span class="kind">Custom</span><a class="btn block" href="contact.html">Talk to us</a><p>A members list, a loan book, or a report your current books do not give you. We write the scope before a price.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2 class="group-label">GRAPHIC DESIGN</h2>
+      <p class="lead">Print-ready files. A printer in Kampala is quoted separately. More concepts and source files are on the <a href="graphic.html">Graphic</a> page.</p>
+      <div class="product-row">
+        <article class="pcard"><h3>Logo</h3><div class="price"><span class="cur">$</span>20<span class="cents">00</span></div><span class="kind">Design</span><button class="btn block" type="button" data-buy="logo-basic">Buy now</button><p>One mark, a mockup, and a high-resolution file. Ready in five days. Two or three concepts are $32 and $40.</p></article>
+        <article class="pcard"><h3>Business card</h3><div class="price"><span class="cur">$</span>10<span class="cents">00</span></div><span class="kind">Design</span><button class="btn block" type="button" data-buy="card-basic">Buy now</button><p>A front layout a Kampala printer can run. Double-sided, with the source file, is $20.</p></article>
+        <article class="pcard"><h3>Flyer</h3><div class="price"><span class="cur">$</span>15<span class="cents">00</span></div><span class="kind">Design</span><button class="btn block" type="button" data-buy="flyer-basic">Buy now</button><p>A4 or A5 for an open day, a church programme, or a shop offer. A second concept is $22.</p></article>
+        <article class="pcard"><h3>Business in a box</h3><div class="price"><span class="cur">$</span>60<span class="cents">00</span></div><span class="kind">Design</span><button class="btn block" type="button" data-buy="box-basic">Buy now</button><p>Logo, card, letterhead, and flyer drawn so they belong together. The fuller set is $85 or $110.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2 class="group-label">SOCIAL MEDIA</h2>
+      <p class="lead">Posts, captions, and short videos on the platforms your customers already use. Search, ads, and email are on the <a href="marketing.html">Marketing</a> page.</p>
+      <div class="product-row">
+        <article class="pcard"><h3>Social media marketing</h3><div class="price"><span class="cur">$</span>80<span class="cents">00</span></div><span class="kind">Monthly</span><button class="btn block" type="button" data-buy="mkt-social">Buy now</button><p>Eight posts on two platforms, with captions and basic graphics. The first batch is ready in 14 days. Filming on site can be added.</p></article>
+        <article class="pcard"><h3>Content for social</h3><div class="price"><span class="cur">$</span>70<span class="cents">00</span></div><span class="kind">Monthly</span><button class="btn block" type="button" data-buy="mkt-content">Buy now</button><p>Articles or short videos on questions your customers already ask. We can shoot at your office. First pieces in 14 days.</p></article>
+        <article class="pcard"><h3>A plan we have not listed</h3><div class="price">Quote</div><span class="kind">Monthly</span><a class="btn block" href="marketing.html">See marketing</a><p>Ads, search, or a parent email list. Tell us the offer first. A school and a hardware shop do not need the same month.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2 class="group-label">WEBSITE DEVELOPMENT</h2>
+      <p class="lead">A static site, a site your staff can edit, or a web application. The other sizes are on the <a href="website.html">Website</a> page.</p>
+      <div class="tiers">
+        <article class="pkg"><h3>Static website</h3><div class="price"><span class="cur">$</span>80<span class="cents">00</span></div><ul><li>3 pages</li><li>Responsive layout</li><li>Phone, map, and email</li><li>5 days</li></ul><button class="btn block" type="button" data-buy="static-basic">Buy now</button></article>
+        <article class="pkg"><h3>Dynamic website</h3><div class="price"><span class="cur">$</span>120<span class="cents">00</span></div><ul><li>3 pages</li><li>Staff login</li><li>Responsive layout</li><li>7 days</li></ul><button class="btn block" type="button" data-buy="dyn-basic">Buy now</button></article>
+        <article class="pkg"><h3>Web application</h3><div class="price"><span class="cur">$</span>180<span class="cents">00</span></div><ul><li>One booking or application form</li><li>Admin list of entries</li><li>Email when a form arrives</li><li>14 days</li></ul><button class="btn block" type="button" data-buy="app-basic">Buy now</button></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="center">How a system is installed</h2>
+      <div class="feature-grid">
+        <article class="feature"><i class="fas fa-file-alt"></i><h3>Scoped in writing</h3><p>What the system must do, who signs in, and what is left for a later visit.</p></article>
+        <article class="feature"><i class="fas fa-database"></i><h3>Your records brought in</h3><p>Products, students, or patients you already keep, so the first day is not an empty screen.</p></article>
+        <article class="feature"><i class="fas fa-chalkboard-teacher"></i><h3>Staff trained</h3><p>The people on the counter or in the office use it before we leave.</p></article>
+        <article class="feature"><i class="fas fa-tools"></i><h3>Adjustments after launch</h3><p>Most installs take two to four weeks. We stay available once it is in daily use.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="site-cta">
+    <div class="wrap">
+      <h2>Need a website, a system, or help on social media?</h2>
+      <p>Tell us what you need. We reply from this office in Kampala.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="contact.html">Contact Us</a>
-        <a class="btn btn-outline" href="services.html">View Services</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="products-section">
-    <div class="container">
-      <div class="products-section__header">
-        <h2>Website Packages</h2>
-        <p>Professional website solutions for every business size. All packages include hosting guidance and launch support.</p>
-      </div>
-      <div class="package-grid">
-        <article class="package-card">
-          <div class="package-card__head">
-            <h3>Starter</h3>
-            <p>Perfect for small businesses getting started online</p>
-            <div class="package-card__price">UGX 450,000</div>
-          </div>
-          <ul class="package-card__features">
-            <li><i class="fas fa-check"></i> Up to 5 pages</li>
-            <li><i class="fas fa-check"></i> Mobile responsive design</li>
-            <li><i class="fas fa-check"></i> Basic SEO setup</li>
-            <li><i class="fas fa-check"></i> Contact form</li>
-            <li><i class="fas fa-check"></i> Social media links</li>
-            <li><i class="fas fa-check"></i> 30 days support</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Website%20Starter">Choose This Package</a>
-        </article>
-        <article class="package-card package-card--featured">
-          <span class="package-card__badge">Most Popular</span>
-          <div class="package-card__head">
-            <h3>Business</h3>
-            <p>Ideal for growing organisations across Uganda</p>
-            <div class="package-card__price">UGX 750,000</div>
-          </div>
-          <ul class="package-card__features">
-            <li><i class="fas fa-check"></i> Up to 10 pages</li>
-            <li><i class="fas fa-check"></i> Dynamic CMS</li>
-            <li><i class="fas fa-check"></i> Advanced SEO</li>
-            <li><i class="fas fa-check"></i> WhatsApp integration</li>
-            <li><i class="fas fa-check"></i> Google Analytics</li>
-            <li><i class="fas fa-check"></i> 60 days support</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Website%20Business">Choose This Package</a>
-        </article>
-        <article class="package-card">
-          <div class="package-card__head">
-            <h3>Premium</h3>
-            <p>Full-featured solution for established businesses</p>
-            <div class="package-card__price">UGX 1,500,000</div>
-          </div>
-          <ul class="package-card__features">
-            <li><i class="fas fa-check"></i> Unlimited pages</li>
-            <li><i class="fas fa-check"></i> E-commerce capabilities</li>
-            <li><i class="fas fa-check"></i> Mobile Money integration</li>
-            <li><i class="fas fa-check"></i> Custom features &amp; APIs</li>
-            <li><i class="fas fa-check"></i> Admin dashboard</li>
-            <li><i class="fas fa-check"></i> 90 days support</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Website%20Premium">Choose This Package</a>
-        </article>
-      </div>
-      <p class="products-note">Flexible payment: 50% deposit, 50% before launch</p>
-    </div>
-  </section>
-
-  <section class="products-section products-section--alt">
-    <div class="container">
-      <div class="products-section__header">
-        <h2>Software Products</h2>
-        <p>Ready-to-deploy business systems tailored for schools, retail, finance, and more — with local support from Kampala.</p>
-      </div>
-      <div class="service-product-grid">
-        <article class="service-product-card">
-          <span class="service-product-card__tag service-product-card__tag--green">Best Value</span>
-          <div class="service-product-card__head">
-            <h3>Retail POS System</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Point of sale with inventory, receipts, daily reports, and multi-user access for shops and supermarkets.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Barcode &amp; manual entry</li>
-            <li><i class="fas fa-check"></i> Stock alerts</li>
-            <li><i class="fas fa-check"></i> Sales analytics</li>
-            <li><i class="fas fa-check"></i> Multi-user access</li>
-            <li><i class="fas fa-check"></i> Daily reports</li>
-            <li><i class="fas fa-check"></i> Local support</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Retail%20POS%20System">Request a Quote</a>
-        </article>
-        <article class="service-product-card">
-          <span class="service-product-card__tag service-product-card__tag--blue">Most Popular</span>
-          <div class="service-product-card__head">
-            <h3>School Management System</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Student records, fee tracking, results, timetables, and parent portals for schools across Uganda.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Fee &amp; payment tracking</li>
-            <li><i class="fas fa-check"></i> Results &amp; report cards</li>
-            <li><i class="fas fa-check"></i> Parent SMS alerts</li>
-            <li><i class="fas fa-check"></i> Timetables</li>
-            <li><i class="fas fa-check"></i> Student records</li>
-            <li><i class="fas fa-check"></i> Parent portal</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=School%20Management%20System">Request a Quote</a>
-        </article>
-        <article class="service-product-card">
-          <div class="service-product-card__head">
-            <h3>Inventory Management</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Track stock levels, suppliers, purchase orders, and warehouse movements for growing businesses.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Low-stock notifications</li>
-            <li><i class="fas fa-check"></i> Supplier management</li>
-            <li><i class="fas fa-check"></i> Export reports</li>
-            <li><i class="fas fa-check"></i> Purchase orders</li>
-            <li><i class="fas fa-check"></i> Warehouse tracking</li>
-            <li><i class="fas fa-check"></i> Multi-location support</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Inventory%20Management">Request a Quote</a>
-        </article>
-        <article class="service-product-card">
-          <div class="service-product-card__head">
-            <h3>Loan Management System</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Online applications, approvals, repayment schedules, and client tracking for SACCOs and lenders.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Application portal</li>
-            <li><i class="fas fa-check"></i> Repayment tracking</li>
-            <li><i class="fas fa-check"></i> Client dashboards</li>
-            <li><i class="fas fa-check"></i> Approval workflows</li>
-            <li><i class="fas fa-check"></i> SMS reminders</li>
-            <li><i class="fas fa-check"></i> Financial reports</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Loan%20Management%20System">Request a Quote</a>
-        </article>
-        <article class="service-product-card">
-          <span class="service-product-card__tag service-product-card__tag--purple">Ministry</span>
-          <div class="service-product-card__head">
-            <h3>Church Management</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Member records, tithe tracking, event scheduling, and communication tools for churches and ministries.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Member database</li>
-            <li><i class="fas fa-check"></i> Giving records</li>
-            <li><i class="fas fa-check"></i> Event calendar</li>
-            <li><i class="fas fa-check"></i> SMS announcements</li>
-            <li><i class="fas fa-check"></i> Group management</li>
-            <li><i class="fas fa-check"></i> Attendance tracking</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Church%20Management">Request a Quote</a>
-        </article>
-        <article class="service-product-card">
-          <div class="service-product-card__head">
-            <h3>Restaurant &amp; Hotel POS</h3>
-            <div class="service-product-card__price">UGX 1,000,000</div>
-          </div>
-          <p class="service-product-card__desc">Table management, kitchen orders, room billing, and integrated payments for hospitality businesses.</p>
-          <ul class="service-product-card__features">
-            <li><i class="fas fa-check"></i> Table &amp; room billing</li>
-            <li><i class="fas fa-check"></i> Kitchen order tickets</li>
-            <li><i class="fas fa-check"></i> Mobile Money ready</li>
-            <li><i class="fas fa-check"></i> Split bills</li>
-            <li><i class="fas fa-check"></i> Staff roles</li>
-            <li><i class="fas fa-check"></i> Daily sales reports</li>
-          </ul>
-          <a class="btn btn-outline" href="contact.html?package=Restaurant%20POS">Request a Quote</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="products-section">
-    <div class="container">
-      <div class="products-callout">
-        <div class="products-callout__icon"><i class="fas fa-puzzle-piece"></i></div>
-        <h2>Need Something Custom?</h2>
-        <p>Every business is unique. We create tailored solutions designed specifically for your needs and budget.</p>
-        <a class="btn btn-primary" href="contact.html">Request a Personalized Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="products-section products-section--alt">
-    <div class="container">
-      <div class="products-section__header">
-        <h2>Why Our Pricing?</h2>
-        <p>Fair, transparent, and designed with your business in mind</p>
-      </div>
-      <div class="why-pricing-grid">
-        <article class="why-pricing-card">
-          <div class="why-pricing-card__icon"><i class="fas fa-check-circle"></i></div>
-          <h3>Transparent Pricing</h3>
-          <p>No surprises. What you see is what you pay. All costs clearly outlined upfront.</p>
-        </article>
-        <article class="why-pricing-card">
-          <div class="why-pricing-card__icon"><i class="fas fa-lock"></i></div>
-          <h3>No Hidden Fees</h3>
-          <p>All-inclusive pricing. No unexpected charges or additional costs down the line.</p>
-        </article>
-        <article class="why-pricing-card">
-          <div class="why-pricing-card__icon"><i class="fas fa-credit-card"></i></div>
-          <h3>Flexible Payment Plans</h3>
-          <p>Work with your budget. We offer installment plans and flexible payment options.</p>
-        </article>
-        <article class="why-pricing-card">
-          <div class="why-pricing-card__icon"><i class="fas fa-coins"></i></div>
-          <h3>Value for Money</h3>
-          <p>Premium quality at competitive prices. Get the best return on your investment.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="products-cta">
-    <div class="container">
-      <h2>Ready to Get Started?</h2>
-      <p>Choose your package today and let's build something amazing together. Our Kampala team is ready to bring your vision to life.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="contact.html">Contact Us Today</a>
-        <a class="btn-whatsapp" href="https://wa.me/256752895268?text=Hello%20PulseTech!%20I%27m%20interested%20in%20your%20products%20and%20packages." target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-        </a>
+        <a class="btn" href="contact.html">Contact us</a>
+        <a class="btn ghost" href="products.html">View products</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-expanded">
-      <div>
-        <div class="logo logo--footer">
-          <img src="images/pulsetech-logo.png" alt="PulseTech Solutions" class="logo-image logo-image--footer" />
-        </div>
-        <p class="subtle" style="margin-top:12px;">Building digital solutions for Uganda — websites, software, and social media growth.</p>
-      </div>
-      <div>
-        <h4>Get in Touch</h4>
-        <p class="subtle" style="margin:0 0 6px;">Makerere Kikoni</p>
-        <p class="subtle" style="margin:0 0 6px;">Kampala, Uganda</p>
-        <a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@gmail.com</a>
-        <a href="tel:+256752895268">0752 895 268</a>
-        <a href="https://wa.me/256752895268" target="_blank">Chat on WhatsApp</a>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="about.html">About Us</a>
-        <a href="projects.html">Our Projects</a>
-        <a href="projects.html">Case Studies</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Pricing</a>
-        <a href="contact.html">Free Consultation</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <a href="services/website-development.html">Website Development</a>
-        <a href="services/software-development.html">Software &amp; POS</a>
-        <a href="services/social-media-growth.html">Social Media Growth</a>
-        <a href="contact.html?package=Mobile%20Money%20Integration">Mobile Money Integration</a>
-        <a href="contact.html">IT Consultation</a>
-      </div>
+<a class="wa" href="https://wa.me/256752895268" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-contact">
+      <h3>Email</h3>
+      <p><a href="mailto:pulsetechsolutions.info@gmail.com">pulsetechsolutions.info@<wbr>gmail.com</a></p>
+      <h3>Address</h3>
+      <p>Kampala, Uganda</p>
     </div>
-    <div class="footer-bottom">
-      <p>© <span class="copyright-year">2026</span> PulseTech Solutions. All rights reserved. | Built with passion in Makerere Kikoni, Kampala, Uganda</p>
+    <div class="foot-mid">
+      <a class="brand" href="index.html" aria-label="PulseTech Solutions"><span class="brand-mark" aria-hidden="true"></span><span class="brand-side">PulseTech Solutions</span></a>
+      <a class="foot-products" href="products.html">Featured Products</a>
+    </div>
+    <div class="foot-news">
+      <h2>Subscribe To Our Newsletter</h2>
+      <form class="news" data-newsletter>
+        <input name="name" placeholder="Name" required aria-label="Name" />
+        <input name="email" type="email" placeholder="Email" required aria-label="Email" />
+        <button type="submit">Submit</button>
+        <p data-newsletter-note hidden>Thank you. We will be in touch.</p>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="wrap foot-bottom">
+      <p>Copyright © <span class="copyright-year">2026</span> PulseTech Solutions</p>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">T&amp;C</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 </footer>
-
-<div class="whatsapp-btn">
-  <a href="https://wa.me/256752895268" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp" style="font-size:28px;"></i>
-  </a>
-</div>
-
+<script src="js/catalog.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

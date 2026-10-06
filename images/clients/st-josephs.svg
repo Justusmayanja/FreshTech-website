@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 88" role="img" aria-label="Nansana St Joseph's Secondary School">
+  <rect width="320" height="88" fill="#ffffff"/>
+  <circle cx="44" cy="44" r="30" fill="none" stroke="#1b3f78" stroke-width="2"/>
+  <path d="M44 22 v14 M37 29 h14" stroke="#8d1d2c" stroke-width="2.2" fill="none"/>
+  <text x="44" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#1b3f78">S.S.</text>
+  <text x="44" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#1b3f78">NANSANA</text>
+  <text x="86" y="38" font-family="Georgia, serif" font-size="18" fill="#1b3f78">St. Joseph's S.S.</text>
+  <text x="86" y="58" font-family="Georgia, serif" font-size="13" fill="#5c6570">Nansana</text>
+</svg>
