@@ -1046,6 +1046,15 @@ body:not(.home) .section h2.center::after {
   margin-right: auto;
   color: #5a6570;
 }
+.form-note,
+[data-mail-note],
+[data-newsletter-note] {
+  text-align: left;
+  max-width: none;
+  margin: 12px 0 0;
+  color: #1c1c1c;
+  font-size: 15px;
+}
 
 .tiers { gap: 28px 18px; align-items: start; }
 .pkg {
@@ -1109,6 +1118,14 @@ body:not(.home) .section h2.center::after {
   color: #3a3a3a;
   margin-right: 10px;
 }
+.pkg li.off::before,
+.pcard li.off::before {
+  content: "\f00d";
+  font-weight: 900;
+  color: #e10600;
+}
+.pkg li.off,
+.pcard li.off { color: #8a8a8a; }
 .pkg .btn.block {
   width: auto;
   min-width: 148px;
